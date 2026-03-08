@@ -170,7 +170,9 @@ class CubeSolver:
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
             i+=1
             print(f" in moves while elif statementi={i}")
+      print(f"state given to solve in moves function = {cur_state}") ##
       states[i] = self.mover(moves_to[i],cur_state)
+      print(f"All state after individual moves = {states}") ##
       # move_path_history.append(moves_to[i])
       # Prepare the JSONL entry
       data_entry = {
