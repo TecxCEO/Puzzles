@@ -4,7 +4,7 @@ from cube3x3 import CubeSolver as cs
 
 class Solver():
   def __init__(self):
-    csm=cs.moves()
+    #csm=cs.moves()
     self.filename = "data.json"
     self.filepath="../data/cube3x3/solution"
   def solve(self,given_state):
@@ -49,7 +49,7 @@ class Solver():
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        states,moves,status=csm(data,move)
+        states,moves,status=cs.moves(data,move)
         if len(states)==15 or len(states)==18 and status is False:
           del data[:]
           for i in range(len(states)):
