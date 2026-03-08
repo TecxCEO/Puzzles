@@ -79,8 +79,6 @@ class CubeSolver:
     }
   def mover(self,moving_step,state_given):
     state=state_given.copy()
-    print(f"state given to solve in mover function = {state}")
-    print(f"The move for mover function = {moving_step}")
     f=moving_step.strip()[0]
     s=moving_step.strip()[1]
     cc=moving_step.strip()[2]
@@ -111,12 +109,8 @@ class CubeSolver:
                 st_e+=state[state_element].strip()[se]
           if st_e!="":
             mb.update({name:st_e})
-            print(f" moving block element {name} value={mb[name]}") #
-    print(f" moving block mb value before move ={mb}") #
     mbc=mb.copy()
-    print(f" moving block mbc value before move ={mbc}") #
     if self.mosf[f]!=cc:
-      print(f"The move will be done by mosf {f} is not equal to  {cc} statement") #
       mb[f"{f}{s}{c}"]=mbc[f"{f}{s}{self.mosf[c]}"]
       mb[f"{s}{c}"]=mbc[f"{f}{s}"]
       mb[f"{self.mosf[f]}{s}{c}"]=mbc[f"{f}{s}{c}"]
@@ -126,7 +120,6 @@ class CubeSolver:
       mb[f"{f}{s}{self.mosf[c]}"]=mbc[f"{self.mosf[f]}{s}{self.mosf[c]}"]
       mb[f"{f}{s}"]=mbc[f"{s}{self.mosf[c]}"]
     elif self.mosf[f]==cc:
-      print(f"The move will be done by mosf {f} is equal to  {cc} statement") #
       mb[f"{self.mosf[f]}{s}{c}"]=mbc[f"{f}{s}{self.mosf[c]}"]
       mb[f"{self.mosf[f]}{s}"]=mbc[f"{f}{s}"]
       mb[f"{self.mosf[f]}{s}{self.mosf[c]}"]=mbc[f"{f}{s}{c}"]
@@ -135,8 +128,6 @@ class CubeSolver:
       mb[f"{f}{s}"]=mbc[f"{self.mosf[f]}{s}"]
       mb[f"{f}{s}{c}"]=mbc[f"{self.mosf[f]}{s}{self.mosf[c]}"]
       mb[f"{s}{c}"]=mbc[f"{s}{self.mosf[c]}"]
-    print(f" moving block mb value after move ={mb}") #
-    print(f" state value given ={state}") #
     for name in moving_block:
       mb_e=""
       for state_element in state:
@@ -147,14 +138,10 @@ class CubeSolver:
                 mb_e+=mb[name].strip()[n]
           if mb_e!="":
             state.update({state_element:mb_e})
-            print(f" state element {state_element} value={state[state_element]}") #
-    print(f" state value after move ={state}") #
     return state
   def moves(self, state_given_to_solve):
     moves_to=list(self.move_paths)
-    # cur_state=state_given_to_solve
     cur_state=state_given_to_solve.copy()
-    print(f"state given to solve in moves function = {cur_state}")
     i=0
     states = {}
     puzzle_solve= False
@@ -170,11 +157,7 @@ class CubeSolver:
             break
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
             i+=1
-            print(f" in moves while elif statementi={i}")
-      print(f"state given to solve in moves function = {cur_state}") ##
       states[i] = self.mover(moves_to[i],cur_state)
-      print(f"All state after individual moves = {states}") ##
-      print(f"state given to solve in moves function after mover function called = {cur_state}") ##
       # move_path_history.append(moves_to[i])
       # Prepare the JSONL entry
       data_entry = {
@@ -190,13 +173,11 @@ class CubeSolver:
       # Append to the JSONL file
       with open(self.output_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(data_entry) + '\n')
-      print(f"Successfully Saved")
       if states[i]==self.solution:
         puzzle_solve=True
         return states[i], move_path_history, puzzle_solve
       # return self.moves(states[i], move_path_history) ##
       i=i+1
-      print(f" at end of moves function i={i}")
 if __name__=="__main__":
   state_given_to_solve={
       "rgy":"ogw",
@@ -221,6 +202,5 @@ if __name__=="__main__":
       "gy":"gr"
     }
   cs=CubeSolver()
-  print(f"state given to solve={state_given_to_solve}")
   result=cs.moves(state_given_to_solve)
   print(result)
