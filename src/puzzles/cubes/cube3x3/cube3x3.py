@@ -139,17 +139,17 @@ class CubeSolver:
           if mb_e!="":
             state.update({state_element:mb_e})
     return state
-  # def moves(self, state_given_to_solve):
-  def moves(self, state_given_to_solve, previous_move=""):
+  def moves(self, state_given_to_solve):
     moves_to=list(self.move_paths)
     cur_state=state_given_to_solve.copy()
     i=0
     states = {}
+    moved_options_list={}
     puzzle_solve= False
-    move=0 ##
-    ## last_move=last_moved
-    ## move_history="" #
-    move_path_history=list(previous_move)
+    move=0
+    last_move=""
+    move_history="" #
+    move_path_history=list(move_history)
     while cur_state!=self.solution and i<len(moves_to):
       if move_path_history!="" and move_path_history:
         last_move=move_path_history[-1]
@@ -159,26 +159,29 @@ class CubeSolver:
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
             i+=1
       states[i] = self.mover(moves_to[i],cur_state)
+      moved_options_list[i]=moves_to[i] ##
       # move_path_history.append(moves_to[i])
       # Prepare the JSONL entry
-      ##data_entry = {
-        ##"given state":cur_state,
-        ##"current state after move":states[i],
-        ##"move": moves_to[i],
+      data_entry = {
+        "given state":cur_state,
+        "current state after move":states[i],
+        "move": moves_to[i],
         # "moved_steps_list":move_path_history,
-        ##"metadata": {
-          ##"source": "Cube3x3 Fuzzle Solver",
+        "metadata": {
+          "source": "Cube3x3 Fuzzle Solver",
           # "length": len(move_path_history)
-        ##}
-        ##}
+        }
+        }
       # Append to the JSONL file
-      ##with open(self.output_file, 'a', encoding='utf-8') as f:
-        ##f.write(json.dumps(data_entry) + '\n')
+      with open(self.output_file, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(data_entry) + '\n')
       if states[i]==self.solution:
         puzzle_solve=True
-        return states[i], move_path_history, puzzle_solve
-      # return self.moves(states[i], move_path_history) ##
+        return states[i], moved_options_list[i], puzzle_solve
+        #return states[i], move_path_history, puzzle_solve ##
+      #return self.moves(states[i], move_path_history) ##
       i=i+1
+    return states, moved_options_list, puzzle_solve
 if __name__=="__main__":
   state_given_to_solve={
       "rgy":"ogw",
