@@ -77,7 +77,9 @@ class CubeSolver:
       "gw":"ob",
       "gy":"gr"
     }
-  def mover(self,moving_step,state):
+  def mover(self,moving_step,state_given):
+    state=state_given
+    print(f"state given to solve in mover function = {state}")
     f=moving_step.strip()[0]
     s=moving_step.strip()[1]
     cc=moving_step.strip()[2]
@@ -147,6 +149,7 @@ class CubeSolver:
   def moves(self, state):
     moves_to=list(self.move_paths)
     cur_state=state
+    print(f"state given to solve in moves function = {cur_state}")
     i=0
     states = {}
     puzzle_solve= False
@@ -187,7 +190,7 @@ class CubeSolver:
       i=i+1
       print(f" at end of moves function i={i}")
 if __name__=="__main__":
-  state_given={
+  state_given_to_solve={
       "rgy":"ogw",
       "rgw":"ybo",
       "rby":"ryg",
@@ -210,5 +213,6 @@ if __name__=="__main__":
       "gy":"gr"
     }
   cs=CubeSolver()
-  result=cs.moves(state_given)
+  print(f"state given to solve={state_given_to_solve}")
+  result=cs.moves(state_given_to_solve)
   print(result)
