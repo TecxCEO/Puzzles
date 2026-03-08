@@ -10,9 +10,9 @@ class Solver():
     self.current_state=given_state.copy()
     puzzle_data={
       "puzzle": {
-        "Puzzle Given": self.current_state,
-        "Puzzle Status":False,
-        "Moves to Solve Puzzle":""
+        "Puzzle_Given": self.current_state,
+        "Puzzle_Status":False,
+        "Moves_to_Solve_Puzzle":""
       },
       "solution":{}
     }
@@ -30,9 +30,9 @@ class Solver():
       #success = update_nested_key()
       if success[2]:
         # 3. Save if the update happened
-        my_data[puzzle][Puzzle Status]=success[2]
-        my_data[puzzle]["Moves to Solve Puzzle"]=success[1]
-        my_data[puzzle]["Puzzle Solved State"]=success[0]
+        my_data[puzzle][Puzzle_Status]=success[2]
+        my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
+        my_data[puzzle]["Puzzle_Solved_State"]=success[0]
       with open(filename, "w") as f:
         json.dump(my_data, f, indent=4)
       print("Successfully updated the deep key!")
