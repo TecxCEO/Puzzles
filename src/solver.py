@@ -6,7 +6,7 @@ class Solver():
   def __init__(self):
     csm=cs.moves()
     self.filename = "data.json"
-    self.filepath="../data/cube3x3solution"
+    self.filepath="../data/cube3x3/solution"
   def solve(self,given_state):
     self.current_state=given_state.copy()
     puzzle_data={
