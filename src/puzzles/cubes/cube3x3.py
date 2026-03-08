@@ -127,6 +127,7 @@ class CubeSolver:
       mb[f"{f}{s}"]=mbc[f"{self.mosf[f]}{s}"]
       mb[f"{f}{s}{c}"]=mbc[f"{self.mosf[f]}{s}{self.mosf[c]}"]
       mb[f"{s}{c}"]=mbc[f"{s}{self.mosf[c]}"]
+    print(f" state value given ={state}") #
     for name in moving_block:
       mb_e=""
       for state_element in state:
@@ -137,6 +138,8 @@ class CubeSolver:
                 mb_e+=mb[name].strip()[n]
           if mb_e!="":
             state.update({state_element:mb_e})
+            print(f" state element {state_element} value={state[state_element]}") #
+    print(f" state value after move ={state}") #
     return state
   def moves(self, state):
     moves_to=list(self.move_paths)
@@ -179,7 +182,7 @@ class CubeSolver:
         return states[i], move_path_history, puzzle_solve
       # return self.moves(states[i], move_path_history) ##
       i=i+1
-      print(f" in moves while elif statementi={i}")
+      print(f" at end of moves function i={i}")
 if __name__=="__main__":
   state_given={
       "rgy":"ogw",
