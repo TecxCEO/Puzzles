@@ -31,8 +31,8 @@ class Solver():
       if success[2]:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle Status]=success[2]
-        my_data[puzzle][Moves to Solve Puzzle]=success[1]
-        my_data[puzzle][Puzzle Solved State]=success[0]
+        my_data[puzzle]["Moves to Solve Puzzle"]=success[1]
+        my_data[puzzle]["Puzzle Solved State"]=success[0]
       with open(filename, "w") as f:
         json.dump(my_data, f, indent=4)
       print("Successfully updated the deep key!")
