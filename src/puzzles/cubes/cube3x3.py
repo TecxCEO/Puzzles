@@ -138,13 +138,14 @@ class CubeSolver:
       if mb_e!="":
         state.update({state_element:mb_e})
     return state
-  def moves(self, state, move_history="" ):
+  def moves(self, state):
     moves_to=list(self.move_paths)
     cur_state=state
     i=0
     states = {}
     puzzle_solve= False
     last_move=""
+    move_history="" #
     move_path_history=list(move_history)
     while cur_state!=self.solution and i<len(moves_to):
       if move_path_history!="" and move_path_history:
@@ -174,7 +175,7 @@ class CubeSolver:
       if states[i]==self.solution:
         puzzle_solve=True
         return states[i], move_path_history, puzzle_solve
-      return self.moves(states[i], move_path_history) ##
+      # return self.moves(states[i], move_path_history) ##
       i=i+1
 if __name__=="__main__":
   state_given={
