@@ -106,8 +106,8 @@ class CubeSolver:
             for se in range(len(state_element)):
               if state_element.strip()[se]==name.strip()[n]:
                 st_e+=state[state_element].strip()[se]
-      if st_e!="":
-        mb.update({name:st_e})
+          if st_e!="":
+            mb.update({name:st_e})
     mbc=mb
     if self.mosf[f]!=cc:
       mb[f"{f}{s}{c}"]=mbc[f"{f}{s}{self.mosf[c]}"]
