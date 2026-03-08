@@ -152,8 +152,8 @@ class CubeSolver:
     return state
   def moves(self, state_given_to_solve):
     moves_to=list(self.move_paths)
-    cur_state=state_given_to_solve
-    # cur_state=state_given_to_solve.copy()
+    # cur_state=state_given_to_solve
+    cur_state=state_given_to_solve.copy()
     print(f"state given to solve in moves function = {cur_state}")
     i=0
     states = {}
