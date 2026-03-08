@@ -23,7 +23,7 @@ class Solver():
     #update_nested_key(self, given_state)
     while True:
       # 1. Load your file
-      with open(filename, "r") as f:
+      with open(self.filename, "r") as f:
         my_data = json.load(f)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
