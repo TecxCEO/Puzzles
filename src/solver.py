@@ -32,34 +32,42 @@ class Solver():
         # 3. Save if the update happened
         my_data[puzzle][Puzzle Status]=success[2]
         my_data[puzzle][Moves to Solve Puzzle]=success[1]
+        my_data[puzzle][Puzzle Solved State]=success[0]
       with open(filename, "w") as f:
         json.dump(my_data, f, indent=4)
       print("Successfully updated the deep key!")
     #else:
      # print("Key not found in the file.")
-  def update_nested_key(self,data,move=""):
+  def update_nested_key(self,data,move="",move_history=list()):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
+    moves_history=move_history
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        states,moves=csm(data,move)
-        if states=:
+        states,moves,status=csm(data,move)
+        if len(states)==15 or len(states)==18 and status is False:
           del data[:]
           for i in range(len(states)):
             data.[moves[i]]=states[i]
+        elif len(states)==1 or len(moves)==1 and status is True:
+          del data[:]
+          for i in range(len(states)):
+            data.[moves[i]]=states[i]
+          return states, moves_history, status
         #csm(data)
         ##return csm(data,move)
       elif len(data)==15 or len(data)==18:
         #elif len(data.items())==15 or len(data.items())==18:
         for key, value in data.items():
-            if len(data)==15 or len(data)==18 or len(data)==20:
+            if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
               #if len(data.items())==15 or len(data.items())==18 or len(data.items())==20:
-              update_nested_key(value, key):
-                return True
+              moves_history.append(key)
+              return update_nested_key(value, key,moves_history)
+                #return True
     return False
 if __name__=="__main__":
   state_given_to_solve={
