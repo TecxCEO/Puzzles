@@ -52,7 +52,7 @@ class Solver():
         if len(states)==15 or len(states)==18 and status is False:
           del data[:]
           for i in range(len(states)):
-            data.[moves[i]]=states[i]
+            data[moves[i]]=states[i]
         elif len(states)==1 or len(moves)==1 and status is True:
           del data[:]
           for i in range(len(states)):
