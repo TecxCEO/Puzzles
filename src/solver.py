@@ -6,8 +6,19 @@ class Solver():
     csm=cs.moves()
     self.filename = "data.json"
     self.filepath="../data/cube3x3solution"
-  def solve(self):
-    
+  def solve(self,given_state):
+    self.current_state=given_state.copy()
+    puzzle_data={
+      "puzzle": {
+        "Puzzle Given": self.current_state,
+        "Puzzle Status":False,
+        "Moves to Solve Puzzle":""
+      },
+      "solution":{}
+    }
+    with open(self.filename, "w") as f:
+        json.dump(puzzle_data, f, indent=4)
+    update_nested_key(self, given_state)
   def update_nested_key(self, data, target_key, new_value):
     """
     Searches recursively for 'target_key' and updates its value.
