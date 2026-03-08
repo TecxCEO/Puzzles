@@ -150,9 +150,9 @@ class CubeSolver:
             print(f" state element {state_element} value={state[state_element]}") #
     print(f" state value after move ={state}") #
     return state
-  def moves(self, state):
+  def moves(self, state_given_to_solve):
     moves_to=list(self.move_paths)
-    cur_state=state
+    cur_state=state_given_to_solve
     print(f"state given to solve in moves function = {cur_state}")
     i=0
     states = {}
@@ -173,15 +173,16 @@ class CubeSolver:
       print(f"state given to solve in moves function = {cur_state}") ##
       states[i] = self.mover(moves_to[i],cur_state)
       print(f"All state after individual moves = {states}") ##
+      print(f"state given to solve in moves function after mover function called = {cur_state}") ##
       # move_path_history.append(moves_to[i])
       # Prepare the JSONL entry
       data_entry = {
-        "given state":"",
-        "current state":states[i],
+        "given state":cur_state,
+        "current state after move":states[i],
         "move": moves_to[i],
         # "moved_steps_list":move_path_history,
         "metadata": {
-          "source": "Fuzzle Solver",
+          "source": "Cube3x3 Fuzzle Solver",
           # "length": len(move_path_history)
         }
         }
