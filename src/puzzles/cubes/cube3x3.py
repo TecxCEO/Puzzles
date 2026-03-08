@@ -135,8 +135,8 @@ class CubeSolver:
             for n in range(len(name)):
               if state_element.strip()[se]==name.strip()[n]:
                 mb_e+=mb[name].strip()[n]
-      if mb_e!="":
-        state.update({state_element:mb_e})
+        if mb_e!="":
+          state.update({state_element:mb_e})
     return state
   def moves(self, state):
     moves_to=list(self.move_paths)
@@ -144,6 +144,7 @@ class CubeSolver:
     i=0
     states = {}
     puzzle_solve= False
+    move=0
     last_move=""
     move_history="" #
     move_path_history=list(move_history)
@@ -155,17 +156,18 @@ class CubeSolver:
             break
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
             i+=1
+            print(f" in moves while elif statementi={i}")
       states[i] = self.mover(moves_to[i],cur_state)
-      move_path_history.append(moves_to[i])
+      # move_path_history.append(moves_to[i])
       # Prepare the JSONL entry
       data_entry = {
         "given state":"",
         "current state":states[i],
         "move": moves_to[i],
-        "moved_steps_list":move_path_history,
+        # "moved_steps_list":move_path_history,
         "metadata": {
           "source": "Fuzzle Solver",
-          "length": len(move_path_history)
+          # "length": len(move_path_history)
         }
         }
       # Append to the JSONL file
@@ -177,6 +179,7 @@ class CubeSolver:
         return states[i], move_path_history, puzzle_solve
       # return self.moves(states[i], move_path_history) ##
       i=i+1
+      print(f" in moves while elif statementi={i}")
 if __name__=="__main__":
   state_given={
       "rgy":"ogw",
