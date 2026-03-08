@@ -113,7 +113,7 @@ class CubeSolver:
             mb.update({name:st_e})
             print(f" moving block element {name} value={mb[name]}") #
     print(f" moving block mb value before move ={mb}") #
-    mbc=mb 
+    mbc=mb.copy()
     print(f" moving block mbc value before move ={mbc}") #
     if self.mosf[f]!=cc:
       print(f"The move will be done by mosf {f} is not equal to  {cc} statement") #
