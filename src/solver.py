@@ -1,5 +1,5 @@
 import json
-from puzzles.cubes.cube3x3.cube3x3 import CubeSolver as cs
+from .puzzles.cubes.cube3x3.cube3x3 import CubeSolver as cs
 
 class Solver():
   def __init__(self):
