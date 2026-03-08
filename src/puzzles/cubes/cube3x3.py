@@ -110,6 +110,7 @@ class CubeSolver:
                 st_e+=state[state_element].strip()[se]
           if st_e!="":
             mb.update({name:st_e})
+            print(f" moving block element {name} value={mb[name]}") #
     print(f" moving block mb value before move ={mb}") #
     mbc=mb 
     print(f" moving block mbc value before move ={mbc}") #
