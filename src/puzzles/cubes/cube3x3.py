@@ -135,8 +135,8 @@ class CubeSolver:
             for n in range(len(name)):
               if state_element.strip()[se]==name.strip()[n]:
                 mb_e+=mb[name].strip()[n]
-        if mb_e!="":
-          state.update({state_element:mb_e})
+          if mb_e!="":
+            state.update({state_element:mb_e})
     return state
   def moves(self, state):
     moves_to=list(self.move_paths)
