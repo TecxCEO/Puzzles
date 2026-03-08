@@ -46,8 +46,13 @@ class Solver():
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-            #csm(data)
-            return csm(data)
+        states,moves=csm(data,move)
+        if states=:
+          del data[:]
+          for i in range(len(states)):
+            data.[moves[i]]=states[i]
+        #csm(data)
+        ##return csm(data,move)
       elif len(data)==15 or len(data)==18:
         #elif len(data.items())==15 or len(data.items())==18:
         for key, value in data.items():
