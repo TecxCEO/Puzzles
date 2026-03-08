@@ -31,12 +31,12 @@ class Solver():
       print(self.update_nested_key(my_data["solution"]))
       #success = update_nested_key()
       if success:
-        #if success[2] is True:
+        ####if success[2] is True:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=success[2]
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
         my_data[puzzle]["Puzzle_Solved_State"]=success[0]
-      with open(filename, "w") as f:
+      with open(self.filename, "w") as f:
         json.dump(my_data, f, indent=4)
       print("Successfully updated the deep key!")
     #else:
