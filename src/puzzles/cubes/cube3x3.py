@@ -80,6 +80,7 @@ class CubeSolver:
   def mover(self,moving_step,state_given):
     state=state_given
     print(f"state given to solve in mover function = {state}")
+    print(f"The move for mover function = {moving_step}")
     f=moving_step.strip()[0]
     s=moving_step.strip()[1]
     cc=moving_step.strip()[2]
@@ -115,6 +116,7 @@ class CubeSolver:
     mbc=mb 
     print(f" moving block mbc value before move ={mbc}") #
     if self.mosf[f]!=cc:
+      print(f"The move will be done by mosf {df} is not equal to  {cc} statement") #
       mb[f"{f}{s}{c}"]=mbc[f"{f}{s}{self.mosf[c]}"]
       mb[f"{s}{c}"]=mbc[f"{f}{s}"]
       mb[f"{self.mosf[f]}{s}{c}"]=mbc[f"{f}{s}{c}"]
@@ -124,6 +126,7 @@ class CubeSolver:
       mb[f"{f}{s}{self.mosf[c]}"]=mbc[f"{self.mosf[f]}{s}{self.mosf[c]}"]
       mb[f"{f}{s}"]=mbc[f"{s}{self.mosf[c]}"]
     elif self.mosf[f]==cc:
+      print(f"The move will be done by mosf {df} is equal to  {cc} statement") #
       mb[f"{self.mosf[f]}{s}{c}"]=mbc[f"{f}{s}{self.mosf[c]}"]
       mb[f"{self.mosf[f]}{s}"]=mbc[f"{f}{s}"]
       mb[f"{self.mosf[f]}{s}{self.mosf[c]}"]=mbc[f"{f}{s}{c}"]
