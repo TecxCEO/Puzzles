@@ -59,7 +59,7 @@ class Solver():
           del data[:]
           for i in range(len(states)):
             data[moves[i]]=states[i]
-          return states, moves_history, status
+          return {states, moves_history, status}
         #csm(data)
         ##return csm(data,move)
       elif len(data)==15 or len(data)==18:
