@@ -29,7 +29,7 @@ class Solver():
       # Example: Find "sms" and change it to True
       success = self.update_nested_key(my_data["solution"])
       #success = update_nested_key()
-      if success[2] is equal True:
+      if success[2] is equal to True:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=success[2]
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
