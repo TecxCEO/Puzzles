@@ -78,7 +78,7 @@ class Solver(cs):
             if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
               #if len(data.items())==15 or len(data.items())==18 or len(data.items())==20:
               moves_history.append(key)
-              return update_nested_key(value, key,moves_history)
+              return self.update_nested_key(value, key,moves_history)
                 #return True
     # return False
 if __name__=="__main__":
