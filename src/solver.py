@@ -18,7 +18,6 @@ class Solver():
       "solution":{(self.current_state).copy}
     }
     with open(self.filename, "w") as f:
-      #json.dump(puzzle_data, f, indent=4)
       json.dump(puzzle_data, f, indent=4)
     #update_nested_key(self, given_state)
     while True:
