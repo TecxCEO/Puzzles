@@ -61,12 +61,12 @@ class Solver(cs):
         #states,moves,status=cs.moves(data,move)
         if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           #del data[:]
-          data.clear()
+          ###data.clear()
           for i in range(len(states)):
             data[move_list[i]]=states[i]
         elif len(states)==1 or len(move_list)==1 and status is True:
           #del data[:]
-          data.clear()
+          ##data.clear()
           for i in range(len(states)):
             data[move_list[i]]=states[i]
         return states, moves_history, status
