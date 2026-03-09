@@ -15,7 +15,7 @@ class Solver():
         "Puzzle_Status":False,
         "Moves_to_Solve_Puzzle":""
       },
-      "solution":{}
+      "solution":{self.current_state}
     }
     with open(self.filename, "w") as f:
       #json.dump(puzzle_data, f, indent=4)
@@ -30,8 +30,8 @@ class Solver():
       success = self.update_nested_key(my_data["solution"])
       print(self.update_nested_key(my_data["solution"]))
       #success = update_nested_key()
-      if success:
-        ####if success[2] is True:
+      #if success:
+      if success[2] is True:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=success[2]
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
@@ -60,7 +60,7 @@ class Solver():
           del data[:]
           for i in range(len(states)):
             data[moves[i]]=states[i]
-          return {states, moves_history, status}
+        return {states, moves_history, status}
         #csm(data)
         ##return csm(data,move)
       elif len(data)==15 or len(data)==18:
@@ -71,7 +71,7 @@ class Solver():
               moves_history.append(key)
               return update_nested_key(value, key,moves_history)
                 #return True
-    return False
+    # return False
 if __name__=="__main__":
   state_given_to_solve={
       "rgy":"ogw",
