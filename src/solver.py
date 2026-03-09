@@ -26,16 +26,22 @@ class Solver(cs):
       json.dump(puzzle_data, f, indent=4)
     #update_nested_key(self, given_state)
     while True:
+      p=29
+      print(l+=1)
       # 1. Load your file
       with open(self.filename, "r") as f:
         my_data = json.load(f)
+      print(l+=5)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print(my_data["solution"])
-      #print(self.update_nested_key(my_data["solution"]))
+      print(l+=3)
       result = self.update_nested_key(my_data["solution"])
+      print(l+=2)
+      print(f"result={result}")
       success = list(result) if result is not None else [] 
-      #if success:
+      print(f"success={success}")
+      print(l+=4)
       if success and success[-1] is True:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=success[2]
@@ -60,21 +66,15 @@ class Solver(cs):
         #states,move_list,status=super().moves(data,move)
         #states,moves,status=cs.moves(data,move)
         if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-          #del data[:]
-          ###data.clear()
+          data.clear()
           for i in range(len(states)):
             data[move_list[i]]=states[i]
         elif len(states)==1 or len(move_list)==1 and status is True:
-          #del data[:]
-          ##data.clear()
+          data.clear()
           for i in range(len(states)):
             data[move_list[i]]=states[i]
         return states, moves_history, status
-        #csm(data)
-        ##return csm(data,move)
-      ##elif len(data)==15 or len(data)==18:
       if len(data)==15 or len(data)==18:
-        #elif len(data.items())==15 or len(data.items())==18:
         for key, value in data.items():
             if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
               if moves_history and moves_history[-1]!=key or moves_history=="":
