@@ -3,7 +3,7 @@ from cube3x3 import CubeSolver as cs
 #import cube3x3
 #from . import puzzles\cubes\cube3x3\cube3x3\CubeSolver as cs
 
-class Solver():
+class Solver(cs):
   def __init__(self):
     #self.c3s=CubeSolver
     #self.c3s=cs
@@ -30,8 +30,9 @@ class Solver():
         my_data = json.load(f)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
-      success = self.update_nested_key(my_data["solution"])
+      print(my_data["solution"])
       print(self.update_nested_key(my_data["solution"]))
+      success = self.update_nested_key(my_data["solution"])
       #success = update_nested_key()
       #if success:
       if success[2] is True:
