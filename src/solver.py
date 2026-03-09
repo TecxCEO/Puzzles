@@ -2,7 +2,7 @@ import json
 from cube3x3 import CubeSolver as cs
 #from . import puzzles\cubes\cube3x3\cube3x3\CubeSolver as cs
 
-class Solver():
+class Solver(cs):
   def __init__(self):
     super.__init__()
     #csm=cs.moves()
