@@ -5,8 +5,8 @@ import cube3x3
 
 class Solver():
   def __init__(self):
-    self.c3s=CubeSolver
-    #self.c3s=cs
+    #self.c3s=CubeSolver
+    self.c3s=cs
     #self.c3cs=cs.CubeSolver
     self.filename = "data.json"
     self.filepath="../data/cube3x3/solution"
