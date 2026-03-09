@@ -46,7 +46,7 @@ class Solver(cs):
       print("Successfully updated the deep key!")
     #else:
      # print("Key not found in the file.")
-  def update_nested_key(self,data,move="",move_history=list()):
+  def update_nested_key(self,data,move="",move_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
@@ -76,7 +76,7 @@ class Solver(cs):
         #elif len(data.items())==15 or len(data.items())==18:
         for key, value in data.items():
             if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
-              if moves_history[-1]!=key:
+              if moves_history is None or moves_history[-1]!=key:
                 moves_history.append(key)
                 return self.update_nested_key(value, key,moves_history)
 if __name__=="__main__":
