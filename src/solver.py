@@ -1,12 +1,12 @@
 import json
 from cube3x3 import CubeSolver as cs
-import cube3x3
+#import cube3x3
 #from . import puzzles\cubes\cube3x3\cube3x3\CubeSolver as cs
 
 class Solver():
   def __init__(self):
     #self.c3s=CubeSolver
-    self.c3s=cs
+    #self.c3s=cs
     #self.c3cs=cs.CubeSolver
     self.filename = "data.json"
     self.filepath="../data/cube3x3/solution"
@@ -54,7 +54,7 @@ class Solver():
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        states,moves,status=self.c3s.moves(data,move)
+        states,moves,status=cs.moves(data,move)
         #states,moves,status=self.c3s.moves(data,move)
         if len(states)==15 or len(states)==18 and status is False:
           del data[:]
