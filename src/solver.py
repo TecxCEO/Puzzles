@@ -26,7 +26,7 @@ class Solver(cs):
       json.dump(puzzle_data, f, indent=4)
     #update_nested_key(self, given_state)
     while True:
-      p=29
+      l=29
       print(l+1)
       # 1. Load your file
       with open(self.filename, "r") as f:
