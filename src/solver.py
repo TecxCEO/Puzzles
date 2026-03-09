@@ -5,6 +5,7 @@ from cube3x3 import CubeSolver as cs
 
 class Solver(cs):
   def __init__(self):
+    super().__init__()
     #self.c3s=CubeSolver
     #self.c3s=cs
     #self.c3cs=cs.CubeSolver
