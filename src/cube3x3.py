@@ -8,7 +8,7 @@ class CubeSolver:
     self.mosf={'b':'g','g':'b','o':'r','r':'o','y':'w','w':'y'}
     colors={'blue','green','orange','red','yellow','white'}
     # states={}
-    self.move_paths={"rgy","rgw","rgo","rby","rbw","rbo","grw","gry","grb","gow","goy","gob","yrg","yrb","yrw","yog","yob","yow"}
+    self.move_paths=["rgy","rgw","rgo","rby","rbw","rbo","grw","gry","grb","gow","goy","gob","yrg","yrb","yrw","yog","yob","yow"]
     vertex={
       "rgy":["red","green","yellow"],
       "rgw":["red","green","white"],
