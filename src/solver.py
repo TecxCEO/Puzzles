@@ -15,7 +15,8 @@ class Solver():
         "Puzzle_Status":False,
         "Moves_to_Solve_Puzzle":""
       },
-      "solution":{(self.current_state).copy}
+      "solution":self.current_state
+      #"solution":self.current_state.copy()
     }
     with open(self.filename, "w") as f:
       json.dump(puzzle_data, f, indent=4)
