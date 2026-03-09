@@ -27,11 +27,11 @@ class Solver(cs):
     #update_nested_key(self, given_state)
     while True:
       p=29
-      print(l+=1)
+      print(l+1)
       # 1. Load your file
       with open(self.filename, "r") as f:
         my_data = json.load(f)
-      print(l+=5)
+      print({l+=5})
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print(my_data["solution"])
