@@ -58,7 +58,7 @@ class Solver(cs):
       if len(data)==20:
         states,move_list,status=super().moves(data,move)
         #states,moves,status=cs.moves(data,move)
-        if len(states)==any(15,18) and len(move_list)==any(15,18) and status is False:
+        if len(states) in any(15,18) and len(move_list) in any(15,18) and status is False:
           del data[:]
           for i in range(len(states)):
             data[move_list[i]]=states[i]
