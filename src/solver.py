@@ -33,8 +33,8 @@ class Solver(cs):
       # Example: Find "sms" and change it to True
       print(my_data["solution"])
       #print(self.update_nested_key(my_data["solution"]))
-      success = list(self.update_nested_key(my_data["solution"]))
-      #success = update_nested_key()
+      result = self.update_nested_key(my_data["solution"])
+      success = list(result) if result is not None else [] 
       #if success:
       if success[2] is True:
         # 3. Save if the update happened
