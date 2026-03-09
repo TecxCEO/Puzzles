@@ -4,6 +4,7 @@ from cube3x3 import CubeSolver as cs
 
 class Solver():
   def __init__(self):
+    super.__init__()
     #csm=cs.moves()
     self.filename = "data.json"
     self.filepath="../data/cube3x3/solution"
