@@ -76,11 +76,9 @@ class Solver(cs):
         #elif len(data.items())==15 or len(data.items())==18:
         for key, value in data.items():
             if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
-              #if len(data.items())==15 or len(data.items())==18 or len(data.items())==20:
-              moves_history.append(key)
-              return self.update_nested_key(value, key,moves_history)
-                #return True
-    # return False
+              if moves_history[-1]!=key:
+                moves_history.append(key)
+                return self.update_nested_key(value, key,moves_history)
 if __name__=="__main__":
   state_given_to_solve={
       "rgy":"ogw",
