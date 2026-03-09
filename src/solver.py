@@ -56,8 +56,8 @@ class Solver(cs):
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        states,move_list,status=cs.moves(data,move)
-        #states,moves,status=self.c3s.moves(data,move)
+        states,move_list,status=super().moves(data,move)
+        #states,moves,status=cs.moves(data,move)
         if len(states)==any(15,18) and len(move_list)==any(15,18) and status is False:
           del data[:]
           for i in range(len(states)):
