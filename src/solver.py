@@ -27,7 +27,7 @@ class Solver(cs):
     #update_nested_key(self, given_state)
     while True:
       l=29
-      print(l+1)
+      print({l+1})
       # 1. Load your file
       with open(self.filename, "r") as f:
         my_data = json.load(f)
