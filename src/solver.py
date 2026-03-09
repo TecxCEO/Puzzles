@@ -56,7 +56,8 @@ class Solver(cs):
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        states,move_list,status=super().moves(data,move)
+        states,move_list,status=super().moves(data,move_history)
+        #states,move_list,status=super().moves(data,move)
         #states,moves,status=cs.moves(data,move)
         if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           #del data[:]
