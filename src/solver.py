@@ -36,7 +36,7 @@ class Solver(cs):
       result = self.update_nested_key(my_data["solution"])
       success = list(result) if result is not None else [] 
       #if success:
-      if success[-1] is True:
+      if success and success[-1] is True:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=success[2]
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
