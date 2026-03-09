@@ -54,20 +54,21 @@ class Solver():
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        states,moves,status=cs.moves(data,move)
+        states,move_list,status=cs.moves(data,move)
         #states,moves,status=self.c3s.moves(data,move)
-        if len(states)==15 or len(states)==18 and status is False:
+        if len(states)==any(15,18) and len(move_list)==any(15,18) and status is False:
           del data[:]
           for i in range(len(states)):
-            data[moves[i]]=states[i]
-        elif len(states)==1 or len(moves)==1 and status is True:
+            data[move_list[i]]=states[i]
+        elif len(states)==1 or len(move_list)==1 and status is True:
           del data[:]
           for i in range(len(states)):
-            data[moves[i]]=states[i]
+            data[move_list[i]]=states[i]
         return {states, moves_history, status}
         #csm(data)
         ##return csm(data,move)
-      elif len(data)==15 or len(data)==18:
+      ##elif len(data)==15 or len(data)==18:
+      if len(data)==15 or len(data)==18:
         #elif len(data.items())==15 or len(data.items())==18:
         for key, value in data.items():
             if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
