@@ -27,7 +27,7 @@ class Solver(cs):
     #update_nested_key(self, given_state)
     while True:
       while_loop=0
-      print(f"whlieloop no = {while_loop:=while_loop+1} start.")
+      print(f"whlieloop no = {while_loop := while_loop + 1} start.")
       l=31
       print(f"line no ={l:=l+1}")
       # 1. Load your file
