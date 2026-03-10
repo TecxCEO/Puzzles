@@ -71,7 +71,7 @@ class Solver(cs):
       if len(data)==20:
         rl=72
         print(f"line no ={rl}")
-        for key, value in data.items():
+        if all(key and len(value)==1 for key, value in data.items()):
           if key and len(value)==1:
             states,move_list,status=super().moves(data,moves_history)
             if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
@@ -94,9 +94,13 @@ class Solver(cs):
                 data[move_list[i]]=states[i]
                 print(f"data={data}")
             return states, moves_history, status
-          elif key and len(value) in [15,18]:
-            moves_history.append(key)
-            return self.update_nested_key(value, key,moves_history)
+        elif all(key and len(value) in [15,18] for key, value in data.items()):
+          print(f"line no ={(rl:=98)}")
+          print(f"moves_history={moves_history}")
+          moves_history.append(key)
+          print(f"line no ={(rl:=101)}")
+          print(f"moves_history={moves_history}")  
+          return self.update_nested_key(value, key,moves_history)
           
       if len(data)==15 or len(data)==18:
         for key, value in data.items():
