@@ -71,34 +71,39 @@ class Solver(cs):
       if len(data)==20:
         rl=72
         print(f"line no ={rl}")
-        states,move_list,status=super().moves(data,moves_history)
-        #states,move_list,status=super().moves(data,move)
-        #states,moves,status=cs.moves(data,move)
-        if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-          rl=77
-          print(f"line no ={rl}")
-          data.clear()
-          print(f"data={data}")
-          for i in range(len(states)):
-            rl=83
-            print(f"line no ={rl}")
-            print(f"line no ={(rl:=81)}")
-            data[move_list[i]]=states[i]
-            print(f"data={data}")
-        elif len(states)==1 or len(move_list)==1 and status is True:
-          print(f"line no ={(rl:=85)}")
-          data.clear()
-          print(f"data={data}")
-          for i in range(len(states)):
-            print(f"line no ={(rl:=89)}")
-            data[move_list[i]]=states[i]
-            print(f"data={data}")
-        return states, moves_history, status
+        for key, value in data.items():
+          if key and len(value)==1:
+            states,move_list,status=super().moves(data,moves_history)
+            if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
+              rl=77
+              print(f"line no ={rl}")
+              data.clear()
+              print(f"data={data}")
+              for i in range(len(states)):
+                rl=83
+                print(f"line no ={rl}")
+                print(f"line no ={(rl:=81)}")
+                data[move_list[i]]=states[i]
+                print(f"data={data}")
+            elif len(states)==1 or len(move_list)==1 and status is True:
+              print(f"line no ={(rl:=85)}")
+              data.clear()
+              print(f"data={data}")
+              for i in range(len(states)):
+                print(f"line no ={(rl:=89)}")
+                data[move_list[i]]=states[i]
+                print(f"data={data}")
+            return states, moves_history, status
+          elif key and len(value) in [15,18]:
+            moves_history.append(key)
+            return self.update_nested_key(value, key,moves_history)
+          
       if len(data)==15 or len(data)==18:
         for key, value in data.items():
           print(f"line no ={(rl:=95)}")
           print(f"key={key} and value ={value}")
-          if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
+          if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
+            #if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
             print(f"line no ={(rl:=98)}")
             print(f"moves_history={moves_history}")
             if moves_history and moves_history[-1]!=key or moves_history=="":
