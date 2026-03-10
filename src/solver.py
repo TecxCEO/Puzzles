@@ -76,7 +76,7 @@ class Solver(cs):
         for key, value in data.items():
           print(f"data[{key}:{value}]")
         print(f"data items={data.items()}")
-        if all(key and len(value)==1 for key, value in data.items()):
+        if all(key and len(value)==1) for key, value in data.items():
           if key and len(value)==1:
             states,move_list,status=super().moves(data,moves_history)
             if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
