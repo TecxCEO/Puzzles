@@ -29,7 +29,7 @@ class Solver(cs):
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       l=31
-      print(f"line no ={l:=l+1}")
+      print(f"line no ={(l:=l+1)}")
       # 1. Load your file
       with open(self.filename, "r") as f:
         my_data = json.load(f)
