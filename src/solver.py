@@ -33,22 +33,24 @@ class Solver(cs):
       # 1. Load your file
       with open(self.filename, "r") as f:
         my_data = json.load(f)
-      print(f"line no ={l:=l+4}")
+      print(f"line no ={(l:=l+4)}")
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print(my_data["solution"])
-      print(f"line no ={l:=l+4}")
+      print(f"line no ={(l:=l+4)}")
       result = self.update_nested_key(my_data["solution"])
-      print(f"line no ={l:=l+2}")
+      print(f"line no ={(l:=l+2)}")
       print(f"result={result}")
       success = list(result) if result is not None else [] 
       print(f"success={success}")
-      print(f"line no ={l:=l+1}")
+      print(f"line no ={(l:=l+1)}")
       if success and success[-1] is True:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=success[2]
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
         my_data[puzzle]["Puzzle_Solved_State"]=success[0]
+        print(f"line no = 52")
+        print(f"my data = {my_data}")
       with open(self.filename, "w") as f:
         json.dump(my_data, f, indent=4)
       print("Successfully updated the deep key!")
@@ -68,7 +70,7 @@ class Solver(cs):
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        print(f"line no ={rl:=66}")
+        print(f"line no ={(rl:=66)}")
         states,move_list,status=super().moves(data,moves_history)
         #states,move_list,status=super().moves(data,move)
         #states,moves,status=cs.moves(data,move)
