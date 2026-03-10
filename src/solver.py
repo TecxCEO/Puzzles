@@ -100,8 +100,9 @@ class Solver(cs):
           print(f"key={key} and value ={value}")
           if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
             print(f"line no ={(rl:=98)}")
-            print(f"key={key} and value ={value} are selected")
+            print(f"moves_history={moves_history}")
             if moves_history and moves_history[-1]!=key or moves_history=="":
+              print(f"key={key} and value ={value} are selected")
               moves_history.append(key)
               print(f"line no ={(rl:=102)}")
               print(f"moves_history={moves_history}")
