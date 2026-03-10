@@ -64,7 +64,7 @@ class Solver(cs):
     rec_loop=0
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
     
-    print(f"moves_history=move_history={moves_history}")
+    print(f"moves_history=move_history={moves_history}") if move_history
     moves_history=move_history
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
