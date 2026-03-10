@@ -103,15 +103,19 @@ class Solver(cs):
               data[move_list[i]]=states[i]
               print(f"data={data}")
           return states, moves_history, status
-        elif all(key and len(value) in [15,18] for key, value in data.items()):
-          print(f"line no ={(rl:=98)}")
-          print(f"moves_history={moves_history}")
-          moves_history.append(key)
-          print(f"line no ={(rl:=101)}")
-          print(f"moves_history={moves_history}")  
-          return self.update_nested_key(value, key,moves_history)
-          
-      if len(data)==15 or len(data)==18:
+        ##########№#####################################################
+          # last change from here.
+        ###elif all(key and len(value) in [15,18] for key, value in data.items()):
+          ###print(f"line no ={(rl:=98)}")
+          ###print(f"moves_history={moves_history}")
+          ###moves_history.append(key)
+          ###print(f"line no ={(rl:=101)}")
+          ###print(f"moves_history={moves_history}")  
+          ###return self.update_nested_key(value, key,moves_history)
+      #if len(data)==15 or len(data)==18:
+      #to here.
+        ################################################### 
+      if len(data)==15 or len(data)==18 or len(data)==18: 
         for key, value in data.items():
           print(f"line no ={(rl:=95)}")
           print(f"key={key} and value ={value}")
