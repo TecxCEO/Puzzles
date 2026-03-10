@@ -60,47 +60,46 @@ class Solver(cs):
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
-    #rl=61
     rec_loop=0
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
-    
     print(f"moves_history=move_history={moves_history}") if move_history else None
+    rl=66
     moves_history=move_history
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        print(f"line no ={(rl:=66)}")
+        print(f"line no ={(rl:=72)}")
         states,move_list,status=super().moves(data,moves_history)
         #states,move_list,status=super().moves(data,move)
         #states,moves,status=cs.moves(data,move)
         if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-          print(f"line no ={(rl:=rl+5)}")
+          print(f"line no ={(rl:=77)}")
           data.clear()
           print(f"data={data}")
           for i in range(len(states)):
-            print(f"line no ={(rl:=rl+4)}")
+            print(f"line no ={(rl:=81)}")
             data[move_list[i]]=states[i]
             print(f"data={data}")
         elif len(states)==1 or len(move_list)==1 and status is True:
-          print(f"line no ={rl:=rl+4}")
+          print(f"line no ={(rl:=85)}")
           data.clear()
           print(f"data={data}")
           for i in range(len(states)):
-            print(f"line no ={rl:=rl+4}")
+            print(f"line no ={(rl:=89)}")
             data[move_list[i]]=states[i]
             print(f"data={data}")
         return states, moves_history, status
       if len(data)==15 or len(data)==18:
         for key, value in data.items():
-          print(f"line no ={(rl:=rl+4)}")
+          print(f"line no ={(rl:=95)}")
           print(f"key={key} and value ={value}")
           if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
-            print(f"line no ={rl:=rl+4}")
+            print(f"line no ={(rl:=98)}")
             print(f"key={key} and value ={value} are selected")
             if moves_history and moves_history[-1]!=key or moves_history=="":
               moves_history.append(key)
-              print(f"line no ={rl:=rl+4}")
+              print(f"line no ={(rl:=102)}")
               print(f"moves_history={moves_history}")
               return self.update_nested_key(value, key,moves_history)
     print(f"rec loop no = {rec_loop} end.")
