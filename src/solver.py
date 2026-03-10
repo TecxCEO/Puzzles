@@ -76,7 +76,7 @@ class Solver(cs):
         #states,moves,status=cs.moves(data,move)
         if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           rl=77
-          print(f"line no ={(rl=77)}")
+          print(f"line no ={rl}")
           data.clear()
           print(f"data={data}")
           for i in range(len(states)):
