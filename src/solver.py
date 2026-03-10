@@ -73,7 +73,7 @@ class Solver(cs):
         print(f"line no ={rl}")
         print(f"data={data}")
         print(f"length of data={len(data)}")
-        print(f"data[{key}:{value}]")for key, value in data.items())
+        print(f"data[{key}:{value}]")for key, value in data.items()
         print(f"data items={data.items()}")
         if all(key and len(value)==1 for key, value in data.items()):
           if key and len(value)==1:
