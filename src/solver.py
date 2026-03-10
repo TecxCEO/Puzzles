@@ -80,28 +80,27 @@ class Solver(cs):
           #print(f"len of {key} key ={len(key)} and len of {value }value = {len(value)}")
         #print(f"data items={data.items()}")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
-          if key:
-            states,move_list,status=super().moves(data,moves_history)
-            if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-              rl=77
+          states,move_list,status=super().moves(data,moves_history)
+          if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
+            rl=77
+            print(f"line no ={rl}")
+            data.clear()
+            print(f"data={data}")
+            for i in range(len(states)):
+              rl=83
               print(f"line no ={rl}")
-              data.clear()
+              print(f"line no ={(rl:=81)}")
+              data[move_list[i]]=states[i]
               print(f"data={data}")
-              for i in range(len(states)):
-                rl=83
-                print(f"line no ={rl}")
-                print(f"line no ={(rl:=81)}")
-                data[move_list[i]]=states[i]
-                print(f"data={data}")
-            elif len(states)==1 or len(move_list)==1 and status is True:
-              print(f"line no ={(rl:=85)}")
-              data.clear()
+          elif len(states)==1 or len(move_list)==1 and status is True:
+            print(f"line no ={(rl:=85)}")
+            data.clear()
+            print(f"data={data}")
+            for i in range(len(states)):
+              print(f"line no ={(rl:=89)}")
+              data[move_list[i]]=states[i]
               print(f"data={data}")
-              for i in range(len(states)):
-                print(f"line no ={(rl:=89)}")
-                data[move_list[i]]=states[i]
-                print(f"data={data}")
-            return states, moves_history, status
+          return states, moves_history, status
         elif all(key and len(value) in [15,18] for key, value in data.items()):
           print(f"line no ={(rl:=98)}")
           print(f"moves_history={moves_history}")
