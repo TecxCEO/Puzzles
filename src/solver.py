@@ -116,7 +116,7 @@ class Solver(cs):
       #if len(data)==15 or len(data)==18:
       #to here.
         ################################################### 
-      if len(data)==15 or len(data)==18 or len(data)==18: 
+      if len(data)==15 or len(data)==18 or len(data)==20: 
         for key, value in data.items():
           print(f"line no ={(rl:=95)}")
           print(f"key={key} and value ={value}")
