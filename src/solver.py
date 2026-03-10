@@ -93,7 +93,7 @@ class Solver(cs):
         return states, moves_history, status
       if len(data)==15 or len(data)==18:
         for key, value in data.items():
-          print(f"line no ={rl:=rl+4}")
+          print(f"line no ={(rl:=rl+4)}")
           print(f"key={key} and value ={value}")
           if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
             print(f"line no ={rl:=rl+4}")
