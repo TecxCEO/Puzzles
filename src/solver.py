@@ -80,10 +80,12 @@ class Solver(cs):
           #print(f"len of {key} key ={len(key)} and len of {value }value = {len(value)}")
         #print(f"data items={data.items()}")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
+          print(f"line no ={83}")
           states,move_list,status=super().moves(data,moves_history)
+          print(f"line no ={85}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-            rl=77
-            print(f"line no ={rl}")
+            rl=87
+            print(f"line no ={88}")
             data.clear()
             print(f"data={data}")
             for i in range(len(states)):
