@@ -61,8 +61,8 @@ class Solver(cs):
     Works for both nested dictionaries and lists of dictionaries.
     """
     #rl=61
-    rec_loop=0 if rec_loop is 0 else rec_loop+1
-    print(f"rec loop no = {rec_loop} start.")
+    rec_loop=0
+    print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
     
     print(f"moves_history=move_history={moves_history}")
     moves_history=move_history
