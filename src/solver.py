@@ -36,7 +36,7 @@ class Solver(cs):
       print(f"line no ={(l:=l+4)}")
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
-      print(my_data["solution"])
+      print(f"my data [solution]={my_data["solution"]}")
       print(f"line no ={(l:=l+4)}")
       result = self.update_nested_key(my_data["solution"])
       print(f"line no ={(l:=l+2)}")
@@ -61,8 +61,8 @@ class Solver(cs):
     Works for both nested dictionaries and lists of dictionaries.
     """
     #rl=61
+    rec_loop=0 if rec_loop is 0 else +1
     print(f"rec loop no = {rec_loop} start.")
-    rec_loop=0
     
     print(f"moves_history=move_history={moves_history}")
     moves_history=move_history
@@ -75,11 +75,11 @@ class Solver(cs):
         #states,move_list,status=super().moves(data,move)
         #states,moves,status=cs.moves(data,move)
         if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-          print(f"line no ={rl:=rl+5}")
+          print(f"line no ={(rl:=rl+5)}")
           data.clear()
           print(f"data={data}")
           for i in range(len(states)):
-            print(f"line no ={rl:=rl+4}")
+            print(f"line no ={(rl:=rl+4)}")
             data[move_list[i]]=states[i]
             print(f"data={data}")
         elif len(states)==1 or len(move_list)==1 and status is True:
