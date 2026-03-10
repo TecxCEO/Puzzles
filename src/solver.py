@@ -55,7 +55,8 @@ class Solver(cs):
         json.dump(my_data, f, indent=4)
       print("Successfully updated the deep key!")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
-  def update_nested_key(self,data,move="",move_history=list()):
+  ####def update_nested_key(self,data,move="",move_history=list()):
+  def update_nested_key(self,data,move_history=list()):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
@@ -128,7 +129,8 @@ class Solver(cs):
               moves_history.append(key)
               print(f"line no ={(rl:=102)}")
               print(f"moves_history={moves_history}")
-              return self.update_nested_key(value, key,moves_history)
+              #####return self.update_nested_key(value, key,moves_history)
+              return self.update_nested_key(value,moves_history)
     print(f"rec loop no = {rec_loop} end.")
 
 if __name__=="__main__":
