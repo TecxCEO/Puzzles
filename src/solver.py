@@ -69,15 +69,19 @@ class Solver(cs):
     if isinstance(data, dict):
       #if target_key in data:
       if len(data)==20:
-        print(f"line no ={(rl:=72)}")
+        rl=72
+        print(f"line no ={rl}")
         states,move_list,status=super().moves(data,moves_history)
         #states,move_list,status=super().moves(data,move)
         #states,moves,status=cs.moves(data,move)
         if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-          print(f"line no ={(rl:=77)}")
+          rl=77
+          print(f"line no ={(rl=77)}")
           data.clear()
           print(f"data={data}")
           for i in range(len(states)):
+            rl=83
+            print(f"line no ={rl}")
             print(f"line no ={(rl:=81)}")
             data[move_list[i]]=states[i]
             print(f"data={data}")
