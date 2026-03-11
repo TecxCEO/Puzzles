@@ -22,8 +22,8 @@ class Solver(cs):
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
-      with open(self.filename, "r") as sf:
-        my_data = json.load(sf)
+      with open(self.filename, "r") as rf:
+        my_data = json.load(rf)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print( f"my data before  unk function call={my_data}")
@@ -36,8 +36,8 @@ class Solver(cs):
         my_data[puzzle]["Puzzle_Solved_State"]=success[0]
       else:
          my_data["solution"]=success[0]##
-      with open(self.filename, "w") as f:
-        json.dump(my_data, f, indent=4)
+      with open(self.filename, "w") as wf:
+        json.dump(my_data, wf, indent=4)
       print( f"my data after save to json file={my_data}")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
   def update_nested_key(self,data,moves_history=None):
@@ -50,9 +50,9 @@ class Solver(cs):
       moves_history = []
     rec_loop=0
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
+    print(f"data={data}")
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
-      print(f"data={data}")
       print(f"data length={len(data)}")
       if len(data)==20:
         print(f"so i am in if =20 condition")
