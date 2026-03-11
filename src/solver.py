@@ -70,7 +70,8 @@ class Solver(cs):
             #for cb, cbv in zip(data):
             for cb in data:
               print(f"data element {cb} value {data[cb]}")
-              cbe+=cb
+              cbe.appentd([cb])
+              #cbe=cbe+[cb]
             print(f"data elements ={cbe}")
             for cb in data:
               del data[cb]
