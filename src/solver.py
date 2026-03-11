@@ -35,13 +35,13 @@ class Solver(cs):
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=status
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=moves
-        #my_data[puzzle]["Puzzle_Solved_State"]=
+        #my_data[puzzle]["Puzzle_Solved_State"]=states_option
         # 3. Save if the update happened
         #my_data[puzzle][Puzzle_Status]=success[2]
         #my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
         #my_data[puzzle]["Puzzle_Solved_State"]=success[0]
-      else:
-         my_data.update({"solution":states_option})##
+      ####else:
+         ####my_data.update({"solution":states_option})##
       with open(self.filename, "w") as wf:
         json.dump(my_data, wf, indent=4)
       print( f"my data after save to json file={my_data}")
@@ -115,8 +115,8 @@ class Solver(cs):
             ##return states, moves_history, status
           print(f"data={data}")
           print( f"if =20 complete")
-          return data, moves_history, status
-          #return states, moves_history, status
+          #return data, moves_history, status
+          return states, moves_history, status
         ##########№#####################################################
           # last change from here.
         ###elif all(key and len(value) in [15,18] for key, value in data.items()):
