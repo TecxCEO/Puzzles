@@ -159,7 +159,8 @@ class CubeSolver:
             break
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
             i+=1
-      states[i] = self.mover(moves_to[i],cur_state)
+      #states[i] = self.mover(moves_to[i],cur_state)
+      states+ = self.mover(moves_to[i],cur_state)
       moved_options_list+=[moves_to[i]]##
       print(f"moved_options_list={moved_options_list}")
       #moved_options_list[i]=moves_to[i] ##
