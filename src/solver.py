@@ -27,15 +27,21 @@ class Solver(cs):
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print( f"my data before  unk function call={my_data}")
-      result = self.update_nested_key(my_data["solution"])
-      success = list(result) if result is not None else []
-      if success and success[-1] is True:
+      ##result = self.update_nested_key(my_data["solution"])
+      states_option,moves,status = self.update_nested_key(my_data["solution"])
+      #success = list(result) if result is not None else []
+      #if success and success[-1] is True:
+      if status and status is True:
         # 3. Save if the update happened
-        my_data[puzzle][Puzzle_Status]=success[2]
-        my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
-        my_data[puzzle]["Puzzle_Solved_State"]=success[0]
+        my_data[puzzle][Puzzle_Status]=status
+        my_data[puzzle]["Moves_to_Solve_Puzzle"]=moves
+        #my_data[puzzle]["Puzzle_Solved_State"]=
+        # 3. Save if the update happened
+        #my_data[puzzle][Puzzle_Status]=success[2]
+        #my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
+        #my_data[puzzle]["Puzzle_Solved_State"]=success[0]
       else:
-         my_data.update({"solution":success[0]})##
+         my_data.update({"solution":states_option})##
       with open(self.filename, "w") as wf:
         json.dump(my_data, wf, indent=4)
       print( f"my data after save to json file={my_data}")
