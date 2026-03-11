@@ -91,7 +91,7 @@ class Solver(cs):
             print(f"line no ={88}")
             data.clear()
             print(f"data={data}")
-            print(f"line of moves ={(move_list}")
+            print(f"line of moves ={move_list}")
             print(f"states after respective moves ={states}")
             for keys, state_val in zip(move_list, states):
               print(f"line no ={(rl:=81)}")
