@@ -26,6 +26,7 @@ class Solver(cs):
         my_data = json.load(f)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
+      print( f"my data before  unk function call={my_data}")
       result = self.update_nested_key(my_data["solution"])
       success = list(result) if result is not None else []
       if success and success[-1] is True:
@@ -35,6 +36,7 @@ class Solver(cs):
         my_data[puzzle]["Puzzle_Solved_State"]=success[0]
       with open(self.filename, "w") as f:
         json.dump(my_data, f, indent=4)
+      print( f"my data after save to json file={my_data}")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
   def update_nested_key(self,data,moves_history=None):
     """
@@ -64,7 +66,7 @@ class Solver(cs):
             print(f"data={data}")
             print(f"line of moves ={move_list}")
             print(f"status of puzzle solved ={status}")
-            print(f"states after respective moves ={states}")
+            # print(f"states after respective moves ={states}")
             for i in range(len(states)):
               data[move_list[i]]=states[i]
           elif len(states)==1 or len(move_list)==1 and status is True:
