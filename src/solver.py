@@ -61,6 +61,8 @@ class Solver(cs):
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
+    if moves_history is None:
+      moves_history = []
     rec_loop=0
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
     print(f"moves_history=move_history={moves_history}") if move_history else None
