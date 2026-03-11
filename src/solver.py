@@ -67,8 +67,9 @@ class Solver(cs):
           print(f"moves_history={moves_history}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             print(f"data length= {len(data)}")
-            for cb, cbv in data:
-              print(f"data element {cb} value {cbv}")
+            #for cb, cbv in zip(data):
+            for cb in data:
+              print(f"data element {cb} value {data[cb]}")
               del data[cb]
             print(f"data length= {len(data)}")
             print(f"data={data}")
@@ -86,8 +87,8 @@ class Solver(cs):
               #data=data[ml]
             #data={}
             print(f"data length= {len(data)}")#
-            for cb, cbv in data:
-              print(f"data element {cb} value {cbv}")
+            for cb in data:
+              print(f"data element {cb} value {data[cb]}")
               del data[cb]
             print(f"data length= {len(data)}")
             #data.clear()
