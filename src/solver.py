@@ -141,12 +141,9 @@ class Solver(cs):
             if (moves_history and moves_history[-1]!=key) or not moves_history:
               print(f"key={key} and value ={value} are selected")
               print(f"moves_history={moves_history}")
-              print(f"line no ={(rl:=102)}")
-              ########moves_history[-1]=[key]
-              print(f"moves_history={moves_history}")
-              print(f" if =(15,18,20) condition complete")
               #return self.update_nested_key(value,moves_history)
               self.update_nested_key(value,moves_history+[key])
+              print(f"data={data}")
         return 
         #self.update_nested_key(value,moves_history+[key])
     print(f"rec loop no = {rec_loop} end.")
