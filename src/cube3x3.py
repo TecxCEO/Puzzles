@@ -144,7 +144,8 @@ class CubeSolver:
     cur_state=state_given_to_solve.copy()
     i=0
     states = {}
-    moved_options_list={}
+    moved_options_list=[]
+    ####moved_options_list={}
     puzzle_solve= False
     move=0
     ##last_move=""
