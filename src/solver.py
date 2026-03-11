@@ -68,6 +68,7 @@ class Solver(cs):
             print(f"line no ={88}")
             data_given=data
             for ml in moves_history:
+              print(f"data given={data_given}")
               data_given=data_given[ml]
             data_given.clear()
             print(f"data={data}")
@@ -81,6 +82,7 @@ class Solver(cs):
             print(f"line no ={(rl:=85)}")
             data_given=data
             for ml in moves_history:
+              print(f"data given={data_given}")
               data_given=data_given[ml]
             data_given.clear()
             #data.clear()
