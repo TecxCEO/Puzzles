@@ -42,6 +42,7 @@ class Solver(cs):
         #my_data[puzzle]["Puzzle_Solved_State"]=success[0]
       #else:
       my_data.update({"solution":states_option})##
+      print(f"my data={my_data}")
       with open(self.filename, "w") as wf:
         json.dump(my_data, wf, indent=4)
       ##print( f"my data after save to json file={my_data}")
@@ -54,12 +55,9 @@ class Solver(cs):
     print(f"moves_history={moves_history}")##
     if moves_history is None:
       moves_history = []
-      states=[]
-      move_list=[]
-      status=False
-    rec_loop=0
-    print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
-    #print(f"data={data}")
+      ##states=[]
+      ##move_list=[]
+      ##status=False
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
       print(f"data length={len(data)}")
@@ -80,44 +78,19 @@ class Solver(cs):
             print(f"data elements ={cbe}")
             for cb in cbe:
               del data[cb]
-            print(f"data length= {len(data)}")
-            ###print(f"data={data}")
-            ##data={}
             #data.clear()
-            #print(f"data={data}")
-            ####print(f"line of moves ={move_list}")
-            print(f"status of puzzle solved ={status}")
-            # print(f"states after respective moves ={states}")
             for i in range(len(states)):
               data[move_list[i]]=states[i]
           elif len(states)==1 or len(move_list)==1 and status is True:
-            #for ml in moves_history:
-              #print(f"data given={data}")
-              #data=data[ml]
-            #data={}
-            print(f"data length= {len(data)}")#
-            print(f"data={data}")
             cbe=[]
             for cb in data:
-              ##print(f"data element {cb} value {data[cb]}")
-              #cbe.appentd([cb])
               cbe=cbe+[cb]
-            print(f"data elements ={cbe}")
             for cb in cbe:
               del data[cb]
-            #for cb in data:
-              #print(f"data element {cb} value {data[cb]}")
-              #del data[cb]
-            print(f"data length= {len(data)}")
             #data.clear()
-            #print(f"data={data}")
             for i in range(len(states)):
-              print(f"line no ={(rl:=89)}")
               data[move_list[i]]=[states[i]]
-            print(f" The solved fuzzles states are= {states}")
             ##return states, moves_history, status
-          ##print(f"data={data}")
-          print( f"if =20 complete")
           return data, moves_history, status
           #return states, moves_history, status
         ##########№#####################################################
@@ -132,27 +105,21 @@ class Solver(cs):
       #if len(data)==15 or len(data)==18:
       #to here.
         ################################################### 
-      print( f"if =20 complete outside")
       if len(data)==15 or len(data)==18 or len(data)==20:
-        movekey=[]
         for key, value in data.items():
           print(f"key={key} and value ={value}")
           if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
             if (moves_history and moves_history[-1]!=key) or not moves_history:
               print(f"moves_history={moves_history}")
               #return self.update_nested_key(value,moves_history)
-              movekey=movekey+[key]
-              
               data,moves_list,status=self.update_nested_key(value,moves_history+[key])
               print(f"move key ={movekey}")
               if status is True:
                 moves_history = move_list
                 return data,moves_history,status
-                #print(f"data={data}")
         return data,moves_history,status
         #self.update_nested_key(value,moves_history+[key])
     print(f"rec loop no = {rec_loop} end.")
-
 if __name__=="__main__":
   state_given_to_solve={
       "rgy":"ogw",
