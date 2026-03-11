@@ -92,7 +92,7 @@ class Solver(cs):
             data.clear()
             print(f"data={data}")
             print(f"line of moves ={(move_list}")
-              print(f"states after respective moves ={states}")
+            print(f"states after respective moves ={states}")
             for keys, state_val in zip(move_list, states):
               print(f"line no ={(rl:=81)}")
               print(f"keys as move ={keys}")
@@ -110,6 +110,7 @@ class Solver(cs):
             print(f"line no ={(rl:=85)}")
             data.clear()
             print(f"data={data}")
+            #####for keys, state_val in zip(move_list, states):
             for i in range(len(states)):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=states[i]
