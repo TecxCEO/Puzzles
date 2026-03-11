@@ -155,9 +155,10 @@ class CubeSolver:
     print(f"moved_to={moves_to}")
     while cur_state!=self.solution and i<len(moves_to):
       print(f"i={i} and moves to= {len(moves_to)}")
-      ##
-      if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
-        states+= [self.mover(moves_to[i],cur_state)]
+      if move_path_history!="" and move_path_history:
+        last_move=move_path_history[-1]
+        if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
+          states+= [self.mover(moves_to[i],cur_state)]
         moved_options_list+=[moves_to[i]]
       ##elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
         ##i+=1
