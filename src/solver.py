@@ -113,7 +113,12 @@ class Solver(cs):
               print(f"moves_history={moves_history}")
               print(f"line no ={(rl:=102)}")
               print(f"moves_history={moves_history}")
-              return self.update_nested_key(value,[moves_history+[key]])
+              print(f"moves_history={moves_history+[key]}")##
+              print(f"moves_history={[moves_history+[key]]}")##
+              mh=moves_history+[key]
+              print(f"moves_history={mh}")##
+              return self.update_nested_key(value,mh)####
+              #return self.update_nested_key(value,[moves_history+[key]])
     print(f"rec loop no = {rec_loop} end.")
 
 if __name__=="__main__":
