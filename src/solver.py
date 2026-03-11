@@ -147,7 +147,8 @@ class Solver(cs):
               print(f" if =(15,18,20) condition complete")
               #return self.update_nested_key(value,moves_history)
               self.update_nested_key(value,moves_history+[key])
-        return self.update_nested_key(value,moves_history+[key])
+        return 
+        #self.update_nested_key(value,moves_history+[key])
     print(f"rec loop no = {rec_loop} end.")
 
 if __name__=="__main__":
