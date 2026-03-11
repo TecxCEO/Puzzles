@@ -89,7 +89,8 @@ class Solver(cs):
               data[move_list[i]]=[states[i]]
           print(f"data={data}")
           print( f"if =20 complete")
-          return states, moves_history, status
+          return data, moves_history, status
+          #return states, moves_history, status
         ##########№#####################################################
           # last change from here.
         ###elif all(key and len(value) in [15,18] for key, value in data.items()):
