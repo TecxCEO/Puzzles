@@ -48,7 +48,10 @@ class Solver(cs):
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
+      print(f"data={data}")
+      print(f"data length={len(data)}")
       if len(data)==20:
+        print(f"so i am in if =20 condition")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,moves_history)
           print(f"moves_history={moves_history}")
@@ -75,6 +78,7 @@ class Solver(cs):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=[states[i]]
           print(f"data={data}")
+          print( f"if =20 complete")
           return states, moves_history, status
         ##########№#####################################################
           # last change from here.
@@ -88,7 +92,9 @@ class Solver(cs):
       #if len(data)==15 or len(data)==18:
       #to here.
         ################################################### 
+      print( f"if =20 complete outside")
       if len(data)==15 or len(data)==18 or len(data)==20: 
+        print(f"so i am in if =(15,18,20) condition")
         for key, value in data.items():
           print(f"line no ={(rl:=95)}")
           print(f"key={key} and value ={value}")
@@ -99,8 +105,11 @@ class Solver(cs):
               print(f"key={key} and value ={value} are selected")
               print(f"moves_history={moves_history}")
               print(f"line no ={(rl:=102)}")
+              moves_history[-1]=[key]
               print(f"moves_history={moves_history}")
-              return self.update_nested_key(value,[moves_history+[key]])
+              print(f" if =(15,18,20) condition complete")
+              return self.update_nested_key(value,moves_history)
+              #return self.update_nested_key(value,[moves_history+[key]])
     print(f"rec loop no = {rec_loop} end.")
 
 if __name__=="__main__":
