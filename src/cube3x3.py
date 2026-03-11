@@ -160,9 +160,9 @@ class CubeSolver:
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
             i+=1
       states[i] = self.mover(moves_to[i],cur_state)
-      moved_options_list+=moves_to[i] ##
+      moved_options_list=moves_to[i] ##
       print(f"moved_options_list={moved_options_list}")
-      moved_options_list[i]=moves_to[i] ##
+      #moved_options_list[i]=moves_to[i] ##
       # move_path_history.append(moves_to[i])
       # Prepare the JSONL entry
       data_entry = {
