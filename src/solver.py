@@ -60,9 +60,11 @@ class Solver(cs):
             for ml in moves_history:
               print(f"data given={data_given}")
               data_given=data_given[ml]
+              data=data[ml]
             print(f"data given={data_given}")
             print(f"data={data}")
             data_given=[]
+            data=data[]
             print(f"data given={data_given}")
             print(f"data={data}")
             print(f"line of moves ={move_list}")
@@ -76,7 +78,9 @@ class Solver(cs):
             for ml in moves_history:
               print(f"data given={data_given}")
               data_given=data_given[ml]
+              data=data[ml]
             data_given=[]
+            data=data[]
             #data.clear()
             print(f"data={data}")
             for i in range(len(states)):
