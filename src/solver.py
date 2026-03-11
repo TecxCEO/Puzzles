@@ -60,13 +60,17 @@ class Solver(cs):
             for ml in moves_history:
               print(f"data given={data_given}")
               data_given=data_given[ml]
+            print(f"data given={data_given}")
+            print(f"data={data}")
             data_given=[]
+            print(f"data given={data_given}")
             print(f"data={data}")
             print(f"line of moves ={move_list}")
             print(f"status of puzzle solved ={status}")
             print(f"states after respective moves ={states}")
             for i in range(len(states)):
-              data[move_list[i]]=[states[i]]
+              data[move_list[i]]=states[i]
+              #data[move_list[i]]=[states[i]]
               print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
             for ml in moves_history:
