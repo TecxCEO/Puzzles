@@ -51,6 +51,8 @@ class Solver(cs):
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
+    data_given=data
+    d=data.copy()
     #data=data_given.copy()
     if moves_history is None:
       moves_history = []
@@ -65,8 +67,9 @@ class Solver(cs):
           print(f"line no ={85}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             rl=87
+            #d=data.copy()
             print(f"line no ={88}")
-            data_given=data
+            #data_given=data
             for ml in moves_history:
               print(f"data given={data_given}")
               data_given=data_given[ml]
@@ -80,7 +83,7 @@ class Solver(cs):
               print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
             print(f"line no ={(rl:=85)}")
-            data_given=data
+            #data_given=data
             for ml in moves_history:
               print(f"data given={data_given}")
               data_given=data_given[ml]
@@ -91,6 +94,7 @@ class Solver(cs):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=states[i]
               print(f"data={data}")
+          return
           return states, moves_history, status
         ##########№#####################################################
           # last change from here.
