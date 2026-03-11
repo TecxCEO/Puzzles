@@ -1,14 +1,9 @@
 import json
 from cube3x3 import CubeSolver as cs
-#import cube3x3
-#from . import puzzles\cubes\cube3x3\cube3x3\CubeSolver as cs
 
 class Solver(cs):
   def __init__(self):
     super().__init__()
-    #self.c3s=CubeSolver
-    #self.c3s=cs
-    #self.c3cs=cs.CubeSolver
     self.filename = "data.json"
     self.filepath="../data/cube3x3/solution"
   def solve(self,given_state):
@@ -20,7 +15,6 @@ class Solver(cs):
         "Moves_to_Solve_Puzzle":""
       },
       "solution":self.current_state
-      #"solution":self.current_state.copy()
     }
     with open(self.filename, "w") as f:
       json.dump(puzzle_data, f, indent=4)
@@ -28,12 +22,9 @@ class Solver(cs):
     while True:
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
-      l=31
-      print(f"line no ={(l:=l+1)}")
       # 1. Load your file
       with open(self.filename, "r") as f:
         my_data = json.load(f)
-      print(f"line no ={(l:=l+4)}")
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print(f"my data [solution]={my_data["solution"]}")
@@ -55,33 +46,20 @@ class Solver(cs):
         json.dump(my_data, f, indent=4)
       print("Successfully updated the deep key!")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
-  ####def update_nested_key(self,data,move="",move_history=list()):
+  ####def update_nested_key(self,data_given,move="",move_history=list()):
   def update_nested_key(self,data,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
+    data=data_given.copy()
     if moves_history is None:
       moves_history = []
     rec_loop=0
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
-    ################print(f"moves_history=move_history={moves_history}") if move_history else None
-    rl=66
-    #####################moves_history=move_history
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
-      #if target_key in data:
       if len(data)==20:
-        rl=72
-        print(f"line no ={rl}")
-        #print(f"data={data}")
-        #print(f"length of data={len(data)}")
-        #for key, value in data.items():
-          #print(f"data[{key}:{value}]")
-          #if key and len(value)!=1:
-            #print(f"key and len(value)==1")
-          #print(f"len of {key} key ={len(key)} and len of {value }value = {len(value)}")
-        #print(f"data items={data.items()}")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           print(f"line no ={83}")
           states,move_list,status=super().moves(data,moves_history)
@@ -94,24 +72,13 @@ class Solver(cs):
             print(f"line of moves ={move_list}")
             print(f"status of puzzle solved ={status}")
             print(f"states after respective moves ={states}")
-            #for keys, state_val in zip(move_list, states):
-              #print(f"line no ={(rl:=81)}")
-              #print(f"keys as move ={keys}")
-              #print(f"state value ={state_val}")
-              #data[keys]=state_val
-            #keys=list(move_list) ###############
-            #keys=list(move_list.keys()) ###############
-            ##################states_value=list(states.keys()) ###############
             for i in range(len(states)):
-              #data[keys[i]]=states[i]
-              ############data[keys[i]]=states_value[i]########################
               data[move_list[i]]=states[i]
               print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
             print(f"line no ={(rl:=85)}")
             data.clear()
             print(f"data={data}")
-            #####for keys, state_val in zip(move_list, states):
             for i in range(len(states)):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=states[i]
