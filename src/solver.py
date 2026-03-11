@@ -41,9 +41,6 @@ class Solver(cs):
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
-    data_given=data ##
-    d=data.copy() ##
-    #data=data_given.copy()
     print(f"moves_history={moves_history}")##
     if moves_history is None:
       moves_history = []
@@ -53,41 +50,31 @@ class Solver(cs):
     if isinstance(data, dict):
       if len(data)==20:
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
-          print(f"line no ={83}")
           states,move_list,status=super().moves(data,moves_history)
-          print(f"line no ={85}")
           print(f"moves_history={moves_history}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             for ml in moves_history:
-              print(f"data given={data_given}")
-              data_given=data_given[ml]
               data=data[ml]
-            print(f"data given={data_given}")
+              print(f"data given={data}")
             print(f"data={data}")
-            data_given=[]
             data={}
-            print(f"data given={data_given}")
             print(f"data={data}")
             print(f"line of moves ={move_list}")
             print(f"status of puzzle solved ={status}")
             print(f"states after respective moves ={states}")
             for i in range(len(states)):
               data[move_list[i]]=states[i]
-              #data[move_list[i]]=[states[i]]
-              print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
             for ml in moves_history:
-              print(f"data given={data_given}")
-              data_given=data_given[ml]
+              print(f"data given={data}")
               data=data[ml]
-            data_given=[]
             data={}
             #data.clear()
             print(f"data={data}")
             for i in range(len(states)):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=[states[i]]
-              print(f"data={data}")
+          print(f"data={data}")
           return states, moves_history, status
         ##########№#####################################################
           # last change from here.
@@ -113,12 +100,7 @@ class Solver(cs):
               print(f"moves_history={moves_history}")
               print(f"line no ={(rl:=102)}")
               print(f"moves_history={moves_history}")
-              print(f"moves_history={moves_history+[key]}")##
-              print(f"moves_history={[moves_history+[key]]}")##
-              mh=moves_history+[key]
-              print(f"moves_history={mh}")##
-              return self.update_nested_key(value,mh)####
-              #return self.update_nested_key(value,[moves_history+[key]])
+              return self.update_nested_key(value,[moves_history+[key]])
     print(f"rec loop no = {rec_loop} end.")
 
 if __name__=="__main__":
