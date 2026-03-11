@@ -111,7 +111,7 @@ class Solver(cs):
             for i in range(len(states)):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=[states[i]]
-            print(f" The solved fuzzles states are= {states})
+            print(f" The solved fuzzles states are= {states}")
             ##return states, moves_history, status
           print(f"data={data}")
           print( f"if =20 complete")
