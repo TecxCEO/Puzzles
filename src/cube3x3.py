@@ -152,7 +152,7 @@ class CubeSolver:
     ##last_move=""
     ##move_history="" #
     move_path_history=list(move_history) if move_history else move_history
-    print(f"moved_to={moves_to[i]}")
+    print(f"moved_to={moves_to}")
     while cur_state!=self.solution and i<len(moves_to):
       print(f"i={i} and moves to= {len(moves_to)}")
       if move_path_history!="" and move_path_history:
