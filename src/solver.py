@@ -67,6 +67,7 @@ class Solver(cs):
           print(f"moves_history={moves_history}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             print(f"data length= {len(data)}")
+            print(f"data={data}")
             #for cb, cbv in zip(data):
             cbe=[]
             for cb in data:
@@ -92,6 +93,7 @@ class Solver(cs):
               #data=data[ml]
             #data={}
             print(f"data length= {len(data)}")#
+            print(f"data={data}")
             cbe=[]
             for cb in data:
               print(f"data element {cb} value {data[cb]}")
@@ -109,6 +111,8 @@ class Solver(cs):
             for i in range(len(states)):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=[states[i]]
+            print(f" The solved fuzzles states are= {states})
+            ##return states, moves_history, status
           print(f"data={data}")
           print( f"if =20 complete")
           return data, moves_history, status
