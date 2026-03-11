@@ -141,7 +141,7 @@ class Solver(cs):
               movekey=movekey+[key]
               self.update_nested_key(value,moves_history+[key])
               print(f"move key ={movekey}")
-              print(f"data={data}")
+              #print(f"data={data}")
         return 
         #self.update_nested_key(value,moves_history+[key])
     print(f"rec loop no = {rec_loop} end.")
