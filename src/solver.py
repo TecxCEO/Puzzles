@@ -44,6 +44,7 @@ class Solver(cs):
     data_given=data ##
     d=data.copy() ##
     #data=data_given.copy()
+    print(f"moves_history={moves_history}")##
     if moves_history is None:
       moves_history = []
     rec_loop=0
