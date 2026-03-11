@@ -180,7 +180,8 @@ class CubeSolver:
       # Append to the JSONL file
       ####with open(self.output_file, 'a', encoding='utf-8') as f:
             ####f.write(json.dumps(data_entry) + '\n')
-      if states[i]==self.solution:
+      ##if states[i]==self.solution:
+      if states[-1]==self.solution:
         puzzle_solve=True
         return states[i], moved_options_list[i], puzzle_solve
         #return states[i], move_path_history, puzzle_solve ##
