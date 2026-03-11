@@ -96,7 +96,7 @@ class Solver(cs):
             for keys, state_val in zip(move_list, states):
               print(f"line no ={(rl:=81)}")
               print(f"keys as move ={keys}")
-              print(f"state value ={(state_val}")
+              print(f"state value ={state_val}")
               data[keys]=state_val
             #keys=list(move_list) ###############
             #keys=list(move_list.keys()) ###############
