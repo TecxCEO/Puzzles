@@ -46,12 +46,12 @@ class Solver(cs):
       print("Successfully updated the deep key!")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
   ####def update_nested_key(self,data,move="",move_history=list()):
-  def update_nested_key(self,data_given,moves_history=None):
+  def update_nested_key(self,data,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
-    data=data_given.copy()
+    #data=data_given.copy()
     if moves_history is None:
       moves_history = []
     rec_loop=0
@@ -66,7 +66,10 @@ class Solver(cs):
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             rl=87
             print(f"line no ={88}")
-            data.clear()
+            data_given=data
+            for ml in moves_history:
+              data_given=data_given[ml]
+            data_given.clear()
             print(f"data={data}")
             print(f"line of moves ={move_list}")
             print(f"status of puzzle solved ={status}")
@@ -76,7 +79,11 @@ class Solver(cs):
               print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
             print(f"line no ={(rl:=85)}")
-            data.clear()
+            data_given=data
+            for ml in moves_history:
+              data_given=data_given[ml]
+            data_given.clear()
+            #data.clear()
             print(f"data={data}")
             for i in range(len(states)):
               print(f"line no ={(rl:=89)}")
