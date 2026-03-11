@@ -26,7 +26,7 @@ class Solver(cs):
         my_data = json.load(rf)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
-      print( f"my data before  unk function call={my_data}")
+      ##print( f"my data before  unk function call={my_data}")
       ##result = self.update_nested_key(my_data["solution"])
       states_option,moves,status = self.update_nested_key(my_data["solution"])
       #success = list(result) if result is not None else []
@@ -44,7 +44,7 @@ class Solver(cs):
          ####my_data.update({"solution":states_option})##
       with open(self.filename, "w") as wf:
         json.dump(my_data, wf, indent=4)
-      print( f"my data after save to json file={my_data}")
+      ##print( f"my data after save to json file={my_data}")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
   def update_nested_key(self,data,moves_history=None):
     """
@@ -56,7 +56,7 @@ class Solver(cs):
       moves_history = []
     rec_loop=0
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
-    print(f"data={data}")
+    #print(f"data={data}")
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
       print(f"data length={len(data)}")
@@ -67,22 +67,22 @@ class Solver(cs):
           print(f"moves_history={moves_history}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             print(f"data length= {len(data)}")
-            print(f"data={data}")
+            ##print(f"data={data}")
             #for cb, cbv in zip(data):
             cbe=[]
             for cb in data:
-              print(f"data element {cb} value {data[cb]}")
+              ##print(f"data element {cb} value {data[cb]}")
               #cbe.appentd([cb])
               cbe=cbe+[cb]
             print(f"data elements ={cbe}")
             for cb in cbe:
               del data[cb]
             print(f"data length= {len(data)}")
-            print(f"data={data}")
+            ###print(f"data={data}")
             ##data={}
             #data.clear()
             #print(f"data={data}")
-            print(f"line of moves ={move_list}")
+            ####print(f"line of moves ={move_list}")
             print(f"status of puzzle solved ={status}")
             # print(f"states after respective moves ={states}")
             for i in range(len(states)):
@@ -96,7 +96,7 @@ class Solver(cs):
             print(f"data={data}")
             cbe=[]
             for cb in data:
-              print(f"data element {cb} value {data[cb]}")
+              ##print(f"data element {cb} value {data[cb]}")
               #cbe.appentd([cb])
               cbe=cbe+[cb]
             print(f"data elements ={cbe}")
@@ -113,7 +113,7 @@ class Solver(cs):
               data[move_list[i]]=[states[i]]
             print(f" The solved fuzzles states are= {states}")
             ##return states, moves_history, status
-          print(f"data={data}")
+          ##print(f"data={data}")
           print( f"if =20 complete")
           #return data, moves_history, status
           return states, moves_history, status
