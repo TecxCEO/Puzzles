@@ -156,6 +156,7 @@ class CubeSolver:
       if move_path_history!="" and move_path_history:
         last_move=move_path_history[-1]
         while True:
+          print(f"i={i}")
           if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
             break
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
