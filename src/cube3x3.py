@@ -158,7 +158,7 @@ class CubeSolver:
           moved_options_list+=[moves_to[i]]
       ##elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
         ##i+=1
-      if states[-1]==self.solution:
+      if states[i]==self.solution:
         puzzle_solve=True
         return states[i], moved_options_list[i], puzzle_solve
       i=i+1
