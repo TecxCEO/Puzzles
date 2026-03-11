@@ -70,6 +70,9 @@ class Solver(cs):
             #for cb, cbv in zip(data):
             for cb in data:
               print(f"data element {cb} value {data[cb]}")
+              cbe+=cb
+            print(f"data elements ={cbe}")
+            for cb in data:
               del data[cb]
             print(f"data length= {len(data)}")
             print(f"data={data}")
