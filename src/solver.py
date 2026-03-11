@@ -74,7 +74,7 @@ class Solver(cs):
               #cbe.appentd([cb])
               cbe=cbe+[cb]
             print(f"data elements ={cbe}")
-            for cb in data:
+            for cb in cbe:
               del data[cb]
             print(f"data length= {len(data)}")
             print(f"data={data}")
@@ -92,9 +92,17 @@ class Solver(cs):
               #data=data[ml]
             #data={}
             print(f"data length= {len(data)}")#
+            cbe=[]
             for cb in data:
               print(f"data element {cb} value {data[cb]}")
+              #cbe.appentd([cb])
+              cbe=cbe+[cb]
+            print(f"data elements ={cbe}")
+            for cb in cbe:
               del data[cb]
+            #for cb in data:
+              #print(f"data element {cb} value {data[cb]}")
+              #del data[cb]
             print(f"data length= {len(data)}")
             #data.clear()
             #print(f"data={data}")
