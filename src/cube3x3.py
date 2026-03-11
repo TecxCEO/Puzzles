@@ -143,7 +143,8 @@ class CubeSolver:
     moves_to=list(self.move_paths)
     cur_state=state_given_to_solve.copy()
     i=0
-    states = {}
+    ##states = {}
+    states = []
     moved_options_list=[]
     ####moved_options_list={}
     puzzle_solve= False
