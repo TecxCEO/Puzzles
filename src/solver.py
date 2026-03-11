@@ -92,19 +92,20 @@ class Solver(cs):
             data.clear()
             print(f"data={data}")
             print(f"line of moves ={move_list}")
+            print(f"status of puzzle solved ={status}")
             print(f"states after respective moves ={states}")
-            for keys, state_val in zip(move_list, states):
-              print(f"line no ={(rl:=81)}")
-              print(f"keys as move ={keys}")
-              print(f"state value ={state_val}")
-              data[keys]=state_val
+            #for keys, state_val in zip(move_list, states):
+              #print(f"line no ={(rl:=81)}")
+              #print(f"keys as move ={keys}")
+              #print(f"state value ={state_val}")
+              #data[keys]=state_val
             #keys=list(move_list) ###############
             #keys=list(move_list.keys()) ###############
             ##################states_value=list(states.keys()) ###############
-            #for i in range(len(states)):
+            for i in range(len(states)):
               #data[keys[i]]=states[i]
               ############data[keys[i]]=states_value[i]########################
-              ##################data[move_list[i]]=states[i]
+              data[move_list[i]]=states[i]
               print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
             print(f"line no ={(rl:=85)}")
