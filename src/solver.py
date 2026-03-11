@@ -91,13 +91,16 @@ class Solver(cs):
             print(f"line no ={88}")
             data.clear()
             print(f"data={data}")
-            keys=list(move_list.keys()) ###############
-            ##################states_value=list(states.keys()) ###############
-            for i in range(len(states)):
+            for key, state_val in zip(move_list, states):
               rl=83
               print(f"line no ={rl}")
               print(f"line no ={(rl:=81)}")
-              data[keys[i]]=states[i]
+              data[key]=state_val
+            #keys=list(move_list) ###############
+            #keys=list(move_list.keys()) ###############
+            ##################states_value=list(states.keys()) ###############
+            #for i in range(len(states)):
+              #data[keys[i]]=states[i]
               ############data[keys[i]]=states_value[i]########################
               ##################data[move_list[i]]=states[i]
               print(f"data={data}")
