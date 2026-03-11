@@ -54,6 +54,9 @@ class Solver(cs):
     print(f"moves_history={moves_history}")##
     if moves_history is None:
       moves_history = []
+      states=[]
+      move_list=[]
+      status=False
     rec_loop=0
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
     #print(f"data={data}")
