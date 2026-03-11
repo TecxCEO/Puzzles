@@ -28,9 +28,8 @@ class Solver(cs):
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print(f"my data [solution]={my_data["solution"]}")
-      print(f"line no ={(l:=l+4)}")
       result = self.update_nested_key(my_data["solution"])
-      print(f"line no ={(l:=l+2)}")
+      l=32
       print(f"result={result}")
       success = list(result) if result is not None else [] 
       print(f"success={success}")
