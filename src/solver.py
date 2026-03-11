@@ -55,7 +55,7 @@ class Solver(cs):
           print(f"line no ={83}")
           states,move_list,status=super().moves(data,moves_history)
           print(f"line no ={85}")
-           print(f"moves_history={moves_history}")
+          print(f"moves_history={moves_history}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             for ml in moves_history:
               print(f"data given={data_given}")
