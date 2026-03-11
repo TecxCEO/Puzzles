@@ -22,8 +22,8 @@ class Solver(cs):
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
-      with open(self.filename, "r") as f:
-        my_data = json.load(f)
+      with open(self.filename, "r") as sf:
+        my_data = json.load(sf)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
       print( f"my data before  unk function call={my_data}")
@@ -34,6 +34,8 @@ class Solver(cs):
         my_data[puzzle][Puzzle_Status]=success[2]
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
         my_data[puzzle]["Puzzle_Solved_State"]=success[0]
+      else:
+         my_data["solution"]=success[0]##
       with open(self.filename, "w") as f:
         json.dump(my_data, f, indent=4)
       print( f"my data after save to json file={my_data}")
