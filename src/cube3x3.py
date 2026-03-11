@@ -164,6 +164,9 @@ class CubeSolver:
           elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
             i+=1
       #states[i] = self.mover(moves_to[i],cur_state)
+      print(f"moved_to={moves_to}")
+      print(f"i={i}")
+      print(f"i={i} and moves to= {len(moves_to)}")
       print(f"moved_to={moves_to[i]}")
       states+= [self.mover(moves_to[i],cur_state)]
       moved_options_list+=[moves_to[i]]##
