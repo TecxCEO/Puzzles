@@ -130,19 +130,17 @@ class Solver(cs):
       #to here.
         ################################################### 
       print( f"if =20 complete outside")
-      if len(data)==15 or len(data)==18 or len(data)==20: 
-        print(f"so i am in if =(15,18,20) condition")
+      if len(data)==15 or len(data)==18 or len(data)==20:
+        movekey=[]
         for key, value in data.items():
-          print(f"line no ={(rl:=95)}")
           print(f"key={key} and value ={value}")
           if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
-            print(f"line no ={(rl:=98)}")
-            print(f"moves_history={moves_history}")
             if (moves_history and moves_history[-1]!=key) or not moves_history:
-              print(f"key={key} and value ={value} are selected")
               print(f"moves_history={moves_history}")
               #return self.update_nested_key(value,moves_history)
+              movekey=movekey+[key]
               self.update_nested_key(value,moves_history+[key])
+              print(f"move key ={movekey}")
               print(f"data={data}")
         return 
         #self.update_nested_key(value,moves_history+[key])
