@@ -148,35 +148,16 @@ class CubeSolver:
     puzzle_solve= False
     move=0
     move_path_history=list(move_history) if move_history else move_history
-    print(f"moved_to={moves_to}")
     while cur_state!=self.solution and i<len(moves_to):
-      print(f"i={i} and moves to= {len(moves_to)}")
       if move_path_history!="" and move_path_history:
         last_move=move_path_history[-1]
         if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
           states+= [self.mover(moves_to[i],cur_state)]
           moved_options_list+=[moves_to[i]]
-      ##elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
-        ##i+=1
       if states and states[-1]==self.solution:
         puzzle_solve=True
         return states[i], moved_options_list[i], puzzle_solve
       i=i+1
-      ##
-      #if move_path_history!="" and move_path_history:
-        #last_move=move_path_history[-1]
-        #while i<len(moves_to):
-          #print(f"i={i}")
-          #if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
-            #break
-          #elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
-            #i+=1
-      #states+= [self.mover(moves_to[i],cur_state)]
-      #moved_options_list+=[moves_to[i]]##
-      #if states[-1]==self.solution:
-        #puzzle_solve=True
-        #return states[i], moved_options_list[i], puzzle_solve
-      #i=i+1
     return states, moved_options_list, puzzle_solve
 if __name__=="__main__":
   state_given_to_solve={
