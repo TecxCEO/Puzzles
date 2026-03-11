@@ -55,6 +55,7 @@ class Solver(cs):
           print(f"line no ={83}")
           states,move_list,status=super().moves(data,moves_history)
           print(f"line no ={85}")
+           print(f"moves_history={moves_history}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             for ml in moves_history:
               print(f"data given={data_given}")
@@ -65,7 +66,7 @@ class Solver(cs):
             print(f"status of puzzle solved ={status}")
             print(f"states after respective moves ={states}")
             for i in range(len(states)):
-              data[move_list[i]]=states[i]
+              data[move_list[i]]=[states[i]]
               print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
             for ml in moves_history:
@@ -76,7 +77,7 @@ class Solver(cs):
             print(f"data={data}")
             for i in range(len(states)):
               print(f"line no ={(rl:=89)}")
-              data[move_list[i]]=states[i]
+              data[move_list[i]]=[states[i]]
               print(f"data={data}")
           return states, moves_history, status
         ##########№#####################################################
