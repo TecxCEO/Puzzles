@@ -18,7 +18,6 @@ class Solver(cs):
     }
     with open(self.filename, "w") as f:
       json.dump(puzzle_data, f, indent=4)
-    #update_nested_key(self, given_state)
     while True:
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
@@ -27,32 +26,23 @@ class Solver(cs):
         my_data = json.load(f)
       # 2. Update a key (no matter how deep it is) 
       # Example: Find "sms" and change it to True
-      print(f"my data [solution]={my_data["solution"]}")
       result = self.update_nested_key(my_data["solution"])
-      l=32
-      print(f"result={result}")
-      success = list(result) if result is not None else [] 
-      print(f"success={success}")
-      print(f"line no ={(l:=l+1)}")
+      success = list(result) if result is not None else []
       if success and success[-1] is True:
         # 3. Save if the update happened
         my_data[puzzle][Puzzle_Status]=success[2]
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
         my_data[puzzle]["Puzzle_Solved_State"]=success[0]
-        print(f"line no = 52")
-        print(f"my data = {my_data}")
       with open(self.filename, "w") as f:
         json.dump(my_data, f, indent=4)
-      print("Successfully updated the deep key!")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
-  ####def update_nested_key(self,data,move="",move_history=list()):
   def update_nested_key(self,data,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
-    data_given=data
-    d=data.copy()
+    data_given=data ##
+    d=data.copy() ##
     #data=data_given.copy()
     if moves_history is None:
       moves_history = []
@@ -66,10 +56,6 @@ class Solver(cs):
           states,move_list,status=super().moves(data,moves_history)
           print(f"line no ={85}")
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-            rl=87
-            #d=data.copy()
-            print(f"line no ={88}")
-            #data_given=data
             for ml in moves_history:
               print(f"data given={data_given}")
               data_given=data_given[ml]
@@ -82,8 +68,6 @@ class Solver(cs):
               data[move_list[i]]=states[i]
               print(f"data={data}")
           elif len(states)==1 or len(move_list)==1 and status is True:
-            print(f"line no ={(rl:=85)}")
-            #data_given=data
             for ml in moves_history:
               print(f"data given={data_given}")
               data_given=data_given[ml]
@@ -94,7 +78,6 @@ class Solver(cs):
               print(f"line no ={(rl:=89)}")
               data[move_list[i]]=states[i]
               print(f"data={data}")
-          return
           return states, moves_history, status
         ##########№#####################################################
           # last change from here.
@@ -113,16 +96,13 @@ class Solver(cs):
           print(f"line no ={(rl:=95)}")
           print(f"key={key} and value ={value}")
           if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
-            #if len(data[key])==15 or len(data[key])==18 or len(data[key])==20:
             print(f"line no ={(rl:=98)}")
             print(f"moves_history={moves_history}")
             if (moves_history and moves_history[-1]!=key) or not moves_history:
               print(f"key={key} and value ={value} are selected")
               print(f"moves_history={moves_history}")
-              ############moves_history.append(key)
               print(f"line no ={(rl:=102)}")
               print(f"moves_history={moves_history}")
-              #####return self.update_nested_key(value, key,moves_history)
               return self.update_nested_key(value,moves_history+[key])
     print(f"rec loop no = {rec_loop} end.")
 
