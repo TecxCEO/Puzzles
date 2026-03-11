@@ -116,11 +116,11 @@ class Solver(cs):
               print(f"key={key} and value ={value} are selected")
               print(f"moves_history={moves_history}")
               print(f"line no ={(rl:=102)}")
-              moves_history[-1]=[key]
+              ########moves_history[-1]=[key]
               print(f"moves_history={moves_history}")
               print(f" if =(15,18,20) condition complete")
-              return self.update_nested_key(value,moves_history)
-              #return self.update_nested_key(value,[moves_history+[key]])
+              #return self.update_nested_key(value,moves_history)
+              return self.update_nested_key(value,[moves_history+[key]])
     print(f"rec loop no = {rec_loop} end.")
 
 if __name__=="__main__":
