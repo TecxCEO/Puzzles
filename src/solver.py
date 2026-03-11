@@ -35,7 +35,7 @@ class Solver(cs):
         my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
         my_data[puzzle]["Puzzle_Solved_State"]=success[0]
       else:
-         my_data.update({solution:success[0]})##
+         my_data.update({"solution":success[0]})##
       with open(self.filename, "w") as wf:
         json.dump(my_data, wf, indent=4)
       print( f"my data after save to json file={my_data}")
