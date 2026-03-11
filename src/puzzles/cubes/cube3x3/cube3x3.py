@@ -152,7 +152,7 @@ class CubeSolver:
     move_path_history=list(move_history)
     while cur_state!=self.solution and i<len(moves_to):
       if move_path_history!="" and move_path_history:
-        last_move=str(move_path_history[-1])
+        last_move=move_path_history[-1]
         while True:
           if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
             break
