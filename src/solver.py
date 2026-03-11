@@ -56,7 +56,7 @@ class Solver(cs):
       print("Successfully updated the deep key!")
       print(f"whlieloop no = {while_loop} ends. and back to next one")
   ####def update_nested_key(self,data,move="",move_history=list()):
-  def update_nested_key(self,data,move_history=None):
+  def update_nested_key(self,data,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
@@ -67,7 +67,7 @@ class Solver(cs):
     print(f"rec loop no = {(rec_loop:=  rec_loop+1)} start.")
     print(f"moves_history=move_history={moves_history}") if move_history else None
     rl=66
-    moves_history=move_history
+    #####################moves_history=move_history
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
       #if target_key in data:
