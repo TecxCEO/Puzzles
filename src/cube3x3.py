@@ -155,45 +155,31 @@ class CubeSolver:
     print(f"moved_to={moves_to}")
     while cur_state!=self.solution and i<len(moves_to):
       print(f"i={i} and moves to= {len(moves_to)}")
-      if move_path_history!="" and move_path_history:
-        last_move=move_path_history[-1]
-        while i<len(moves_to):
-          print(f"i={i}")
-          if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
-            break
-          elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
-            i+=1
-      #states[i] = self.mover(moves_to[i],cur_state)
-      print(f"moved_to={moves_to}")
-      print(f"i={i}")
-      print(f"i={i} and moves to= {len(moves_to)}")
-      print(f"moved_to={moves_to[i]}")
-      states+= [self.mover(moves_to[i],cur_state)]
-      moved_options_list+=[moves_to[i]]##
-      print(f"moved_options_list={moved_options_list}")
-      #moved_options_list[i]=moves_to[i] ##
-      # move_path_history.append(moves_to[i])
-      # Prepare the JSONL entry
-      ##data_entry = {
-        ##"given state":cur_state,
-        ##"current state after move":states[i],
-        ##"move": moves_to[i],
-        # "moved_steps_list":move_path_history,
-        ##"metadata": {
-          ##"source": "Cube3x3 Fuzzle Solver",
-          # "length": len(move_path_history)
-        ##}
-        ##}
-      # Append to the JSONL file
-      ####with open(self.output_file, 'a', encoding='utf-8') as f:
-            ####f.write(json.dumps(data_entry) + '\n')
-      ##if states[i]==self.solution:
+      ##
+      if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
+        states+= [self.mover(moves_to[i],cur_state)]
+        moved_options_list+=[moves_to[i]]
+      ##elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
+        ##i+=1
       if states[-1]==self.solution:
         puzzle_solve=True
         return states[i], moved_options_list[i], puzzle_solve
-        #return states[i], move_path_history, puzzle_solve ##
-      #return self.moves(states[i], move_path_history) ##
       i=i+1
+      ##
+      #if move_path_history!="" and move_path_history:
+        #last_move=move_path_history[-1]
+        #while i<len(moves_to):
+          #print(f"i={i}")
+          #if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
+            #break
+          #elif last_move.strip()[:2]==moves_to[i].strip()[:2]:
+            #i+=1
+      #states+= [self.mover(moves_to[i],cur_state)]
+      #moved_options_list+=[moves_to[i]]##
+      #if states[-1]==self.solution:
+        #puzzle_solve=True
+        #return states[i], moved_options_list[i], puzzle_solve
+      #i=i+1
     return states, moved_options_list, puzzle_solve
 if __name__=="__main__":
   state_given_to_solve={
