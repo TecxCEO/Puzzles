@@ -68,6 +68,7 @@ class Solver(cs):
           if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
             print(f"data length= {len(data)}")
             #for cb, cbv in zip(data):
+            cbe=[]
             for cb in data:
               print(f"data element {cb} value {data[cb]}")
               #cbe.appentd([cb])
