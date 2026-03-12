@@ -146,14 +146,14 @@ class CubeSolver:
     states = []
     moved_options_list=[]
     puzzle_solve= False
-    move=0
+    last_move=""
     move_path_history=list(move_history) if move_history else move_history
     while cur_state!=self.solution and i<len(moves_to):
       if move_path_history!="" and move_path_history:
         last_move=move_path_history[-1]
-        if last_move.strip()[:2]!=moves_to[i].strip()[:2]:
-          states+= [self.mover(moves_to[i],cur_state)]
-          moved_options_list+=[moves_to[i]]
+      if last_move.strip()[:2]!=moves_to[i].strip()[:2] or not last_move:
+        states+= [self.mover(moves_to[i],cur_state)]
+        moved_options_list+=[moves_to[i]]
       if states and states[-1]==self.solution:
         puzzle_solve=True
         return states[i], moved_options_list[i], puzzle_solve
