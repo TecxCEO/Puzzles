@@ -68,13 +68,6 @@ class Solver(c3x3):
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,moves_history)
           print(f"moves_history={moves_history}")
-          #cbe=[]
-          #data_forward=data
-          #for cb in data:
-            #cbe=cbe+[cb]
-            #print(f"data elements ={cbe}")
-          #for cb in cbe:
-            #del data_forward[cb]
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
             if not isinstance (dic_value,(dict,list)):
