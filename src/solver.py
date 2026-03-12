@@ -78,12 +78,13 @@ class Solver(cs):
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data[move_list[i]]=states[i]
+              ##data_forward[move_list[i]]=states[i]
           ##elif len(states)==1 or len(move_list)==1 and status is True:
             ##for i in range(len(states)):
               ##data[move_list[i]]=[states[i]]
           ##
-          return data_forward, moves_history, status
-          ########return data, moves_history, status
+          ##return data_forward, moves_history, status
+          return data, moves_history, status
           #return states, moves_history, status
         ##########№#####################################################
           # last change from here.
