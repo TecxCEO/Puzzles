@@ -66,32 +66,24 @@ class Solver(cs):
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,moves_history)
           print(f"moves_history={moves_history}")
-          if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
-            print(f"data length= {len(data)}")
-            ##print(f"data={data}")
-            #for cb, cbv in zip(data):
-            cbe=[]
-            for cb in data:
-              ##print(f"data element {cb} value {data[cb]}")
-              #cbe.appentd([cb])
-              cbe=cbe+[cb]
+          cbe=[]
+          data_forward=data
+          for cb in data:
+            cbe=cbe+[cb]
             print(f"data elements ={cbe}")
-            for cb in cbe:
-              del data[cb]
-            #data.clear()
+          for cb in cbe:
+            del data_forward[cb]
+          #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
+          if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
+            print(f"data length= {len(data)}")
             for i in range(len(states)):
               data[move_list[i]]=states[i]
-          elif len(states)==1 or len(move_list)==1 and status is True:
-            cbe=[]
-            for cb in data:
-              cbe=cbe+[cb]
-            for cb in cbe:
-              del data[cb]
-            #data.clear()
-            for i in range(len(states)):
-              data[move_list[i]]=[states[i]]
-            ##return states, moves_history, status
-          return data, moves_history, status
+          ##elif len(states)==1 or len(move_list)==1 and status is True:
+            ##for i in range(len(states)):
+              ##data[move_list[i]]=[states[i]]
+          ##
+          return data_forward, moves_history, status
+          ########return data, moves_history, status
           #return states, moves_history, status
         ##########№#####################################################
           # last change from here.
