@@ -1,6 +1,7 @@
 import json
 
-class CubeSolver:
+#class CubeSolver:
+class Cube3x3:
   def __init__(self):
     self.output_file="./puzzle_move_and_states.json"
     faces={'b':'blue','g':'green','o':'orange','r':'red','y':'yellow','w':'white'}
@@ -182,6 +183,7 @@ if __name__=="__main__":
       "gw":"ob",
       "gy":"gr"
     }
-  cs=CubeSolver()
-  result=cs.moves(state_given_to_solve)
+  #cs=CubeSolver()
+  c3x3=Cube3x3()
+  result=c3x3.moves(state_given_to_solve)
   print(result)
