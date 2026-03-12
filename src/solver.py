@@ -28,20 +28,21 @@ class Solver(cs):
       # Example: Find "sms" and change it to True
       ##print( f"my data before  unk function call={my_data}")
       ##result = self.update_nested_key(my_data["solution"])
-      states_option,moves,status = self.update_nested_key(my_data["solution"])
+      #states_option,moves,status = self.update_nested_key(my_data["solution"])
+      self.update_nested_key(my_data["solution"])
       #success = list(result) if result is not None else []
       #if success and success[-1] is True:
-      if status and status is True:
+      ####if status and status is True:
         # 3. Save if the update happened
-        my_data[puzzle][Puzzle_Status]=status
-        my_data[puzzle]["Moves_to_Solve_Puzzle"]=moves
+        ###########my_data[puzzle][Puzzle_Status]=status
+        ###############my_data[puzzle]["Moves_to_Solve_Puzzle"]=moves
         #my_data[puzzle]["Puzzle_Solved_State"]=states_option
         # 3. Save if the update happened
         #my_data[puzzle][Puzzle_Status]=success[2]
         #my_data[puzzle]["Moves_to_Solve_Puzzle"]=success[1]
         #my_data[puzzle]["Puzzle_Solved_State"]=success[0]
       #else:
-      my_data.update({"solution":states_option})##
+      ##my_data.update({"solution":states_option})##
       print(f"my data={my_data}")
       with open(self.filename, "w") as wf:
         json.dump(my_data, wf, indent=4)
@@ -57,7 +58,7 @@ class Solver(cs):
       moves_history = []
       ##states=[]
       ##move_list=[]
-      ##status=False
+      status=False
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
       print(f"data length={len(data)}")
@@ -66,25 +67,29 @@ class Solver(cs):
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,moves_history)
           print(f"moves_history={moves_history}")
-          cbe=[]
-          data_forward=data
-          for cb in data:
-            cbe=cbe+[cb]
-            print(f"data elements ={cbe}")
-          for cb in cbe:
-            del data_forward[cb]
+          #cbe=[]
+          #data_forward=data
+          #for cb in data:
+            #cbe=cbe+[cb]
+            #print(f"data elements ={cbe}")
+          #for cb in cbe:
+            #del data_forward[cb]
+          for dic_key in list(data.keys()):
+            dic_value=data[dic_key]
+            if not isinstance (dic_value,(dict,list)):
+              del data[dic_key]
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             print(f"data length= {len(data)}")
             for i in range(len(states)):
+              data.update({move_list[i]:states[i]})
               ##data[move_list[i]]=states[i]
-              data_forward[move_list[i]]=states[i]
+              ####data_forward[move_list[i]]=states[i]
           ##elif len(states)==1 or len(move_list)==1 and status is True:
             ##for i in range(len(states)):
               ##data[move_list[i]]=[states[i]]
-          ##
-          return data_forward, moves_history, status
-          ##return data, moves_history, status
+          ##return data_forward, moves_history, status
+          return data, moves_history, status
           #return states, moves_history, status
         ##########№#####################################################
           # last change from here.
@@ -104,13 +109,16 @@ class Solver(cs):
           if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
             if (moves_history and moves_history[-1]!=key) or not moves_history:
               print(f"moves_history={moves_history}")
+              self.update_nested_key(value,moves_history+[key])
               #return self.update_nested_key(value,moves_history)
-              data,moves_list,status=self.update_nested_key(value,moves_history+[key])
+              ##data,moves_list,status=self.update_nested_key(value,moves_history+[key])
               #print(f"move key ={movekey}")
-              if status is True:
-                moves_history = move_list
-                return data,moves_history,status
-        return data,moves_history,status
+              #########if status is True:
+                ##moves_history = move_list
+                ##########return data,moves_history,status
+        return
+        #return data,moves_history,status
+        ##return self.update_nested_key(value,moves_history+[key])
         #self.update_nested_key(value,moves_history+[key])
     print(f"rec loop no = {rec_loop} end.")
 if __name__=="__main__":
