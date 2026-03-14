@@ -33,7 +33,7 @@ class Solver(c3x3):
         print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
         print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
         break
-  def update_nested_key(self,data,moves_history=None):
+  def update_nested_key(self,data,status,mtsp,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
@@ -48,7 +48,7 @@ class Solver(c3x3):
       if len(data)==20:
         print(f"so i am in if =20 condition")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
-          states,move_list,status=super().moves(data,moves_history)
+          states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
@@ -66,7 +66,10 @@ class Solver(c3x3):
           if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
             if (moves_history and moves_history[-1]!=key) or not moves_history:
               print(f"moves_history={moves_history}")
-              self.update_nested_key(value,moves_history+[key])
+              self.update_nested_key(value,status,mtsp,moves_history+[key])
+            if status == true and mtsp
+            print(f"mtsp={mtsp}")
+            return
         return
     print(f"rec loop no = {rec_loop} end.")
 if __name__=="__main__":
