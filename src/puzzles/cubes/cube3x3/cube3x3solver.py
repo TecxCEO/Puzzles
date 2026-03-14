@@ -67,9 +67,9 @@ class Solver(c3x3):
             if (moves_history and moves_history[-1]!=key) or not moves_history:
               print(f"moves_history={moves_history}")
               self.update_nested_key(value,status,mtsp,moves_history+[key])
-            if status == true and mtsp
-            print(f"mtsp={mtsp}")
-            return
+            if status == true and mtsp:
+              print(f"mtsp={mtsp}")
+              return
         return
     print(f"rec loop no = {rec_loop} end.")
 if __name__=="__main__":
