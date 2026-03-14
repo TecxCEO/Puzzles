@@ -140,7 +140,7 @@ class Cube3x3:
           if mb_e!="":
             state.update({state_element:mb_e})
     return state
-  def moves(self, state_given_to_solve,move_history=""):
+  def moves(self, state_given_to_solve,mtsp,move_history=""):
     moves_to=list(self.move_paths)
     cur_state=state_given_to_solve.copy()
     i=0
@@ -157,6 +157,7 @@ class Cube3x3:
         moved_options_list+=[moves_to[i]]
       if states and states[-1]==self.solution:
         puzzle_solve=True
+        mtsp=move_path_history+moved_options_list[i]
         return states[i], moved_options_list[i], puzzle_solve
       i=i+1
     return states, moved_options_list, puzzle_solve
@@ -183,7 +184,7 @@ if __name__=="__main__":
       "gw":"ob",
       "gy":"gr"
     }
-  #cs=CubeSolver()
+  mtsp=[]
   c3x3=Cube3x3()
-  result=c3x3.moves(state_given_to_solve)
+  result=c3x3.moves(state_given_to_solve,mtsp)
   print(result)
