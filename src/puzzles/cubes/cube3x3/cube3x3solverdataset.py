@@ -64,6 +64,7 @@ class Solver(c3x3):
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
+          state_data=data.copy
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
             if not isinstance (dic_value,(dict,list)):
@@ -73,17 +74,21 @@ class Solver(c3x3):
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
+            data.update({"state":state_data})
           return data, moves_history, status 
-      if len(data)==15 or len(data)==18 or len(data)==20:
+      #if len(data)=15 or len(data)==18 or len(data)==20:
+      if len(data)=16 or len(data)==19 or len(data)==20:
         for key, value in data.items():
-          print(f"key={key} and value ={value}")
-          if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
-            if (moves_history and moves_history[-1]!=key) or not moves_history:
-              print(f"moves_history={moves_history}")
-              self.update_nested_key(value,status,mtsp,moves_history+[key])
-            if status == True and mtsp:
-              print(f"mtsp={mtsp}")
-              return
+          if key!=state:
+            print(f"key={key} and value ={value}")
+            #if len(value) in [15,18,20] or len(data[key]) in [15,18,20]:
+            if len(value) in [16,19,20] or len(data[key]) in [16,19,20]:
+              if (moves_history and moves_history[-1]!=key) or not moves_history:
+                print(f"moves_history={moves_history}")
+                self.update_nested_key(value,status,mtsp,moves_history+[key])
+              if status == True and mtsp:
+                print(f"mtsp={mtsp}")
+                return
         return
     print(f"rec loop no = {rec_loop} end.")
 if __name__=="__main__":
