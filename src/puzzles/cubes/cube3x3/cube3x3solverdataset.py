@@ -5,7 +5,14 @@ class Solver(c3x3):
   def __init__(self):
     super().__init__()
     self.filename = "data.json"
-    self.filepath="../data/cube3x3/solution"
+    self.filepath="data/puzzles/cube/cube3x3/states/"
+  ##def save_file(self,path="",dir="",filename="",file_data=""):
+    ##path_to_save=f"{path}{dir}/{filename}"
+    #self.path_to_save=f"{path}{dir}/{filename}"
+    #self.path_to_save=f"{self.filepath}{dir}/{filename}"
+    ##file_to_save=self.filepath
+    ##with open(self.filename, "w") as f:
+      ##json.dump(puzzle_data, f, indent=4)
   def solve(self,given_state):
     self.current_state=given_state.copy()
     puzzle_data={
@@ -18,17 +25,24 @@ class Solver(c3x3):
     }
     with open(self.filename, "w") as f:
       json.dump(puzzle_data, f, indent=4)
+    while_loop=0
     while True:
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
       with open(self.filename, "r") as rf:
         my_data = json.load(rf)
-      # 2. Update a key (no matter how deep it is)      
+      # 2. Update a key (no matter how deep it is)
+      if while_loop>3:
+        with open(f"data/{while_loop}/{self.filename}", "w") as wf:
+          json.dump(my_data, wf, indent=4)
+          break
       if my_data["puzzle"]["puzzle_status"]==False:
         self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
-        with open(self.filename, "w") as wf:
+        with open(f"data/{self.filename}", "w") as wf:
           json.dump(my_data, wf, indent=4)
+        #with open(self.filename, "w") as wf:
+          #json.dump(my_data, wf, indent=4)
       elif my_data["puzzle"]["puzzle_status"]==True:
         print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
         print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
