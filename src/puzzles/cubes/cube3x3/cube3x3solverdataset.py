@@ -13,11 +13,12 @@ class Solver(c3x3):
     ##file_to_save=self.filepath
     ##with open(self.filename, "w") as f:
       ##json.dump(puzzle_data, f, indent=4)
-  def solve(self,given_state):
+  def solve(self,given_state, puzzle_moved=""):
     self.current_state=given_state.copy()
     puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
+        "puzzle_moved":puzzle_moved
         "puzzle_status":False,
         "moves_to_solve_puzzle":""
       },
