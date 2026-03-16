@@ -27,7 +27,7 @@ class Solver(c3x3):
     with open(self.filename, "w") as f:
       json.dump(puzzle_data, f, indent=4)
     while_loop=0
-    while True:
+    whiljson.dump(puzzle_data, f, indent=4)e True:
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
@@ -75,6 +75,11 @@ class Solver(c3x3):
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
+              if len(moves_history)==3:####
+                st_data={"solution":states[i]}
+                file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json
+                with open(file, "w") as f:####
+                  json.dump(st_data, f, indent=4)###
             data.update({"state":state_data})
           return data, moves_history, status 
       #if len(data)=15 or len(data)==18 or len(data)==20:
