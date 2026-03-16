@@ -1,3 +1,4 @@
+import os ####
 import json
 from cube3x3 import Cube3x3 as c3x3
 
@@ -27,7 +28,17 @@ class Solver(c3x3):
     with open(self.filename, "w") as f:
       json.dump(puzzle_data, f, indent=4)
     while_loop=0
-    whiljson.dump(puzzle_data, f, indent=4)e True:
+
+    
+    whil
+    json.dump(puzzle_data, f, indent=4)e True:
+
+    
+# Filter all items in the current directory ('.') that are folders
+directories = [d for d in os.listdir('.') if os.path.isdir(d)]
+
+print(directories)
+
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
