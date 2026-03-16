@@ -38,7 +38,8 @@ class Solver(c3x3):
 directories = [d for d in os.listdir('.') if os.path.isdir(d)]
 
 print(directories)
-
+      if len(directories)>15:
+        sififi
       while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
