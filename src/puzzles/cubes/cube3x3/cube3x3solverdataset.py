@@ -15,6 +15,7 @@ class Solver(c3x3):
     ##with open(self.filename, "w") as f:
       ##json.dump(puzzle_data, f, indent=4)
   def solve(self,given_state, puzzle_moved=""):
+    print(f"solve function started")
     self.current_state=given_state.copy()
     if os.path.isfile(self.filename):
       # 1. Load your file
