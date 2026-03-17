@@ -107,7 +107,7 @@ class Solver(c3x3):
             data.update({"state":state_data})
           return data, moves_history, status 
       #if len(data)=15 or len(data)==18 or len(data)==20:
-      if len(data)=16 or len(data)==19 or len(data)==20:
+      if len(data)==16 or len(data)==19 or len(data)==20:
         for key, value in data.items():
           if key!=state:
             print(f"key={key} and value ={value}")
