@@ -20,9 +20,10 @@ class Solver(c3x3):
       # 1. Load your file
       with open(self.filename, "r") as rf:
         my_data = json.load(rf)
+        #if puzzle_moved=="" and my_data["puzzle"]["puzzle_given"]==self.current_state:
         if my_data["puzzle"]["puzzle_given"]==self.current_state:
           print(Using Previous Saved data file.)
-    elif puzzle_moved=="":
+    elif puzzle_moved=="" :
       puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
@@ -50,22 +51,26 @@ class Solver(c3x3):
             # Filter all items in the current directory ('.') that are folders
             # 2. Update a key (no matter how deep it is)
             if while_loop>3:
-              self.solve(my_data["solution"]["state"], my_data["puzzle"]["puzzle_moved"]):
-      break
-      # 1. Load your file
-      with open(self.filename, "r") as rf:
-        my_data = json.load(rf)
-      
-      if my_data["puzzle"]["puzzle_status"]==False:
-        self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
-        with open(f"data/{self.filename}", "w") as wf:
-          json.dump(my_data, wf, indent=4)
-        #with open(self.filename, "w") as wf:
-          #json.dump(my_data, wf, indent=4)
-      elif my_data["puzzle"]["puzzle_status"]==True:
-        print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
-        print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
+              self.solve(my_data["solution"]["state"], my_data["puzzle"]["puzzle_moved"])
+              #with open(f"data/{self.filename}"f"{directory}/{self.filename}", "w") as wf:
+              with open(f"{directory}/{self.filename}", "w") as wf:
+                json.dump(my_data, wf, indent=4)
         break
+      elif not directories or len(directories)<15:
+        # 1. Load your file
+        with open(self.filename, "r") as rf:
+          my_data = json.load(rf)
+        if my_data["puzzle"]["puzzle_status"]==False:
+          self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
+          #with open(f"data/{self.filename}", "w") as wf:
+            #json.dump(my_data, wf, indent=4)
+          with open(self.filename, "w") as wf:
+            json.dump(my_data, wf, indent=4)
+        elif my_data["puzzle"]["puzzle_status"]==True:
+          print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
+          print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
+        break
+    return
   def update_nested_key(self,data,status,mtsp,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
