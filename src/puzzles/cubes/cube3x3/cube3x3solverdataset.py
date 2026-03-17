@@ -44,8 +44,8 @@ class Solver(c3x3):
           # 1. Load your file
           with open(f"{directory}/{self.filename}", "r") as rf:
             my_data = json.load(rf)
-          if not my_data["puzzle"]["puzzle_moved"]:
-            my_data.update({"puzzle":{"puzzle_moved":directory}})
+          #if not my_data["puzzle"]["puzzle_moved"]:
+            #my_data.update({"puzzle":{"puzzle_moved":directory}})
           if my_data["puzzle"]["puzzle_moved"] and my_data["puzzle"]["puzzle_moved"]!="":
             # Filter all items in the current directory ('.') that are folders
             # 2. Update a key (no matter how deep it is)
@@ -95,6 +95,7 @@ class Solver(c3x3):
               data.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
+                st_data.update({"puzzle":{"puzzle_moved":list(moves_history[0],moves_history[1],moves_history[2],move_list[i])})
                 file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json
                 with open(file, "w") as f:####
                   json.dump(st_data, f, indent=4)###
