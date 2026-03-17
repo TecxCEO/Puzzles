@@ -16,7 +16,14 @@ class Solver(c3x3):
       ##json.dump(puzzle_data, f, indent=4)
   def solve(self,given_state, puzzle_moved=""):
     self.current_state=given_state.copy()
-    puzzle_data={
+    if os.path.isfile(self.filename):
+      # 1. Load your file
+      with open(self.filename, "r") as rf:
+        my_data = json.load(rf)
+        if my_data["puzzle"]["puzzle_given"]==self.current_state:
+          print(Using Previous Saved data file.)
+    elif puzzle_moved=="":
+      puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
         "puzzle_moved":puzzle_moved
@@ -24,32 +31,31 @@ class Solver(c3x3):
         "moves_to_solve_puzzle":""
       },
       "solution":self.current_state
-    }
-    with open(self.filename, "w") as f:
-      json.dump(puzzle_data, f, indent=4)
+      }
+      with open(self.filename, "w") as f:
+        json.dump(puzzle_data, f, indent=4)
     while_loop=0
-
-    
-    whil
-    json.dump(puzzle_data, f, indent=4)e True:
-
-    
-# Filter all items in the current directory ('.') that are folders
-directories = [d for d in os.listdir('.') if os.path.isdir(d)]
-
-print(directories)
-      if len(directories)>15:
-        sififi
-      while_loop=0
+    while True:
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
+      directories = [d for d in os.listdir('.') if os.path.isdir(d)]
+      print(directories)
+      if len(directories)>14:
+        for directory in directories:
+          # 1. Load your file
+          with open(f"{directory}/{self.filename}", "r") as rf:
+            my_data = json.load(rf)
+          if not my_data["puzzle"]["puzzle_moved"]:
+            my_data.update({"puzzle":{"puzzle_moved":directory}})
+          if my_data["puzzle"]["puzzle_moved"] and my_data["puzzle"]["puzzle_moved"]!="":
+            # Filter all items in the current directory ('.') that are folders
+            # 2. Update a key (no matter how deep it is)
+            if while_loop>3:
+              self.solve(my_data["solution"]["state"], my_data["puzzle"]["puzzle_moved"]):
+      break
       # 1. Load your file
       with open(self.filename, "r") as rf:
         my_data = json.load(rf)
-      # 2. Update a key (no matter how deep it is)
-      if while_loop>3:
-        with open(f"data/{while_loop}/{self.filename}", "w") as wf:
-          json.dump(my_data, wf, indent=4)
-          break
+      
       if my_data["puzzle"]["puzzle_status"]==False:
         self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
         with open(f"data/{self.filename}", "w") as wf:
