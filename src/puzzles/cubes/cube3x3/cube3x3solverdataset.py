@@ -59,6 +59,7 @@ class Solver(c3x3):
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
+            data.update({"state":state_data})#
           return data, moves_history, status 
       if len(data)==15 or len(data)==18 or len(data)==20:
         for key, value in data.items():
