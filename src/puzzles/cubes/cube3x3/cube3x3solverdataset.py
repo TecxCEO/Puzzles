@@ -22,7 +22,7 @@ class Solver(c3x3):
         my_data = json.load(rf)
         #if puzzle_moved=="" and my_data["puzzle"]["puzzle_given"]==self.current_state:
         if my_data["puzzle"]["puzzle_given"]==self.current_state:
-          print(Using Previous Saved data file.)
+          print(f"Using Previous Saved data file.")
     elif puzzle_moved=="" :
       puzzle_data={
       "puzzle": {
