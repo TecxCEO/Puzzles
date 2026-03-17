@@ -18,8 +18,8 @@ class Solver(c3x3):
     }
     with open(self.filename, "w") as f:
       json.dump(puzzle_data, f, indent=4)
+    while_loop=0
     while True:
-      while_loop=0
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
       with open(self.filename, "r") as rf:
