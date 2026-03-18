@@ -51,6 +51,7 @@ class Solver(c3x3):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
           data.update({"state":data})
+          print(f"data={data}")####
           #state_data=data
           #state_data=data.copy
           for dic_key in list(data.keys()):
@@ -64,8 +65,6 @@ class Solver(c3x3):
               data.update({move_list[i]:states[i]})
             data.update({"state":state_data})#
             print(f"data={data}")####
-            print(f"state_data={state_data}")#
-            print(f"state={state}")#####
           return data, moves_history, status 
       if len(data)==15 or len(data)==18 or len(data)==20:
         for key, value in data.items():
