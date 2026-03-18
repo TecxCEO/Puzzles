@@ -18,16 +18,16 @@ class Solver(c3x3):
       "solution":self.current_state
     }
     if os.path.isfile(self.filename):
-      print(f"Using file Already saved")
+      ##print(f"Using file Already saved")
       # 1. Load your file
-      ##with open(self.filename, "r") as rf:
+      with open(self.filename, "r") as rf:
         ##content=rf.read()
         ##print(content)
         ##rf.seek(0)
-        ##my_data = json.load(rf)
+        my_data = json.load(rf)
         #if puzzle_moved=="" and my_data["puzzle"]["puzzle_given"]==self.current_state:
-        if my_data["puzzle"]["puzzle_given"]==self.current_state:
-          print(f"Using Previous Saved data file.")
+    if my_data and my_data["puzzle"]["puzzle_given"]==self.current_state:
+      print(f"Using Previous Saved data file.")
     
     else:
       with open(self.filename, "w") as f:
