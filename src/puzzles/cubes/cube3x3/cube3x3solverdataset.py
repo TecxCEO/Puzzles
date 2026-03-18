@@ -51,7 +51,7 @@ class Solver(c3x3):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
           print(f"data={data}")####
-          data.update({"state":data})
+          data.update({"state":data.copy})
           print(f"data={data}")####
           print(f"data[state]={data["state"]}")####
           print(f"data[state][state]={data["state"]["state"]}")####
