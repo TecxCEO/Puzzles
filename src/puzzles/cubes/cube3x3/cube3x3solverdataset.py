@@ -58,7 +58,7 @@ class Solver(c3x3):
           print(f"data={data}")####
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
-            if not isinstance (dic_value,(dict,list)):
+            if not isinstance (dic_value,(dict,list)) and dic_key != "state":
               del data[dic_key]
           print(f"data after delete elements={data}")#####
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
