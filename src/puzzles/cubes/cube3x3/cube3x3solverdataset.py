@@ -27,7 +27,7 @@ class Solver(c3x3):
       # 2. Update a key (no matter how deep it is)      
       if my_data["puzzle"]["puzzle_status"]==False:
         self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
-        print(f"my_data[solution][state]={my_data["solution"][state]}")
+        print(f"my_data[solution][state]={my_data["solution"]["state"]}")
         with open(self.filename, "w") as wf:
           json.dump(my_data, wf, indent=4)
       elif my_data["puzzle"]["puzzle_status"]==True:
