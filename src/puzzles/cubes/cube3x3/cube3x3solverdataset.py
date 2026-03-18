@@ -50,14 +50,8 @@ class Solver(c3x3):
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
-          print(f"data={data}")####
           data.update({"state":data.copy})
           print(f"data={data}")####
-          print(f"data[state]={data["state"]}")####
-          print(f"data[state][state]={data["state"]["state"]}")####
-          print(f"data[state][state][state]={data["state"]["state"]["state"]}")####
-          #state_data=data
-          #state_data=data.copy
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
             if not isinstance (dic_value,(dict,list)):
@@ -67,8 +61,6 @@ class Solver(c3x3):
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
-            #data.update({"state":state_data})#
-            print(f"data={data}")####
           return data, moves_history, status 
       if len(data)==15 or len(data)==18 or len(data)==20:
         for key, value in data.items():
