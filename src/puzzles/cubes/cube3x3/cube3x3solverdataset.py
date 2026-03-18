@@ -20,7 +20,6 @@ class Solver(c3x3):
       json.dump(puzzle_data, f, indent=4)
     while_loop=0
     while True:
-      print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       # 1. Load your file
       with open(self.filename, "r") as rf:
         my_data = json.load(rf)
@@ -33,6 +32,7 @@ class Solver(c3x3):
         print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
         print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
         break
+      print(f"Move no = {(while_loop := while_loop + 1)}  are done.")
   def update_nested_key(self,data,status,mtsp,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
