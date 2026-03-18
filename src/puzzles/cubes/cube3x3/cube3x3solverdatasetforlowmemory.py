@@ -5,7 +5,8 @@ from cube3x3 import Cube3x3 as c3x3
 class Solver(c3x3):
   def __init__(self):
     super().__init__()
-    self.filename = "data.json"
+    #self.filename = "data.json"
+    self.filename = "cube3x3solvingdatasetforlowmemory.json"
     self.filepath="data/puzzles/cube/cube3x3/states/"
   ##def save_file(self,path="",dir="",filename="",file_data=""):
     ##path_to_save=f"{path}{dir}/{filename}"
