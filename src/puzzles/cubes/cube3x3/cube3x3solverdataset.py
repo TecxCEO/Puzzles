@@ -54,7 +54,7 @@ class Solver(c3x3):
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
-          data.update({"state":data.copy})
+          data.update({"state":data.copy()})
           print(f"data={data}")####
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
