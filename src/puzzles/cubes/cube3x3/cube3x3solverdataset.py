@@ -56,14 +56,14 @@ class Solver(c3x3):
           #state_data=data.copy
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
-            if not isinstance (dic_value,(dict,list)):
+            if not isinstance (dic_value,(dict,list)) and dic_key!=state:
               del data[dic_key]
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
-            data.update({"state":state_data})#
+            #data.update({"state":state_data})#
             print(f"data={data}")####
           return data, moves_history, status 
       if len(data)==15 or len(data)==18 or len(data)==20:
