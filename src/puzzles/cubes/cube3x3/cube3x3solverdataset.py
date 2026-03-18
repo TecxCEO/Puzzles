@@ -71,8 +71,8 @@ class Solver(c3x3):
             if status == True and mtsp:
               #print(f"mtsp={mtsp}")
               return
+        #print(f"rec loop end.")
         return
-    print(f"rec loop end.")
 if __name__=="__main__":
   state_given_to_solve={
       "rgy":"ogw",
