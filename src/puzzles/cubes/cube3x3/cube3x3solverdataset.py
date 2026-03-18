@@ -38,18 +38,18 @@ class Solver(c3x3):
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
-    print(f"moves_history={moves_history}")##
+    #print(f"moves_history={moves_history}")##
     if moves_history is None:
       moves_history = []
       status=False
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
-      print(f"data length={len(data)}")
+      #print(f"data length={len(data)}")
       if len(data)==20:
-        print(f"so i am in if =20 condition")
+        #print(f"so i am in if =20 condition")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,mtsp,moves_history)
-          print(f"moves_history={moves_history}")
+          #print(f"moves_history={moves_history}")
           data.update({"state":data.copy()})
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
@@ -57,7 +57,7 @@ class Solver(c3x3):
               del data[dic_key]
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
-            print(f"data length= {len(data)}")
+            #print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
           return data, moves_history, status 
