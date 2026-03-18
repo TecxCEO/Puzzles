@@ -27,10 +27,6 @@ class Solver(c3x3):
       # 2. Update a key (no matter how deep it is)      
       if my_data["puzzle"]["puzzle_status"]==False:
         self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
-        print(f"my_data[solution]={my_data["solution"]}")
-        print(my_data) 
-        print(f"my_data={my_data}")
-        print(f"my_data[solution][state]={my_data["solution"]["state"]}")
         with open(self.filename, "w") as wf:
           json.dump(my_data, wf, indent=4)
       elif my_data["puzzle"]["puzzle_status"]==True:
@@ -55,18 +51,15 @@ class Solver(c3x3):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
           data.update({"state":data.copy()})
-          print(f"data={data}")####
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
             if not isinstance (dic_value,(dict,list)) and dic_key != "state":
               del data[dic_key]
-          print(f"data after delete elements={data}")#####
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
-            print(f"data after update={data}")
           return data, moves_history, status 
       if len(data)==15 or len(data)==18 or len(data)==20:
         for key, value in data.items():
@@ -79,7 +72,7 @@ class Solver(c3x3):
               print(f"mtsp={mtsp}")
               return
         return
-    print(f"rec loop no = {rec_loop} end.")
+    print(f"rec loop end.")
 if __name__=="__main__":
   state_given_to_solve={
       "rgy":"ogw",
