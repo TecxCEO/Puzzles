@@ -60,11 +60,13 @@ class Solver(c3x3):
             dic_value=data[dic_key]
             if not isinstance (dic_value,(dict,list)):
               del data[dic_key]
+          print(f"data after delete elements={data}")#####
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             print(f"data length= {len(data)}")
             for i in range(len(states)):
               data.update({move_list[i]:states[i]})
+            print(f"data after update={data}")
           return data, moves_history, status 
       if len(data)==15 or len(data)==18 or len(data)==20:
         for key, value in data.items():
