@@ -30,7 +30,7 @@ class Solver(c3x3):
         ##print(f"Using Previous Saved data file.")
     
     ##else:
-    elif ! os.path.isfile(self.filename):
+    if ! os.path.isfile(self.filename):
       with open(self.filename, "w") as f:
         json.dump(puzzle_data, f, indent=4)
     while_loop=0
