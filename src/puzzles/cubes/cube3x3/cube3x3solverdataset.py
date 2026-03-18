@@ -54,6 +54,7 @@ class Solver(c3x3):
           data.update({"state":data})
           print(f"data={data}")####
           print(f"data[state]={data["state"]}")####
+          print(f"data[state][state]={data["state"]["state"]}")####
           #state_data=data
           #state_data=data.copy
           for dic_key in list(data.keys()):
