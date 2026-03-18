@@ -18,7 +18,7 @@ class Solver(c3x3):
       "solution":self.current_state
     }
     if os.path.isfile(self.filename):
-      print(Using file Already saved)
+      print(f"Using file Already saved")
       # 1. Load your file
       ##with open(self.filename, "r") as rf:
         ##content=rf.read()
