@@ -15,7 +15,8 @@ class Solver(c3x3):
     ##file_to_save=self.filepath
     ##with open(self.filename, "w") as f:
       ##json.dump(puzzle_data, f, indent=4)
-  def solve(self,given_state, puzzle_moved=""):
+  ####def solve(self,given_state, status=False ,puzzle_moved="",moves_to_solve_puzzle=""):
+  def solve(self,given_state,puzzle_data["puzzle"]=""):
     print(f"solve function started")
     self.current_state=given_state.copy()
     if os.path.isfile(self.filename):
@@ -75,7 +76,9 @@ class Solver(c3x3):
           print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
           print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
         break
-    return
+
+#return
+return puzzle_data["puzzle"]
   def update_nested_key(self,data,status,mtsp,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
