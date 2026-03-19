@@ -115,7 +115,7 @@ class Solver(c3x3):
           return data, moves_history, status 
       if len(data)==16 or len(data)==19 or len(data)==20:
         for key, value in data.items():
-          if key!=state and (if len(value) in [16,19,20] or len(data[key]) in [16,19,20]):
+          if key!=state and (len(value) in [16,19,20] or len(data[key]) in [16,19,20]):
               if (moves_history and moves_history[-1]!=key) or not moves_history:
                 self.update_nested_key(value,status,mtsp,moves_history+[key])
               if status == True and mtsp:
