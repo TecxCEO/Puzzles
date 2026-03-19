@@ -1,7 +1,7 @@
 pause
 git pull
 cls
-src/puzzles/cubes/cube3x3/cube3x3solverdatasetforlowmemory.py
+py src/puzzles/cubes/cube3x3/cube3x3solverdatasetforlowmemory.py
 #py src/puzzles/cubes/cube3x3/cube3x3solverdataset.py
 run
 
