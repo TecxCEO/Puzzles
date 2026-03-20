@@ -103,10 +103,10 @@ class Solver(c3x3):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
           if len(moves_history)<3: ##
-            print(f"data solution length={len(data["solution"])}")
+            print(f"data solution length={len(data)}")
             print(f" data={data}") ####################
             data.update({"state":data.copy()})
-            print(f"data solution length={len(data["solution"])}")
+            print(f"data solution length={len(data)}")
             print(f" data={data}") ####################
           state_data=data.copy()
           for dic_key in list(data.keys()):
