@@ -29,7 +29,8 @@ class Solver(c3x3):
         #if puzzle_moved=="" and my_data["puzzle"]["puzzle_given"]==self.current_state:
         ##if my_data["puzzle"]["puzzle_given"]==self.current_state:
           ##print(f"Using Previous Saved data file.")
-    if not os.path.isfile(self.filename) and puzzle[puzzle_moved]=="" :
+    ####if not os.path.isfile(self.filename) and puzzle[puzzle_moved]=="" :
+    if not os.path.isfile(self.filename):
       puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
