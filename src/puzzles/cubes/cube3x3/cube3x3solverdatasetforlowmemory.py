@@ -16,7 +16,7 @@ class Solver(c3x3):
     ##with open(self.filename, "w") as f:
       ##json.dump(puzzle_data, f, indent=4)
   ####def solve(self,given_state, status=False ,puzzle_moved="",moves_to_solve_puzzle=None):
-  def solve(self,given_state,puzzle_data["puzzle"]=None):
+  def solve(self,given_state,puzzle=None):
     print(f"solve function started")
     self.current_state=given_state.copy()
     if os.path.isfile(self.filename):
@@ -57,7 +57,9 @@ class Solver(c3x3):
             # Filter all items in the current directory ('.') that are folders
             # 2. Update a key (no matter how deep it is)
             if while_loop>3:
-              self.solve(my_data["solution"]["state"], my_data["puzzle"]["puzzle_moved"])
+              self.solve(my_data["solution"], my_data["puzzle"])
+              ########self.solve(my_data["solution"], my_data["puzzle"]["puzzle_moved"])
+              ####self.solve(my_data["solution"]["state"].copy(), my_data["puzzle"]["puzzle_moved"])
               #with open(f"data/{self.filename}"f"{directory}/{self.filename}", "w") as wf:
               with open(f"{directory}/{self.filename}", "w") as wf:
                 json.dump(my_data, wf, indent=4)
@@ -111,7 +113,8 @@ return puzzle_data["puzzle"]
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
                 st_data.update({"puzzle":{"puzzle_moved":st_data["puzzle"]["puzzle_moved"]+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
-                file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json"
+                file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/{self.filename}"
+                #####file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json self.filename"
                 with open(file, "w") as f:####
                   json.dump(st_data, f, indent=4)###
             data.update({"state":state_data})
