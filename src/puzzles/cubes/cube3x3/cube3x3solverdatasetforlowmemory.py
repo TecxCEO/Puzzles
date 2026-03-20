@@ -15,7 +15,7 @@ class Solver(c3x3):
     ##file_to_save=self.filepath
     ##with open(self.filename, "w") as f:
       ##json.dump(puzzle_data, f, indent=4)
-  ####def solve(self,given_state, status=False ,puzzle_moved="",moves_to_solve_puzzle=""):
+  ####def solve(self,given_state, status=False ,puzzle_moved="",moves_to_solve_puzzle=None):
   def solve(self,given_state,puzzle_data["puzzle"]=""):
     print(f"solve function started")
     self.current_state=given_state.copy()
