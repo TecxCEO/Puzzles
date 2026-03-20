@@ -34,7 +34,7 @@ class Solver(c3x3):
       puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
-        "puzzle_moved":puzzle["puzzle_moved"],
+        "puzzle_moved":puzzle["puzzle_moved"] if puzzle else [],
         "puzzle_status":False,
         "moves_to_solve_puzzle":""
       },
