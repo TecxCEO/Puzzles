@@ -78,9 +78,8 @@ class Solver(c3x3):
           print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
           print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
         break
-
-#return
-return puzzle_data["puzzle"]
+        #return
+    return puzzle_data["puzzle"]
   def update_nested_key(self,data,status,mtsp,moves_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
