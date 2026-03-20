@@ -113,10 +113,10 @@ class Solver(c3x3):
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             for i in range(len(states)):
               if len(moves_history)<3: ##
-                print(f"data solution length={len(data["solution"])}")
+                print(f"data solution length={len(data)}")
                 print(f" data={data}") ####################
                 data.update({move_list[i]:states[i]})
-                print(f"data solution length={len(data["solution"])}")
+                print(f"data solution length={len(data)}")
                 print(f" data={data}") ####################
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
