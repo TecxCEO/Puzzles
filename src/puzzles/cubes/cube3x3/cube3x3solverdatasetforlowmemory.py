@@ -70,12 +70,12 @@ class Solver(c3x3):
         with open(self.filename, "r") as rf:
           my_data = json.load(rf)
         if my_data["puzzle"]["puzzle_status"]==False:
-          print(f"my data solution length={len(my_data[solution])}")
+          print(f"my data solution length={len(my_data["solution"])}")
           print(f"my data={my_data}") ####################
           self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
           #with open(f"data/{self.filename}", "w") as wf:
             #json.dump(my_data, wf, indent=4)
-          print(f"my data solution length={len(my_data[solution])}")
+          print(f"my data solution length={len(my_data["solution"])}")
           print(f"my data={my_data}") ###############
           with open(self.filename, "w") as wf:
             json.dump(my_data, wf, indent=4)
@@ -113,7 +113,11 @@ class Solver(c3x3):
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             for i in range(len(states)):
               if len(moves_history)<3: ##
+                print(f"data solution length={len(data["solution"])}")
+                print(f" data={data}") ####################
                 data.update({move_list[i]:states[i]})
+                print(f"data solution length={len(data["solution"])}")
+                print(f" data={data}") ####################
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
                 st_data.update({"puzzle":{"puzzle_moved":st_data["puzzle"]["puzzle_moved"]+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
