@@ -42,7 +42,7 @@ class Solver(c3x3):
       if len(directories)>14:
         for directory in directories:
           # 1. Load your file
-          with open(f"{directory}/{self.filename}", "r") as rf:
+          with open(f"{path_given}/{directory}/{self.filename}", "r") as rf:
             my_data = json.load(rf)
           #if not my_data["puzzle"]["puzzle_moved"]:
             #my_data.update({"puzzle":{"puzzle_moved":directory}})
@@ -50,11 +50,11 @@ class Solver(c3x3):
             # Filter all items in the current directory ('.') that are folders
             # 2. Update a key (no matter how deep it is)
             if while_loop>3:
-              self.solve(my_data["solution"], my_data["puzzle"])
+              self.solve(my_data["solution"], my_data["puzzle"],path_given=f"{path_given}/{directory}")
               ########self.solve(my_data["solution"], my_data["puzzle"]["puzzle_moved"])
               ####self.solve(my_data["solution"]["state"].copy(), my_data["puzzle"]["puzzle_moved"])
               #with open(f"data/{self.filename}"f"{directory}/{self.filename}", "w") as wf:
-              with open(f"{directory}/{self.filename}", "w") as wf:
+              with open(f"{path_given}/{directory}/{self.filename}", "w") as wf:
                 json.dump(my_data, wf, indent=4)
         break
       elif not directories or len(directories)<15:
