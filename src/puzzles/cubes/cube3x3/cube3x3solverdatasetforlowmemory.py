@@ -74,7 +74,7 @@ class Solver(c3x3):
         elif my_data["puzzle"]["puzzle_status"]==True:
           print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
           print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
-        break
+          break
         #return
     return puzzle
     #return puzzle_data["puzzle"]
