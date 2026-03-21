@@ -1,7 +1,7 @@
 import os
 import json
 from cube3x3 import Cube3x3 as c3x3
-
+from pathlib import Path
 class Solver(c3x3):
   def __init__(self):
     super().__init__()
@@ -125,8 +125,9 @@ class Solver(c3x3):
                 st_data.update({"puzzle":{"puzzle_moved":f"{puzzle_moved if puzzle_moved else []}"+moves_history[0]+moves_history[1]+moves_history[2]+move_list[i]}})
                 #st_data.update({"puzzle":{"puzzle_moved":f"{puzzle_moved if puzzle_moved else []}"+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
                 ##st_data.update({"puzzle":{"puzzle_moved":st_data["puzzle"]["puzzle_moved"]+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
-                file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/{self.filename}"
+                file_path=f"{save_dir_path}/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/{self.filename}"
                 #####file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json self.filename"
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
                 with open(file, "w") as f:####
                   json.dump(st_data, f, indent=4)###
             #####################data.update({"state":state_data}) ####################################################
