@@ -64,7 +64,7 @@ class Solver(c3x3):
         if my_data["puzzle"]["puzzle_status"]==False:
           print(f"my data solution length={len(my_data["solution"])}")
           print(f"my data={my_data}") ####################
-          self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"],save_dir_path=path_given)
+          self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"],save_dir_path=path_given,full_move_history=my_data["puzzle"]["puzzle_moved"])
           #with open(f"data/{self.filename}", "w") as wf:
             #json.dump(my_data, wf, indent=4)
           print(f"my data solution length={len(my_data["solution"])}")
@@ -78,7 +78,7 @@ class Solver(c3x3):
         #return
     return puzzle
     #return puzzle_data["puzzle"]
-  def update_nested_key(self,data,status,mtsp,moves_history=None,puzzle_moved=[],save_dir_path=""):
+  def update_nested_key(self,data,status,mtsp,moves_history=None,puzzle_moved=[],save_dir_path="",full_move_history=[]):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
@@ -114,21 +114,17 @@ class Solver(c3x3):
               data.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
-                st_data.update({"puzzle":{"puzzle_moved":f"{puzzle_moved if puzzle_moved else []}"+moves_history[0]+moves_history[1]+moves_history[2]+move_list[i]}})
-                #st_data.update({"puzzle":{"puzzle_moved":f"{puzzle_moved if puzzle_moved else []}"+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
-                ##st_data.update({"puzzle":{"puzzle_moved":st_data["puzzle"]["puzzle_moved"]+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
+                st_data.update({"puzzle":{"puzzle_moved":f"{full_move_history if full_move_history else []}"+moves_history[0]+moves_history[1]+moves_history[2]+move_list[i]}})
                 file_path=f"{save_dir_path}/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/{self.filename}"
-                #####file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json self.filename"
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
                 with open(file_path, "w") as f:####
                   json.dump(st_data, f, indent=4)###
-            #####################data.update({"state":state_data}) ####################################################
           return data, moves_history, status 
       if len(data)==16 or len(data)==19 or len(data)==20:
         for key, value in data.items():
           if key!="state" and (len(value) in [16,19,20] or len(data[key]) in [16,19,20]):
               if (moves_history and moves_history[-1]!=key) or not moves_history:
-                self.update_nested_key(value,status,mtsp,moves_history+[key])
+                self.update_nested_key(value,status,mtsp,moves_history+[key],save_dir_path=save_dir_path,full_move_history=full_move_history)
               if status == True and mtsp:
                 print(f"mtsp={mtsp}")
                 return
