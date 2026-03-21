@@ -78,7 +78,7 @@ class Solver(c3x3):
         #return
     return puzzle
     #return puzzle_data["puzzle"]
-  def update_nested_key(self,data,status,mtsp,moves_history=None,puzzle_moved=[],save_dir_path="",full_move_history=[]):
+  def update_nested_key(self,data,status,mtsp,moves_history=None,puzzle_moved=[],save_dir_path="",full_move_history=None):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
@@ -114,7 +114,7 @@ class Solver(c3x3):
               data.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
-                st_data.update({"puzzle":{"puzzle_moved":f"{full_move_history if full_move_history else []}"+moves_history[0]+moves_history[1]+moves_history[2]+move_list[i]}})
+                st_data.update({"puzzle":{"puzzle_moved":f"{full_move_history if full_move_history else []}"+[moves_history[0]]+[moves_history[1]]+[moves_history[2]]+[move_list[i]]}})
                 file_path=f"{save_dir_path}/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/{self.filename}"
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
                 with open(file_path, "w") as f:####
