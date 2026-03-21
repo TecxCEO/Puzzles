@@ -119,7 +119,7 @@ class Solver(c3x3):
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             for i in range(len(states)):
               ##########if len(moves_history)<3: ##
-              ata.update({move_list[i]:states[i]})
+              data.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
                 st_data.update({"puzzle":{"puzzle_moved":st_data["puzzle"]["puzzle_moved"]+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
