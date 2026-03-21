@@ -86,7 +86,7 @@ class Solver(c3x3):
         #return
     return puzzle
     #return puzzle_data["puzzle"]
-  def update_nested_key(self,data,status,mtsp,moves_history=None):
+  def update_nested_key(self,data,status,mtsp,moves_history=None,puzzle_moved=[],save_dir_path=""):
     """
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
