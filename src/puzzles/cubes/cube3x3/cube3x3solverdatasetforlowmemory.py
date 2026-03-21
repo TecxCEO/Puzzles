@@ -16,7 +16,7 @@ class Solver(c3x3):
     ##with open(self.filename, "w") as f:
       ##json.dump(puzzle_data, f, indent=4)
   ####def solve(self,given_state, status=False ,puzzle_moved="",moves_to_solve_puzzle=None):
-  def solve(self,given_state,puzzle=None):
+  def solve(self,given_state,puzzle=None,path_given="data"):
     print(f"solve function started")
     self.current_state=given_state.copy()
     ##if os.path.isfile(self.filename):
@@ -45,7 +45,8 @@ class Solver(c3x3):
     while_loop=0
     while True:
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
-      directories = [d for d in os.listdir('.') if os.path.isdir(d)]
+      directories = [d for d in os.listdir('path_given') if os.path.isdir(d)]
+      #directories = [d for d in os.listdir('.') if os.path.isdir(d)]
       print(directories)
       if len(directories)>14:
         for directory in directories:
