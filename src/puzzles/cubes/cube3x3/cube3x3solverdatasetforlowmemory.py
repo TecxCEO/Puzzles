@@ -5,17 +5,8 @@ from pathlib import Path
 class Solver(c3x3):
   def __init__(self):
     super().__init__()
-    #self.filename = "data.json"
     self.filename = "cube3x3solvingdatasetforlowmemory.json"
     self.filepath="data/puzzles/cube/cube3x3/states/"
-  ##def save_file(self,path="",dir="",filename="",file_data=""):
-    ##path_to_save=f"{path}{dir}/{filename}"
-    #self.path_to_save=f"{path}{dir}/{filename}"
-    #self.path_to_save=f"{self.filepath}{dir}/{filename}"
-    ##file_to_save=self.filepath
-    ##with open(self.filename, "w") as f:
-      ##json.dump(puzzle_data, f, indent=4)
-  ####def solve(self,given_state, status=False ,puzzle_moved="",moves_to_solve_puzzle=None):
   def solve(self,given_state,puzzle=None,path_given="data"):
     print(f"solve function started")
     self.current_state=given_state.copy()
