@@ -103,7 +103,7 @@ class Solver(c3x3):
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,mtsp,moves_history)
           print(f"moves_history={moves_history}")
-          if len(moves_history)<3: ##
+          if len(moves_history)<4: ##
             print(f"data solution length={len(data)}")
             print(f" data={data}") ####################
             data.update({"state":data.copy()})
@@ -118,7 +118,7 @@ class Solver(c3x3):
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             for i in range(len(states)):
-              ##########if len(moves_history)<3: ##
+              ##########if len(moves_history)<4: ##
               data.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
