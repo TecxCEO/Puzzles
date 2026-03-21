@@ -45,7 +45,7 @@ class Solver(c3x3):
     while_loop=0
     while True:
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
-      directories = [d for d in os.listdir('path_given') if os.path.isdir(d)]
+      directories = [d for d in os.listdir(path_given) if os.path.isdir(d)]
       #directories = [d for d in os.listdir('.') if os.path.isdir(d)]
       print(directories)
       if len(directories)>14:
