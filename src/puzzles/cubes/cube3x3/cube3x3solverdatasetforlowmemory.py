@@ -68,7 +68,7 @@ class Solver(c3x3):
         break
       elif not directories or len(directories)<15:
         # 1. Load your file
-        with open(f"{path_given}/{self.filename}, "r") as rf:
+        with open(f"{path_given}/{self.filename}", "r") as rf:
           my_data = json.load(rf)
         if my_data["puzzle"]["puzzle_status"]==False:
           print(f"my data solution length={len(my_data["solution"])}")
@@ -78,7 +78,7 @@ class Solver(c3x3):
             #json.dump(my_data, wf, indent=4)
           print(f"my data solution length={len(my_data["solution"])}")
           print(f"my data={my_data}") ###############
-          with open(f"{path_given}/{self.filename}, "w") as wf:
+          with open(f"{path_given}/{self.filename}", "w") as wf:
             json.dump(my_data, wf, indent=4)
         elif my_data["puzzle"]["puzzle_status"]==True:
           print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
