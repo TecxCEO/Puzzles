@@ -122,7 +122,8 @@ class Solver(c3x3):
               data.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
-                st_data.update({"puzzle":{"puzzle_moved":f"{puzzle_moved if puzzle_moved else []}"+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
+                st_data.update({"puzzle":{"puzzle_moved":f"{puzzle_moved if puzzle_moved else []}"+moves_history[0]+moves_history[1]+moves_history[2]+move_list[i]}})
+                #st_data.update({"puzzle":{"puzzle_moved":f"{puzzle_moved if puzzle_moved else []}"+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
                 ##st_data.update({"puzzle":{"puzzle_moved":st_data["puzzle"]["puzzle_moved"]+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
                 file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/{self.filename}"
                 #####file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json self.filename"
