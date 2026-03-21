@@ -109,16 +109,17 @@ class Solver(c3x3):
             data.update({"state":data.copy()})
             print(f"data solution length={len(data)}")
             print(f" data={data}") ####################
-          state_data=data.copy()
+          #########state_data=data.copy()
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
             if not isinstance (dic_value,(dict,list)) and dic_key != "state":
               del data[dic_key]
+          #####state_data=data.copy()
           #if len(states) in [15,18] and len(move_list) in [15,18] and status is False:
           if len(states) in [1,15,18] and len(move_list) in [1,15,18]:
             for i in range(len(states)):
-              if len(moves_history)<3: ##
-                data.update({move_list[i]:states[i]})
+              ##########if len(moves_history)<3: ##
+              ata.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
                 st_data={"solution":states[i]}
                 st_data.update({"puzzle":{"puzzle_moved":st_data["puzzle"]["puzzle_moved"]+list(moves_history[0],moves_history[1],moves_history[2],move_list[i])}})
@@ -126,7 +127,7 @@ class Solver(c3x3):
                 #####file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json self.filename"
                 with open(file, "w") as f:####
                   json.dump(st_data, f, indent=4)###
-            data.update({"state":state_data}) ####################################################
+            #####################data.update({"state":state_data}) ####################################################
           return data, moves_history, status 
       if len(data)==16 or len(data)==19 or len(data)==20:
         for key, value in data.items():
