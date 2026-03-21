@@ -30,7 +30,7 @@ class Solver(c3x3):
         ##if my_data["puzzle"]["puzzle_given"]==self.current_state:
           ##print(f"Using Previous Saved data file.")
     ####if not os.path.isfile(self.filename) and puzzle[puzzle_moved]=="" :
-    if not os.path.isfile(self.filename):
+    if not os.path.isfile(f"{path_given}/{self.filename}"):
       puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
@@ -40,7 +40,7 @@ class Solver(c3x3):
       },
       "solution":self.current_state
       }
-      with open(self.filename, "w") as f:
+      with open(f"{path_given}/{self.filename}", "w") as f:
         json.dump(puzzle_data, f, indent=4)
     while_loop=0
     while True:
