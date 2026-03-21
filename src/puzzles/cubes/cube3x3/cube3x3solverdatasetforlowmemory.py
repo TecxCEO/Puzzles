@@ -128,7 +128,7 @@ class Solver(c3x3):
                 file_path=f"{save_dir_path}/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/{self.filename}"
                 #####file=f"/{moves_history[0]}_{moves_history[1]}_{moves_history[2]}_{move_list[i]}/data.json self.filename"
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
-                with open(file, "w") as f:####
+                with open(file_path, "w") as f:####
                   json.dump(st_data, f, indent=4)###
             #####################data.update({"state":state_data}) ####################################################
           return data, moves_history, status 
