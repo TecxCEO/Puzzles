@@ -51,14 +51,19 @@ class Solver(c3x3):
           if my_data["puzzle"]["puzzle_moved"] and my_data["puzzle"]["puzzle_moved"]!="":
             # Filter all items in the current directory ('.') that are folders
             # 2. Update a key (no matter how deep it is)
+            #################if while_loop>3:
+              ###########self.solve(my_data["solution"], my_data["puzzle"],path_given=f"{path_given}/{directory}")
+              ###############with open(f"{path_given}/{directory}/{self.filename}", "w") as wf:
+                ###########json.dump(my_data, wf, indent=4)
+              ##############print(f"directory name ={directory} is closed.")
             if while_loop>3:
-              self.solve(my_data["solution"], my_data["puzzle"],path_given=f"{path_given}/{directory}")
-              ########self.solve(my_data["solution"], my_data["puzzle"]["puzzle_moved"])
-              ####self.solve(my_data["solution"]["state"].copy(), my_data["puzzle"]["puzzle_moved"])
-              #with open(f"data/{self.filename}"f"{directory}/{self.filename}", "w") as wf:
+              self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"],save_dir_path=f"{path_given}/{directory}", path_given,full_move_history=my_data["puzzle"]["puzzle_moved"])
               with open(f"{path_given}/{directory}/{self.filename}", "w") as wf:
                 json.dump(my_data, wf, indent=4)
-              print(f"directory name ={directory} is closed.")
+            if my_data["puzzle"]["puzzle_status"]==True:
+              print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
+              print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
+              return
         break
       elif not directories or len(directories)<15:
         # 1. Load your file
