@@ -17,10 +17,6 @@ class Solver(c3x3):
         ####print(content)
         #####rf.seek(0)
         ##my_data = json.load(rf)
-        #if puzzle_moved=="" and my_data["puzzle"]["puzzle_given"]==self.current_state:
-        ##if my_data["puzzle"]["puzzle_given"]==self.current_state:
-          ##print(f"Using Previous Saved data file.")
-    ####if not os.path.isfile(self.filename) and puzzle[puzzle_moved]=="" :
     if not os.path.isfile(f"{path_given}/{self.filename}"):
       puzzle_data={
       "puzzle": {
@@ -107,10 +103,10 @@ class Solver(c3x3):
           print(f"moves_history={moves_history}")
           if len(moves_history)<4: ##
             print(f"data solution length={len(data)}")
-            print(f" data={data}") ####################
+            ############print(f" data={data}") ####################
             data.update({"state":data.copy()})
             print(f"data solution length={len(data)}")
-            print(f" data={data}") ####################
+            ############print(f" data={data}") ####################
           #########state_data=data.copy()
           for dic_key in list(data.keys()):
             dic_value=data[dic_key]
