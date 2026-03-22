@@ -34,6 +34,7 @@ class Solver(c3x3):
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
       directories = [d for d in os.listdir(path_given) if os.path.isdir(d)]
       #directories = [d for d in os.listdir('.') if os.path.isdir(d)]
+      print(f"length of directories={len(directories)}")
       print(directories)
       #if len(directories)>((18+15*(ss-1))-1):
       if len(directories)>14:
