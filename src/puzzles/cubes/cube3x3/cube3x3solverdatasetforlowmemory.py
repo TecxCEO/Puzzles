@@ -39,6 +39,7 @@ class Solver(c3x3):
       directories = [d for d in os.listdir(path_given) if os.path.isdir(d)]
       #directories = [d for d in os.listdir('.') if os.path.isdir(d)]
       print(directories)
+      #if len(directories)>((18+15*(ss-1))-1):
       if len(directories)>14:
         for directory in directories:
           # 1. Load your file
@@ -46,6 +47,7 @@ class Solver(c3x3):
             my_data = json.load(rf)
           #if not my_data["puzzle"]["puzzle_moved"]:
             #my_data.update({"puzzle":{"puzzle_moved":directory}})
+          print(f"directory name ={directory} is open.")
           if my_data["puzzle"]["puzzle_moved"] and my_data["puzzle"]["puzzle_moved"]!="":
             # Filter all items in the current directory ('.') that are folders
             # 2. Update a key (no matter how deep it is)
@@ -56,12 +58,14 @@ class Solver(c3x3):
               #with open(f"data/{self.filename}"f"{directory}/{self.filename}", "w") as wf:
               with open(f"{path_given}/{directory}/{self.filename}", "w") as wf:
                 json.dump(my_data, wf, indent=4)
+              print(f"directory name ={directory} is closed.")
         break
       elif not directories or len(directories)<15:
         # 1. Load your file
         with open(f"{path_given}/{self.filename}", "r") as rf:
           my_data = json.load(rf)
-        if my_data["puzzle"]["puzzle_status"]==False:
+        #if not my_data["puzzle"]["puzzle_status"] or (my_data["puzzle"]["puzzle_status"] and my_data["puzzle"]["puzzle_status"]==False):
+        if my_data["puzzle"]["puzzle_status"] and my_data["puzzle"]["puzzle_status"]==False:
           print(f"my data solution length={len(my_data["solution"])}")
           print(f"my data={my_data}") ####################
           self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"],save_dir_path=path_given,full_move_history=my_data["puzzle"]["puzzle_moved"])
