@@ -125,10 +125,10 @@ class Solver(c3x3):
               ##########if len(moves_history)<4: ##
               data.update({move_list[i]:states[i]})
               if len(moves_history)==3:####
-                st_data={{"puzzle":{"moves_to_solve_puzzle":mtsp}},
-                {"puzzle":{"puzzle_status":status}},
-                {"puzzle":{"puzzle_moved":full_move_history+[moves_history[0]]+[moves_history[1]]+[moves_history[2]]+[move_list[i]]}},
-                {"solution":states[i]}}
+                st_data={"puzzle":{"moves_to_solve_puzzle":mtsp,
+                "puzzle_status":status,
+                "puzzle_moved":full_move_history+[moves_history[0]]+[moves_history[1]]+[moves_history[2]]+[move_list[i]]},
+                "solution":states[i]}
                 #####st_data={"puzzle":{"moves_to_solve_puzzle":mtsp}}
                 #####st_data.update({"puzzle":{"puzzle_status":status}})
                 #####st_data.update({"puzzle":{"puzzle_moved":full_move_history+[moves_history[0]]+[moves_history[1]]+[moves_history[2]]+[move_list[i]]}})
