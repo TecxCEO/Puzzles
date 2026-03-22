@@ -63,7 +63,7 @@ class Solver(c3x3):
               print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
               print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
               return
-        break
+        ###############break
       elif not directories or len(directories)<15:
         # 1. Load your file
         with open(f"{path_given}/{self.filename}", "r") as rf:
