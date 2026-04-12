@@ -88,26 +88,26 @@ class Solver(c3x3):
         return
 if __name__=="__main__":
   state_given_to_solve={
-      "rgy":"ogw",
-      "rgw":"ybo",
-      "rby":"ryg",
-      "rbw":"bwr",
-      "ogy":"yrb",
-      "ogw":"oyg",
-      "oby":"owb",
-      "obw":"wrg",
-      "rb":"gy",
-      "rg":"rw",
-      "rw":"yr",
-      "ry":"by",
-      "ob":"gw",
-      "og":"bw",
-      "ow":"oy",
-      "oy":"ow",
-      "by":"go",
-      "bw":"rb",
-      "gw":"ob",
-      "gy":"gr"
+      "rgy":"rgy",
+      "rgw":"rgw",
+      "rby":"rby",
+      "rbw":"rbw",
+      "ogy":"ogy",
+      "ogw":"ogw",
+      "oby":"oby",
+      "obw":"obw",
+      "rb":"rb",
+      "rg":"rg",
+      "rw":"rw",
+      "ry":"ry",
+      "ob":"ob",
+      "og":"og",
+      "ow":"ow",
+      "oy":"oy",
+      "by":"by",
+      "bw":"bw",
+      "gw":"gw",
+      "gy":"gy"
     }
   s=Solver()
   result=s.solve(state_given_to_solve)
