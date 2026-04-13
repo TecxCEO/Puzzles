@@ -1,5 +1,5 @@
 import json
-from cube3x3 import Cube3x3 as c3x3
+from cube3x3trainer import Cube3x3 as c3x3
 import os
 
 class Solver(c3x3):
