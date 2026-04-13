@@ -149,16 +149,16 @@ class Cube3x3:
     puzzle_solve= False
     last_move=""
     move_path_history=list(move_history) if move_history else move_history
-    while cur_state!=self.solution and i<len(moves_to):
+    while cur_state and i<len(moves_to):
       if move_path_history!="" and move_path_history:
         last_move=move_path_history[-1]
       if last_move.strip()[:2]!=moves_to[i].strip()[:2] or not last_move:
         states+= [self.mover(moves_to[i],cur_state)]
         moved_options_list+=[moves_to[i]]
-      if states and states[-1]==self.solution:
-        puzzle_solve=True
-        mtsp=move_path_history+moved_options_list[i]
-        return states[i], moved_options_list[i], puzzle_solve
+      #if states and states[-1]==self.solution:
+        #puzzle_solve=True
+        #mtsp=move_path_history+moved_options_list[i]
+        #return states[i], moved_options_list[i], puzzle_solve
       i=i+1
     return states, moved_options_list, puzzle_solve
 if __name__=="__main__":
