@@ -3,8 +3,10 @@ import sys
 import time
 import datetime
 import torch
-from tecxlm import TecXModel
+#from tecxlm import TecXModel
 #from tecxlmtrain import TecXModel
+from cube3x3model import TecXModel
+
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Define the exact 71 characters
