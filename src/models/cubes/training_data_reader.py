@@ -4,14 +4,26 @@ def get_nested_value(data, target_key):
     """
     Recursively searches for a target_key in a nested dictionary.
     """
+    cst={}
+    
     # If the current element is a dictionary, look inside
     if isinstance(data, dict):
         for key, value in data.items():
-            if key == target_key:
-                yield value
+            if key == "state":
+                #yield value
+                cst=value
+            elif len(key) == 3 and len(value)==20 :
+                #yield value
+                return value
             # If the value is another dictionary, dive deeper (recursion)
             elif isinstance(value, (dict, list)):
                 yield from get_nested_value(value, target_key)
+            
+            #if key == target_key:
+                #yield value
+            # If the value is another dictionary, dive deeper (recursion)
+            #elif isinstance(value, (dict, list)):
+                #yield from get_nested_value(value, target_key)
                 
     # If it's a list, check every item in the list
     elif isinstance(data, list):
