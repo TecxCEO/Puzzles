@@ -22,8 +22,10 @@ dropout = 0.2
 torch.manual_seed(1337)
 
 # wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
-with open('inputs/inputs.txt', 'r', encoding='utf-8-sig') as f:
+with open('inputs/inputs.json', 'r', encoding='utf-8-sig') as f:
     text = f.read()
+#with open('inputs/inputs.txt', 'r', encoding='utf-8-sig') as f:
+    #text = f.read()
 # here are all the unique characters that occur in this text
 ####
 # Define the components
