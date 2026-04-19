@@ -1,0 +1,22 @@
+
+{
+  "last_move_U": ["U'"],
+  "last_move_U'": ["U"],
+  "last_move_R": ["R'"],
+  "last_move_L": ["L'"]
+}
+{
+  "sequence_RR": ["R"],
+  "sequence_LLL": ["L"],
+  "sequence_UU": ["U"]
+}
+{
+  "slot_1_fixed": ["move_slot_1", "change_value_1"],
+  "edge_position_left": ["move_left"],
+  "empty_buffer_full": ["add_to_buffer"]
+}
+{
+  "0": [6], 
+  "3": [9],
+  "state_top_solved": [0, 6]
+}
