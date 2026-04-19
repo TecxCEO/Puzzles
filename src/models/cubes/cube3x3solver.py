@@ -3,42 +3,33 @@ import sys
 import time
 import datetime
 import torch
-#from tecxlm import TecXModel
-#from tecxlmtrain import TecXModel
+
+
 from cube3x3model import TecXModel
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-# Define the exact 71 characters
-#chars = string.ascii_lowercase + string.ascii_uppercase + string.digits + " !.,:;?-\n"
-##chars = "\n !,-.0123456789:;?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-#chars = "!,.:?CEFHILMTUWXYabcdefghiklmnopqrstuvwxy"
-##chars = sorted(list(set(chars)))
-##print(chars)
-##print(len(chars))
+
 stoi = { ch:i for i,ch in enumerate(chars) }
 itos = { i:ch for i,ch in enumerate(chars) }
 
 # Helper functions for the model
 encode = lambda s: [stoi[c] for c in s]
 decode = lambda l: ''.join([itos[i] for i in l])
-##model_path = "tecxlm/TecXLM1.pth"
+
 model_path = "tecxlm/tecxmodel.pth"
-#model_path = "tecxlm/TecXLM.pth"
-# model_path = Path("tecxlm") / "TecXLM.pth"
+
+
 print(f"tecxmodelgen creating")
 model = TecXModel()
-##model = TecXModel(vocab_size=71)
-###model.load_state_dict(torch.load(model_path))
+
+
 checkpoint = torch.load(model_path)
 model_dict = checkpoint["state_dict"]
 chars = checkpoint["chars"]
-##model_dict = model.state_dict()
-# Filter out layers with wrong shapes (like lm_head)
-####pretrained_dict = {k: v for k, v in checkpoint.items() if k in model_dict and v.size() == model_dict[k].size()}
-#####model_dict.update(pretrained_dict)
+
 model.load_state_dict(model_dict, strict=False)
-#model.to(device)
+
 # Ensure your model is in evaluation mode
 model.eval()
 print(f"tecxmodelgen created")
