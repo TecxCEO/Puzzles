@@ -17,19 +17,6 @@ class Solver(c3x3):
       },
       "solution":self.current_state
     }
-    ##if os.path.isfile(self.filename):
-      ##print(f"Using file Already saved")
-      # 1. Load your file
-      ##with open(self.filename, "r") as rf:
-        ##content=rf.read()
-        ##print(content)
-        ##rf.seek(0)
-        ####my_data = json.load(rf)
-        #if puzzle_moved=="" and my_data["puzzle"]["puzzle_given"]==self.current_state:
-      ##if my_data and my_data["puzzle"]["puzzle_given"]==self.current_state:
-        ##print(f"Using Previous Saved data file.")
-    
-    ##else:
     if not os.path.isfile(self.filename):
       with open(self.filename, "w") as f:
         json.dump(puzzle_data, f, indent=4)
@@ -42,7 +29,8 @@ class Solver(c3x3):
       if my_data["puzzle"]["puzzle_status"]==False:
         self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"])
         with open(self.filename, "w") as wf:
-          json.dump(my_data, wf, indent=4)
+          json.dump(my_data, wf)
+          #json.dump(my_data, wf, indent=4)
       elif my_data["puzzle"]["puzzle_status"]==True:
         print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
         print(f"The moves for given puzzles solution ={my_data["puzzle"]["moves_to_solve_puzzle"]}")
