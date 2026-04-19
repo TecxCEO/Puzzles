@@ -10,11 +10,15 @@ class ExpertDataset(IterableDataset):
         self.file_path = file_path
     def __iter__(self):
         with open(self.file_path, 'r') as f:
-            for line in f:
-                data = json.loads(line)
-                yield torch.tensor(data['input']), torch.tensor(data['label'])
+            cube_data = json.load(f)
+            cube=cube_data[]
+            for line in cube:
+                #data = json.loads(line)
+                data = line
+                yield torch.tensor(data['state']), torch.tensor(data['move'])
+                #yield torch.tensor(data['input']), torch.tensor(data['label'])
 
-# 2. Safety Monitor with Penalty Logic
+# 2. Safety Monitor def __init__(self, file_path):with Penalty Logic
 class SafetyMonitor:
     def __init__(self, rules_path):
         with open(rules_path, 'r') as f:
@@ -24,7 +28,7 @@ class SafetyMonitor:
         return action in self.forbidden.get(state_key, [])
 
 # 3. Simple Model (Perfect for Termux/Mobile)
-model = nn.Sequential(
+model = nn.Sequential(lm
     nn.Linear(54, 128),
     nn.ReLU(),
     nn.Linear(128, 12) # 12 possible moves/actions
