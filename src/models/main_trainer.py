@@ -11,7 +11,8 @@ class ExpertDataset(IterableDataset):
     def __iter__(self):
         with open(self.file_path, 'r') as f:
             cube_data = json.load(f)
-            cube=cube_data[]
+            #cube_data = json.read(f)
+            cube=cube_data["solution"]
             for line in cube:
                 #data = json.loads(line)
                 data = line
@@ -30,6 +31,7 @@ class SafetyMonitor:
 # 3. Simple Model (Perfect for Termux/Mobile)
 model = nn.Sequential(lm
     nn.Linear(54, 128),
+    #nn.Linear(12, 128),
     nn.ReLU(),
     nn.Linear(128, 12) # 12 possible moves/actions
 )
