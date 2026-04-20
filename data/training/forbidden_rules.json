@@ -1,4 +1,8 @@
-
+{
+  "state_danger": ["action_id_5", "action_id_10"],
+  "0":,
+  "1":
+}
 {
   "last_move_U": ["U'"],
   "last_move_U'": ["U"],
