@@ -56,5 +56,16 @@ if __name__ == "__main__":
     monitor_system()
 
 """
-
+3. How to execute the "Stress Test"
+Start Training: Launch your main_trainer.py in the background.
+Start Monitor: Immediately run python monitor_health.py.
+Wait: Let it run for 10 minutes.
+4. What the Numbers Mean
+Temp > 45°C: Your phone is "Thermal Throttling." It will slow down the CPU to stay cool, making your training take longer. Tip: Take off your phone case or place the phone on a cold surface.
+RAM > 90%: You are close to a crash. Tip: Reduce the batch_size in your trainer.
+Battery Drop > 5%: Training is very power-hungry. Tip: Keep the phone plugged into a charger (but watch the heat!).
+5. Final Audit
+Once finished, you can find the health_log.csv in your folder. You can move this to your Downloads to see the graphs:
+bash
+cp health_log.csv ~/storage/downloads/
 """
