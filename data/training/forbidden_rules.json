@@ -20,3 +20,10 @@
   "3": [9],
   "state_top_solved": [0, 6]
 }
+{
+  "last_move_0": [6],
+  "last_move_6": [0],
+  "low_confidence_state": [1, 2, 3, 4, 5],
+  "budget_overrun": [10, 11],
+  "safety_alert_high": [5, 8]
+}
