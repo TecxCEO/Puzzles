@@ -23,15 +23,25 @@ def create_preference_pairs(log_input, output_file):
             }
             f.write(json.dumps(rl_data) + '\n')
 
-# Example Log structure for NREGA/Expert System
+# Example Log structure for Expert System
 logs = [{
+    "query": "How many maximum no of move times are required for solve any level type of a 3x3's cube puzzle?",
+    "context": "Any level type of a 3x3's cube puzzle can be solved by multiple time moves",
+    "response_a": "To solve any level type of a 3x3's cube puzzle should move maximum 12 times", 
+    "score_a": 0.98,
+    "response_b":  "To solve any level type of a 3x3's cube puzzle should move maximum 7 times", 
+    "score_b": 0.10
+}]
+
+# Example Log structure for NREGA/Expert System
+logs.append({
     "query": "Who is eligible for NREGA in Jaisalmer?",
     "context": "Any adult member of a rural household willing to do unskilled manual work...",
     "response_a": "Adults in rural Jaisalmer willing to do manual labor.",
     "score_a": 0.98,
     "response_b": "Everyone in the city is eligible.",
     "score_b": 0.10
-}]
+})
 
 create_preference_pairs(logs, 'rag_rl_training.jsonl')
 
