@@ -25,7 +25,9 @@ def create_preference_pairs(log_input, output_file):
 
 # Example Log structure for Expert System
 logs = [{
-    "query": "How many maximum no of move times are required for solve any level type of a 3x3's cube puzzle?",
+    #"query": "How many maximum no of move times are required for solve any level type of a 3x3's cube puzzle?",
+    "query":  "What is the maximum number of moves required to solve any 3x3 Rubik's cube?",
+    #"query": "What is the maximum move count needed to solve a 3x3 cube from any position?",
     "context": "Any level type of a 3x3's cube puzzle can be solved by multiple time moves",
     "response_a": "To solve any level type of a 3x3's cube puzzle should move maximum 12 times", 
     "score_a": 0.98,
