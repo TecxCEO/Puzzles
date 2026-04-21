@@ -32,7 +32,9 @@ logs = [{
     "context": "Any 3x3 cube puzzle can be solved in a finite number of moves, regardless of the scramble.",
     #"context": "Any configuration of a 3x3 cube can be solved in 20 moves or fewer.",
     #"context": "A 3x3 Rubik's cube can be solved from any position using a specific sequence of moves.,
-    "response_a": "To solve any level type of a 3x3's cube puzzle should move maximum 12 times", 
+    #"response_a": "To solve any level type of a 3x3's cube puzzle should move maximum 12 times", 
+    #"response_a": "To solve any 3x3 cube puzzle, it should take a maximum of 20 moves.",
+    "response_a": "Any 3x3 cube configuration can be solved in a maximum of 20 moves.",
     "score_a": 0.98,
     "response_b":  "To solve any level type of a 3x3's cube puzzle should move maximum 7 times", 
     "score_b": 0.10
