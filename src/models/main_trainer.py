@@ -9,10 +9,10 @@ import os
 lowercase = string.ascii_lowercase          # a-z (26)
 uppercase = string.ascii_uppercase          # A-Z (26)
 digits = string.digits                      # 0-9 (10)
-#special = """ !.,{"'}()[]:;?-\n"""
+special = """ !.,{"'}()[]:;?-\n"""
 # This works if you don't need a literal single quote in the middle
 #special = ' !.,{"} ()[]:;?-\n' 
-special = " !.,{\"'}()[]:;?-\n"                     # Your 9 special chars (including space and newline)
+#special = " !.,{\"'}()[]:;?-\n"                     # Your 9 special chars (including space and newline)
 
 # Combine them into one string
 chars = lowercase + uppercase + digits + special
@@ -53,25 +53,25 @@ class ExpertDataset(IterableDataset):
                 #yield torch.tensor(data['input']), torch.tensor(data['label'])
     
     def get_nested_value(data):
-    """
-    Recursively searches for a target_key in a nested dictionary.
-    """
-    mv=[] 
-    cst, amst={}
-    # If the current element is a dictionary, look inside
-    if isinstance(data, dict):
-        for key, value in data.items():
-            if key == "state":
-                #yield value
-                cst=value
-            elif len(key) == 3 and len(value)==20 :
-                #yield value
-                mv=key
-                amvst=value
-            # If the value is another dictionary, dive deeper (recursion)
-            elif isinstance(value, dict) and len(value)==(16, 19) :
-                yield from get_nested_value(value)
-    yield cst, mv, amvst
+        """
+        Recursively searches for a target_key in a nested dictionary.
+        """
+        mv=[]
+        cst, amst={}
+        # If the current element is a dictionary, look inside
+        if isinstance(data, dict):
+            for key, value in data.items():
+                if key == "state":
+                    #yield value
+                    cst=value
+                elif len(key) == 3 and len(value)==20 :
+                    #yield value
+                    mv=key
+                    amvst=value
+                elif isinstance(value, dict) and len(value)==(16, 19) :
+                    # If the value is another dictionary, dive deeper (recursion)
+                    yield from get_nested_value(value)
+                yield cst, mv, amvst
     
 # 2. Safety Monitor def __init__(self, file_path):with Penalty Logic
 class SafetyMonitor:
