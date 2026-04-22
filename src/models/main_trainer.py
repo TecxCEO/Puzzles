@@ -58,7 +58,8 @@ class ExpertDataset(IterableDataset):
         Recursively searches for a target_key in a nested dictionary.
         """
         mv=[]
-        cst, amst={}
+        cst = {}
+        amst={}
         # If the current element is a dictionary, look inside
         if isinstance(data, dict):
             for key, value in data.items():
