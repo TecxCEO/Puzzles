@@ -39,7 +39,7 @@ class ExpertDataset(IterableDataset):
             cube_data = json.load(f)
             #cube_data = json.read(f)
             cube=cube_data["solution"]
-            cst, mv, amvst = get_nested_value(cube)
+            cst, mv, amvst = self.get_nested_value(cube)
             cst = torch.tensor(encode(cst), dtype=torch.long)
             mv = torch.tensor(encode(mv), dtype=torch.long)
             amvst = torch.tensor(encode(afmvst), dtype=torch.long)
@@ -53,7 +53,7 @@ class ExpertDataset(IterableDataset):
                 ##yield torch.tensor(data['state']), torch.tensor(data['move'])
                 #yield torch.tensor(data['input']), torch.tensor(data['label'])
     
-    def get_nested_value(data):
+    def get_nested_value(self,data):
         """
         Recursively searches for a target_key in a nested dictionary.
         """
