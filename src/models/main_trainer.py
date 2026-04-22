@@ -44,9 +44,9 @@ class ExpertDataset(IterableDataset):
             result = self.get_nested_value(cube)
             if result:
                 cst, mv, amvst = result
-            else:
+            #else:
                 # Handle the case where no data was found
-                continue
+                #continue
             print(f"result={result}")
             #cst, mv, amvst = self.get_nested_value(cube)
             cst = torch.tensor(encode(cst), dtype=torch.long)
