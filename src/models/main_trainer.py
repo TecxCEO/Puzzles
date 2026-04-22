@@ -12,7 +12,7 @@ import os
 lowercase = string.ascii_lowercase          # a-z (26)
 uppercase = string.ascii_uppercase          # A-Z (26)
 digits = string.digits                      # 0-9 (10)
-special = " !.,:;?-\n"                      # Your 9 special chars (including space and newline)
+special = " !.,{}()[]:;?-\n"                      # Your 9 special chars (including space and newline)
 #text={}
 # Combine them into one string
 ##chars = sorted(list(set(text)))
