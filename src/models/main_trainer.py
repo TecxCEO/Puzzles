@@ -72,9 +72,9 @@ class ExpertDataset(IterableDataset):
                         mv=key
                         amvst=value
                     elif len(value)== (16, 19):
-                    #yield value
-                    mv=key
-                    amvst=value["state"]
+                        #yield value
+                        mv=key
+                        amvst=value["state"]
                 if cst and mv and amvst and key!="state":
                     yield cst, mv, amvst
                 if isinstance(value, dict) and len(value)==(16, 19) :
