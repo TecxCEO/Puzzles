@@ -17,8 +17,8 @@ special = " !.,{}()[]:;?-\n"                      # Your 9 special chars (includ
 # Combine them into one string
 ##chars = sorted(list(set(text)))
 ##print(f"text latters ={chars}")##
-##chars = lowercase + uppercase + digits + special
-chars = lowercase + uppercase + digits + special + ''.join(chars)
+chars = lowercase + uppercase + digits + special
+##chars = lowercase + uppercase + digits + special + ''.join(chars)
 print(f"chars before sorted = {chars}")##
 chars = sorted(list(set(chars)))
 #chars = sorted(list(set(chars.replace(" ",""))))
