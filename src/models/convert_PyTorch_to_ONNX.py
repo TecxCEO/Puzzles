@@ -1,5 +1,18 @@
+"""
+
 #pip install onnxscript
 
+If you run into "externally-managed-environment" errors:
+Since you are using Python 3.13 in Termux, you might need to use a virtual environment or the --break-system-packages flag (use with caution) to install it:
+
+#pip install onnxscript --break-system-packages
+Why is this happening?
+Newer versions of PyTorch (especially when running on newer Python versions like 3.13) have started utilizing onnxscript as the internal engine for ONNX exporting. Even if you didn't import it manually in your script, PyTorch's export function tries to import it behind the scenes.
+Once installed, try running your script again:
+
+#python convert_PyTorch_to_ONNX.py
+
+"""
 import torch
 
 # Load your trained model
