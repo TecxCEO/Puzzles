@@ -1,3 +1,5 @@
+#pip install onnxscript
+
 import torch
 
 # Load your trained model
