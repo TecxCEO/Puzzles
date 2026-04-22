@@ -2,7 +2,8 @@ import torch
 
 # Load your trained model
 from main_trainer import model 
-model.load_state_dict(torch.load('best_model.pth'))
+#model.load_state_dict(torch.load('best_model.pth'))
+model.load_state_dict(torch.load('checkpoint_epoch_4.pth'))
 model.eval()
 
 # Create dummy input (54 stickers)
