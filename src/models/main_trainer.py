@@ -35,9 +35,10 @@ class ExpertDataset(IterableDataset):
             cube_data = json.load(f)
             #cube_data = json.read(f)
             cube=cube_data["solution"]
-            for line in cube:
+            #for line in cube:
+            for key, line in cube.items():
                 #data = json.loads(line)
-                data = line
+                ###data = line
                 ##data = torch.tensor(encode(text), dtype=torch.long)
                 yield torch.tensor(data['state']), torch.tensor(data['move'])
                 #yield torch.tensor(data['input']), torch.tensor(data['label'])
