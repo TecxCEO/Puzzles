@@ -42,7 +42,8 @@ class ExpertDataset(IterableDataset):
             # set default values: 
             cst, mv, amvst = None, None, None
             result = self.get_nested_value(cube)
-            if result:
+            #if result:
+            if result not empty:
                 cst, mv, amvst = result
             #else:
                 # Handle the case where no data was found
