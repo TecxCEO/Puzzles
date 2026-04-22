@@ -39,7 +39,7 @@ class ExpertDataset(IterableDataset):
             cube_data = json.load(f)
             #cube_data = json.read(f)
             cube=cube_data["solution"]
-            set default values: 
+            # set default values: 
             cst, mv, amvst = None, None, None
             result = self.get_nested_value(cube)
             if result:
