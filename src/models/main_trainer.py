@@ -83,7 +83,7 @@ class SafetyMonitor:
         return action in self.forbidden.get(state_key, [])
 
 # 3. Simple Model (Perfect for Termux/Mobile)
-model = nn.Sequential(lm
+model = nn.Sequential(
     nn.Linear(54, 128),
     #nn.Linear(12, 128),
     nn.ReLU(),
