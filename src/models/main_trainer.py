@@ -66,15 +66,21 @@ class ExpertDataset(IterableDataset):
                 if key == "state":
                     #yield value
                     cst=value
-                elif len(key) == 3 and len(value)==20 :
+                elif len(key) == 3:
+                    if len(value)==20 :
+                        #yield value
+                        mv=key
+                        amvst=value
+                    elif len(value)== (16, 19):
                     #yield value
                     mv=key
-                    amvst=value
-                elif isinstance(value, dict) and len(value)==(16, 19) :
-                    # If the value is another dictionary, dive deeper (recursion)
-                    yield from get_nested_value(value)
+                    amvst=value["state"]
                 if cst and mv and amvst and key!="state":
                     yield cst, mv, amvst
+                if isinstance(value, dict) and len(value)==(16, 19) :
+                    # If the value is another dictionary, dive deeper (recursion)
+                    yield from get_nested_value(value)
+                
     
 # 2. Safety Monitor def __init__(self, file_path):with Penalty Logic
 class SafetyMonitor:
