@@ -39,7 +39,16 @@ class ExpertDataset(IterableDataset):
             cube_data = json.load(f)
             #cube_data = json.read(f)
             cube=cube_data["solution"]
-            cst, mv, amvst = self.get_nested_value(cube)
+            set default values: 
+            cst, mv, amvst = None, None, None
+            result = self.get_nested_value(cube)
+            if result:
+                cst, mv, amvst = result
+            else:
+                # Handle the case where no data was found
+                continue
+            print(f"result={result}")
+            #cst, mv, amvst = self.get_nested_value(cube)
             cst = torch.tensor(encode(cst), dtype=torch.long)
             mv = torch.tensor(encode(mv), dtype=torch.long)
             amvst = torch.tensor(encode(afmvst), dtype=torch.long)
