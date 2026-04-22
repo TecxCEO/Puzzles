@@ -42,7 +42,28 @@ class ExpertDataset(IterableDataset):
                 ##data = torch.tensor(encode(text), dtype=torch.long)
                 yield torch.tensor(data['state']), torch.tensor(data['move'])
                 #yield torch.tensor(data['input']), torch.tensor(data['label'])
-
+    
+    def get_nested_value(data):
+    """
+    Recursively searches for a target_key in a nested dictionary.
+    """
+    mv=[] 
+    cst, amst={}
+    # If the current element is a dictionary, look inside
+    if isinstance(data, dict):
+        for key, value in data.items():
+            if key == "state":
+                #yield value
+                cst=value
+            elif len(key) == 3 and len(value)==20 :
+                #yield value
+                mv=key
+                amst=value
+            # If the value is another dictionary, dive deeper (recursion)
+            elif isinstance(value, dict) and len(value)==(16, 19) :
+                yield from get_nested_value(value)
+    yield cst, mv, amst
+    
 # 2. Safety Monitor def __init__(self, file_path):with Penalty Logic
 class SafetyMonitor:
     def __init__(self, rules_path):
