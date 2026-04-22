@@ -9,7 +9,10 @@ import os
 lowercase = string.ascii_lowercase          # a-z (26)
 uppercase = string.ascii_uppercase          # A-Z (26)
 digits = string.digits                      # 0-9 (10)
-special = " !.,{'"'}()[]:;?-\n"                      # Your 9 special chars (including space and newline)
+special = """ !.,{"'}()[]:;?-\n"""
+# This works if you don't need a literal single quote in the middle
+#special = ' !.,{"} ()[]:;?-\n' 
+#special = " !.,{\"'}()[]:;?-\n"                     # Your 9 special chars (including space and newline)
 
 # Combine them into one string
 chars = lowercase + uppercase + digits + special
