@@ -9,7 +9,7 @@ import os
 lowercase = string.ascii_lowercase          # a-z (26)
 uppercase = string.ascii_uppercase          # A-Z (26)
 digits = string.digits                      # 0-9 (10)
-special = " !.,{}()[]:;?-\n"                      # Your 9 special chars (including space and newline)
+special = " !.,{'"'}()[]:;?-\n"                      # Your 9 special chars (including space and newline)
 
 # Combine them into one string
 chars = lowercase + uppercase + digits + special
@@ -35,12 +35,18 @@ class ExpertDataset(IterableDataset):
             cube_data = json.load(f)
             #cube_data = json.read(f)
             cube=cube_data["solution"]
+            cst, mv, amvst = get_nested_value(cube)
+            cst = torch.tensor(encode(cst), dtype=torch.long)
+            mv = torch.tensor(encode(mv), dtype=torch.long)
+            amvst = torch.tensor(encode(afmvst), dtype=torch.long)
+            yield torch.tensor(cst), torch.tensor(mv), torch.tensor(amvst)
+            ####yield torch.tensor(data['state']), torch.tensor(data['move'])
             #for line in cube:
-            for key, line in cube.items():
+            #for key, line in cube.items():
                 #data = json.loads(line)
                 ###data = line
                 ##data = torch.tensor(encode(text), dtype=torch.long)
-                yield torch.tensor(data['state']), torch.tensor(data['move'])
+                ##yield torch.tensor(data['state']), torch.tensor(data['move'])
                 #yield torch.tensor(data['input']), torch.tensor(data['label'])
     
     def get_nested_value(data):
@@ -58,11 +64,11 @@ class ExpertDataset(IterableDataset):
             elif len(key) == 3 and len(value)==20 :
                 #yield value
                 mv=key
-                amst=value
+                amvst=value
             # If the value is another dictionary, dive deeper (recursion)
             elif isinstance(value, dict) and len(value)==(16, 19) :
                 yield from get_nested_value(value)
-    yield cst, mv, amst
+    yield cst, mv, amvst
     
 # 2. Safety Monitor def __init__(self, file_path):with Penalty Logic
 class SafetyMonitor:
