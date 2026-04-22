@@ -41,28 +41,30 @@ class ExpertDataset(IterableDataset):
             cube=cube_data["solution"]
             # set default values: 
             cst, mv, amvst = None, None, None
-            result = self.get_nested_value(cube)
+            ##result = self.get_nested_value(cube)
             #if result:
-            if result not empty:
-                cst, mv, amvst = result
+            #if result not empty:
+                #cst, mv, amvst = result
             #else:
                 # Handle the case where no data was found
                 #continue
-            print(f"result={result}")
-            #cst, mv, amvst = self.get_nested_value(cube)
-            cst = torch.tensor(encode(cst), dtype=torch.long)
-            mv = torch.tensor(encode(mv), dtype=torch.long)
-            amvst = torch.tensor(encode(afmvst), dtype=torch.long)
-            yield torch.tensor(cst), torch.tensor(mv), torch.tensor(amvst)
-            ####yield torch.tensor(data['state']), torch.tensor(data['move'])
-            #for line in cube:
-            #for key, line in cube.items():
-                #data = json.loads(line)
-                ###data = line
-                ##data = torch.tensor(encode(text), dtype=torch.long)
-                ##yield torch.tensor(data['state']), torch.tensor(data['move'])
-                #yield torch.tensor(data['input']), torch.tensor(data['label'])
-    
+            for result in self.get_nested_value(cube):
+                cst, mv, amvst = result
+                # ... rest of your processing and yield ...
+                # Replace your current result check with this:
+                ##result = next(self.get_nested_value(cube), None)
+                if result is not None:
+                    cst, mv, amvst = result
+                else:
+                    # Handle empty case
+                    print(f"No data found for cube")
+                    continue
+                print(f"result={result}")
+                #cst, mv, amvst = self.get_nested_value(cube)
+                cst = torch.tensor(encode(cst), dtype=torch.long)
+                mv = torch.tensor(encode(mv), dtype=torch.long)
+                amvst = torch.tensor(encode(afmvst), dtype=torch.long)
+                yield torch.tensor(cst), torch.tensor(mv), torch.tensor(amvst)
     def get_nested_value(self,data):
         """
         Recursively searches for a target_key in a nested dictionary.
