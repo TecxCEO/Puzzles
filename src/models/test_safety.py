@@ -41,8 +41,29 @@ def run_safety_test(model_weights, test_state, rules_path):
 #run_safety_test('best_model.pth', test_state, 'forbidden_rules.json')
 
 if __name__ == "__main__":
-    test_state = 
+    test_state = {
+      "rgy":"ogw",
+      "rgw":"ybo",
+      "rby":"ryg",
+      "rbw":"bwr",
+      "ogy":"yrb",
+      "ogw":"oyg",
+      "oby":"owb",
+      "obw":"wrg",
+      "rb":"gy",
+      "rg":"rw",
+      "rw":"yr",
+      "ry":"by",
+      "ob":"gw",
+      "og":"bw",
+      "ow":"oy",
+      "oy":"ow",
+      "by":"go",
+      "bw":"rb",
+      "gw":"ob",
+      "gy":"gr"
+    }
     test_state = ed.encode(test_state)
     output, pa = run_safety_test('checkpoint_epoch_4.pth', test_state, 'forbidden_rules.json')
-    output = ed.dencode(output)
+    output = ed.decode(output)
     print(f" Output = {output}")
