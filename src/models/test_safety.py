@@ -35,5 +35,7 @@ def run_safety_test(model_weights, test_state, rules_path):
 # Run test
 test_state = [0]*54 # Mock state
 test_state[0] = 1   # Modify one sticker
-run_safety_test('best_model.pth', test_state, 'forbidden_rules.json')
+run_safety_test('checkpoint_epoch_4.pth', test_state, 'forbidden_rules.json')
+
+#run_safety_test('best_model.pth', test_state, 'forbidden_rules.json')
 
