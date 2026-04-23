@@ -1,3 +1,4 @@
+import encoder_decoder as ed
 import os
 import torch
 import json
@@ -31,12 +32,17 @@ def run_safety_test(model_weights, test_state, rules_path):
         return "SAFE_HALT"
     else:
         print("✅ STATUS: APPROVED. The action is safe to execute.")
-        return predicted_action
+        return output, predicted_action
+        #return predicted_action
 
 # Run test
-test_state = [0]*54 # Mock state
-test_state[0] = 1   # Modify one sticker
-run_safety_test('checkpoint_epoch_4.pth', test_state, 'forbidden_rules.json')
-
+#test_state = [0]*54 # Mock state
+# test_state[0] = 1   # Modify one sticker
 #run_safety_test('best_model.pth', test_state, 'forbidden_rules.json')
 
+if __name__ == "__main__":
+    test_state = 
+    test_state = ed.encode(test_state)
+    output, pa = run_safety_test('checkpoint_epoch_4.pth', test_state, 'forbidden_rules.json')
+    output = ed.dencode(output)
+    print(f" Output = {output}")
