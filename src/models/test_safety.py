@@ -69,6 +69,14 @@ print(vocab_size)
 stoi = { ch:i for i,ch in enumerate(chars) }
 itos = { i:ch for i,ch in enumerate(chars) }
 encode = lambda s: [stoi[c] for c in s] # encoder: take a string, output a list of integers
+# Instead of: encode = lambda s: [stoi[c] for c in s]
+# Use this to handle a list of strings:
+encode_list = lambda list_of_strings: [[stoi[char] for char in word] for word in list_of_strings]
+
+# Example:
+# Input: ['rgy']
+# Output: [[65, 54, 72]] (depending on your indices)
+
 decode = lambda l: ''.join([itos[i] for i in l]) # decoder: take a list of integers, output a string
 #def encoder(input):
  # se = stoi[c] for c in s
@@ -97,7 +105,8 @@ if __name__ == "__main__":
       "gy":"gr"
     }
     #test_state = ed.encode(test_state)
-    test_state = encode(test_state)
+    #test_state = encode(test_state)
+    test_state = encode_list(test_state)
     output, pa = run_safety_test('checkpoint_epoch_4.pth', test_state, 'forbidden_rules.json')
     #output = ed.decode(output)
     output = decode(output)
