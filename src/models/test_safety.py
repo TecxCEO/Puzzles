@@ -107,6 +107,7 @@ if __name__ == "__main__":
     #test_state = ed.encode(test_state)
     #test_state = encode(test_state)
     test_state = encode_list(test_state)
+    print(f" Encoded test_state = {test_state}")
     output, pa = run_safety_test('checkpoint_epoch_4.pth', test_state, 'forbidden_rules.json')
     #output = ed.decode(output)
     output = decode(output)
