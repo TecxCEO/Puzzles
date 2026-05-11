@@ -5,7 +5,7 @@ from pathlib import Path
 class Solver(c3x3):
   def __init__(self):
     super().__init__()
-    self.filename = "cube3x3solvingdatasetforlowmemory.json"
+    self.filename = "cube3x3trainingdatasetforlowmemory.json"
     self.filepath="data/puzzles/cube/cube3x3/states/"
   def solve(self,given_state,puzzle=None,path_given="data"):
     print(f"solve function started")
