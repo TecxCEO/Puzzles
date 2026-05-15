@@ -8,7 +8,7 @@ class Solver(c3x3):
     self.filename = "cube3x3trainingdatasetforlowmemory.json"
     self.filepath="data/puzzles/cube/cube3x3/states/"
   def solve(self,given_state,puzzle=None,path_given="data/dataset/training"):
-    print(f"solve function started")
+    ##print(f"solve function started")
     self.current_state=given_state.copy()
     ##if os.path.isfile(self.filename):
       # 1. Load your file
@@ -38,7 +38,7 @@ class Solver(c3x3):
       directories = [d for d in os.listdir(path_given) if os.path.isdir(os.path.join(path_given,d))]
       #directories = [d for d in os.listdir('.') if os.path.isdir(d)]
       print(f"length of directories={len(directories)}")
-      print(directories)
+      ##print(directories)
       #if len(directories)>((18+15*(ss-1))-1):
       if len(directories)>14:
         for directory in directories:
@@ -58,7 +58,7 @@ class Solver(c3x3):
               ##############print(f"directory name ={directory} is closed.")
             if while_loop>3:
               self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"],save_dir_path=f"{path_given}/{directory}",full_move_history=my_data["puzzle"]["puzzle_moved"])
-              print(f"file {path_given}/{directory}/{self.filename} is being saved")
+              ####print(f"file {path_given}/{directory}/{self.filename} is being saved")
               with open(f"{path_given}/{directory}/{self.filename}", "w") as wf:
                 json.dump(my_data, wf)
                 #json.dump(my_data, wf, indent=4)
@@ -75,14 +75,14 @@ class Solver(c3x3):
         #if not my_data["puzzle"]["puzzle_status"] or (my_data["puzzle"]["puzzle_status"] and my_data["puzzle"]["puzzle_status"]==False):
         #if my_data["puzzle"]["puzzle_status"] and my_data["puzzle"]["puzzle_status"]==False:
         if my_data["puzzle"]["puzzle_status"]==False:
-          print(f"my data solution length={len(my_data["solution"])}")
-          print(f"my data={my_data}") ####################
+          ###print(f"my data solution length={len(my_data["solution"])}")
+          ###print(f"my data={my_data}") ####################
           self.update_nested_key(my_data["solution"],my_data["puzzle"]["puzzle_status"],my_data["puzzle"]["moves_to_solve_puzzle"],save_dir_path=path_given,full_move_history=my_data["puzzle"]["puzzle_moved"])
           #with open(f"data/{self.filename}", "w") as wf:
             #json.dump(my_data, wf, indent=4)
           print(f"my data solution length={len(my_data["solution"])}")
           #######print(f"my data={my_data}") ###############
-          print(f"file {path_given}/{self.filename} is being saved")
+          ###print(f"file {path_given}/{self.filename} is being saved")
           with open(f"{path_given}/{self.filename}", "w") as wf:
             json.dump(my_data, wf, indent=4)
           print(f"file {path_given}/{self.filename} is saved")
@@ -99,23 +99,23 @@ class Solver(c3x3):
     Searches recursively for 'target_key' and updates its value.
     Works for both nested dictionaries and lists of dictionaries.
     """
-    print(f"moves_history={moves_history}")##
+    ##print(f"moves_history={moves_history}")##
     if moves_history is None:
       moves_history = []
       status=False
     # If it's a dictionary, check keys or go deeper
     if isinstance(data, dict):
-      print(f"data length={len(data)}")
+      ##print(f"data length={len(data)}")
       if len(data)==20:
-        print(f"so i am in if =20 condition")
+        ##print(f"so i am in if =20 condition")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,mtsp,moves_history)
-          print(f"moves_history={moves_history}")
+          ##print(f"moves_history={moves_history}")
           if len(moves_history)<4: ##
-            print(f"data solution length={len(data)}")
+            ##print(f"data solution length={len(data)}")
             ############print(f" data={data}") ####################
             data.update({"state":data.copy()})
-            print(f"data solution length={len(data)}")
+            ##print(f"data solution length={len(data)}")
             ############print(f" data={data}") ####################
           #########state_data=data.copy()
           for dic_key in list(data.keys()):
