@@ -18,7 +18,8 @@ class Solver(c3x3):
         #####rf.seek(0)
         ##my_data = json.load(rf)
     if not os.path.isfile(f"{path_given}/{self.filename}"):
-      os.makedirs(os.path.dirname(path_given), exist_ok=True)
+      os.makedirs(path_given, exist_ok=True)
+      #os.makedirs(os.path.dirname(path_given), exist_ok=True)
       puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
