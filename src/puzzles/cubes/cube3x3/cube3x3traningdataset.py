@@ -19,7 +19,8 @@ class Solver(c3x3):
     }
     if not os.path.isfile(self.filename):
       with open(self.filename, "w") as f:
-        json.dump(puzzle_data, f, indent=4)
+        json.dump(puzzle_data, f)
+        #json.dump(puzzle_data, f, indent=4)
     while_loop=0
     while True:
       # 1. Load your file
