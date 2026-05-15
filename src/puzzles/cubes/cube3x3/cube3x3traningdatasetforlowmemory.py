@@ -28,7 +28,8 @@ class Solver(c3x3):
       "solution":self.current_state
       }
       with open(f"{path_given}/{self.filename}", "w") as f:
-        json.dump(puzzle_data, f, indent=4)
+        json.dump(puzzle_data, f)
+        #json.dump(puzzle_data, f, indent=4)
     while_loop=0
     while True:
       print(f"whlieloop no = {(while_loop := while_loop + 1)} start.")
