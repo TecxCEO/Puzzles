@@ -7,7 +7,7 @@ class Solver(c3x3):
     super().__init__()
     self.filename = "cube3x3solvingdatasetforlowmemory.json"
     self.filepath="data/puzzles/cube/cube3x3/states/"
-  def solve(self,given_state,puzzle=None,path_given="data"):
+  def solve(self,given_state,puzzle=None,path_given="data/dataset/solving"):
     print(f"solve function started")
     self.current_state=given_state.copy()
     ##if os.path.isfile(self.filename):
@@ -18,6 +18,7 @@ class Solver(c3x3):
         #####rf.seek(0)
         ##my_data = json.load(rf)
     if not os.path.isfile(f"{path_given}/{self.filename}"):
+      os.makedirs(os.path.dirname(path_given), exist_ok=True)
       puzzle_data={
       "puzzle": {
         "puzzle_given": self.current_state,
