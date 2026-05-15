@@ -2,3 +2,5 @@
 .model
 .env
 .
+data/*
+data
