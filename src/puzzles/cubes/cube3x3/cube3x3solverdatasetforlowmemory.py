@@ -80,7 +80,8 @@ class Solver(c3x3):
           #######print(f"my data={my_data}") ###############
           print(f"file {path_given}/{self.filename} is being saved")
           with open(f"{path_given}/{self.filename}", "w") as wf:
-            json.dump(my_data, wf, indent=4)
+            json.dump(my_data, wf)
+            # json.dump(my_data, wf, indent=4)
           print(f"file {path_given}/{self.filename} is saved")
         elif my_data["puzzle"]["puzzle_status"]==True:
           print( f"This Puzzle has been solved and The moves which were used to solve it, as followings")
