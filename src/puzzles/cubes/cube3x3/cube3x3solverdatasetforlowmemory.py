@@ -108,15 +108,15 @@ class Solver(c3x3):
     if isinstance(data, dict):
       print(f"data length={len(data)}")
       if len(data)==20:
-        print(f"so i am in if =20 condition")
+        #print(f"so i am in if =20 condition")
         if all(key and len(value) not in [15,18,20] for key, value in data.items()):
           states,move_list,status=super().moves(data,mtsp,moves_history)
-          print(f"moves_history={moves_history}")
+          #print(f"moves_history={moves_history}")
           if len(moves_history)<4: ##
-            print(f"data solution length={len(data)}")
+            ##print(f"data solution length={len(data)}")
             ############print(f" data={data}") ####################
             data.update({"state":data.copy()})
-            print(f"data solution length={len(data)}")
+            #print(f"data solution length={len(data)}")
             ############print(f" data={data}") ####################
           #########state_data=data.copy()
           for dic_key in list(data.keys()):
